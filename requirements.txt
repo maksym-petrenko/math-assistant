@@ -1,3 +1,4 @@
 pydantic_settings==2.1.0
 Requests==2.31.0
 Telethon==1.32.1
+cryptg==0.4.0  # to speed up telethon

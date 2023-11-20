@@ -9,6 +9,7 @@ services:
         env_file:
             - env/bot.env
             - env/wolfram.env
+            - env/mathpix.env
         volumes:
             - telethon-sessions:/bot/sessions
 volumes:
