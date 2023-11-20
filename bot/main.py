@@ -1,4 +1,5 @@
-import asyncio
+from helper.aiohttp_client import stop as stop_aiohttp
+from helper.main_handler import main_handler
 
 from . import solve_image, solve_text  # noqa: F401
 from .config import run, start
@@ -8,5 +9,8 @@ async def main() -> None:
     await start()
     await run()
 
+async def close() -> None:
+    await stop_aiohttp()
+
 if __name__ == '__main__':
-    asyncio.run(main())
+    main_handler(main, None, close)

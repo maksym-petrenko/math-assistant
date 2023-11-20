@@ -1,14 +1,16 @@
 import json
 
-import requests
+from helper.aiohttp_client import get_client
 
 from .config import credentials
 
 API = 'https://api.mathpix.com/v3/text'
 
-def image_to_latex(image: bytes) -> str:
+async def image_to_latex(image: bytes) -> str:
     """Use Mathpix API to get LaTeX code of math formulas on the image."""
-    r = requests.post(
+
+    client = await get_client()
+    request = client.post(
         API,
         files={'file': image},
         data={
@@ -24,4 +26,5 @@ def image_to_latex(image: bytes) -> str:
         timeout=5,
     )
 
-    return r.json()['text']
+    async with request:
+        return (await request.json())['text']
