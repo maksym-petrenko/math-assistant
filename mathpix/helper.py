@@ -12,8 +12,8 @@ async def image_to_latex(image: bytes) -> str:
     client = await get_client()
     request = client.post(
         API,
-        files={'file': image},
         data={
+            'file': image,
             'options_json': json.dumps({
                 'math_inline_delimiters': ['$', '$'],
                 'rm_spaces': True,
@@ -26,5 +26,5 @@ async def image_to_latex(image: bytes) -> str:
         timeout=5,
     )
 
-    async with request:
-        return (await request.json())['text']
+    async with request as response:
+        return (await response.json())['text']
