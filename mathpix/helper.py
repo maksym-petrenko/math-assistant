@@ -4,6 +4,8 @@ from helper.aiohttp_client import get_client
 
 from .config import credentials
 
+from sympy.parsing.latex import parse_latex
+
 API = 'https://api.mathpix.com/v3/text'
 
 async def image_to_latex(image: bytes) -> str:
@@ -15,7 +17,7 @@ async def image_to_latex(image: bytes) -> str:
         data={
             'file': image,
             'options_json': json.dumps({
-                'math_inline_delimiters': ['$', '$'],
+                'math_inline_delimiters': ['', ''],
                 'rm_spaces': True,
             }),
         },
@@ -27,4 +29,4 @@ async def image_to_latex(image: bytes) -> str:
     )
 
     async with request as response:
-        return (await response.json())['text']
+        return str(parse_latex((await response.json())['text']))
