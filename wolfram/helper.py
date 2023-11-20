@@ -30,6 +30,11 @@ async def get_step_by_step_solution(query: str, output_format: POSSIBLE_FORMATS)
 
     solution = result['pods'][0]
 
+    # if there only one possible output then return it
+    if len(solution['subpods']) == 1:
+        return solution['subpods'][0]
+
+    # find probable step by step solution
     for pod in solution['subpods']:
         if 'steps' not in pod['title']:
             continue
