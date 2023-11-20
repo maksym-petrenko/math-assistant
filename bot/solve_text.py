@@ -5,7 +5,7 @@ from wolfram.helper import get_step_by_step_solution_image_only
 from .config import bot
 
 
-@bot.on(events.NewMessage(incoming=True, func=lambda event: event.text is not None))
+@bot.on(events.NewMessage(incoming=True, func=lambda event: event.text != ''))
 async def solve_text(msg: events.NewMessage) -> None:
     url = get_step_by_step_solution_image_only(msg.text)
     print(msg.text, '->', url)
