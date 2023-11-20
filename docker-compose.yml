@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+    bot:
+        restart: always
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        env_file:
+            - env/bot.env
+            - env/wolfram.env
+        volumes:
+            - telethon-sessions:/bot/sessions
+volumes:
+    telethon-sessions:
