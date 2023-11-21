@@ -1,10 +1,11 @@
 import json
 
+from sympy import mathematica_code
+from sympy.parsing.latex import parse_latex
+
 from helper.aiohttp_client import get_client
 
 from .config import credentials
-
-from sympy.parsing.latex import parse_latex
 
 API = 'https://api.mathpix.com/v3/text'
 
@@ -29,4 +30,4 @@ async def image_to_latex(image: bytes) -> str:
     )
 
     async with request as response:
-        return str(parse_latex((await response.json())['text']))
+        return str(mathematica_code(parse_latex((await response.json())['text']))).replace('Hold', '')
