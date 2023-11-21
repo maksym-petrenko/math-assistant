@@ -3,7 +3,7 @@ import aiohttp
 _client: aiohttp.ClientSession | None = None
 
 # use current event loop
-async def get_client() -> None:
+async def get_client() -> aiohttp.ClientSession:
     global _client
     if _client is None:
         _client = aiohttp.ClientSession()
