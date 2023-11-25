@@ -12,7 +12,7 @@ async def solve_image(msg: events.NewMessage) -> None:
     query = await image_to_mathematica(image)  # TODO: validate response
 
     image_url = await get_step_by_step_solution_image_only(query)
-    print('LaTeX:', query, '->', image_url)
+    print('Wolfram:', query, '->', image_url)
 
     if image_url is None:
         await msg.reply('Something went wrong')
