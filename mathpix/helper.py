@@ -15,7 +15,7 @@ async def image_to_mathematica(image: bytes) -> str:
         data={
             'file': image,
             'options_json': json.dumps({
-                'formats': ["wolfram"],
+                'formats': ['wolfram'],
             }),
         },
         headers={
@@ -25,6 +25,4 @@ async def image_to_mathematica(image: bytes) -> str:
     )
 
     async with request as response:
-        wolfram = (await response.json())["wolfram"]
-
-    return wolfram
+        return (await response.json())['wolfram']
