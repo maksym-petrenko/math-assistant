@@ -1,13 +1,10 @@
 import json
 
-from sympy import mathematica_code
-from sympy.parsing.latex import parse_latex
-
 from helper.aiohttp_client import get_client
 
 from .config import credentials
 
-API = 'https://api.mathpix.com/v3/text'
+API = 'https://api.mathpix.com/v3/latex'
 
 async def image_to_mathematica(image: bytes) -> str:
     """Use Mathpix API to get mathematica code of math formulas on the image."""
@@ -18,19 +15,16 @@ async def image_to_mathematica(image: bytes) -> str:
         data={
             'file': image,
             'options_json': json.dumps({
-                'math_inline_delimiters': ['', ''],
-                'rm_spaces': True,
+                'formats': ["wolfram"],
             }),
         },
         headers={
             'app_id': credentials.APP_ID,
             'app_key': credentials.APP_KEY,
         },
-        timeout=5,
     )
 
     async with request as response:
-        latex = (await response.json())['text']
+        wolfram = (await response.json())["wolfram"]
 
-    mathematica = mathematica_code(parse_latex(latex))
-    return mathematica.replace('Hold', '')  # TODO: find better way
+    return wolfram
