@@ -1,15 +1,13 @@
 import json
 
-from sympy import mathematica_code
-from sympy.parsing.latex import parse_latex
-
+from chatgpt.convert_to_mathematica import convert
 from helper.aiohttp_client import get_client
 
 from .config import credentials
 
 API = 'https://api.mathpix.com/v3/text'
 
-async def image_to_mathematica(image: bytes) -> str:
+async def image_to_mathematica(image: bytes) -> str | None:
     """Use Mathpix API to get mathematica code of math formulas on the image."""
 
     client = await get_client()
@@ -31,6 +29,6 @@ async def image_to_mathematica(image: bytes) -> str:
 
     async with request as response:
         latex = (await response.json())['text']
+        print(latex)
 
-    mathematica = mathematica_code(parse_latex(latex))
-    return mathematica.replace('Hold', '')  # TODO: find better way
+    return await convert(latex)
