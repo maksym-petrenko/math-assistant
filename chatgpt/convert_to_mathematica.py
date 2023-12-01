@@ -1,6 +1,7 @@
 from .config import client
 
-PROMPT = 'Convert LaTex to wolfram mathematica language'
+PROMPT = ('Your response must contain formula only, description text and other explanations are forbidden.'
+          ' Convert the following LaTex to Wolfram Mathematica language: ')
 
 
 async def convert(latex: str) -> str | None:
