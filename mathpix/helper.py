@@ -1,14 +1,13 @@
 import json
 
-from chatgpt.convert_to_mathematica import convert
 from helper.aiohttp_client import get_client
 
 from .config import credentials
 
 API = 'https://api.mathpix.com/v3/text'
 
-async def image_to_mathematica(image: bytes) -> str | None:
-    """Use Mathpix API to get mathematica code of math formulas on the image."""
+async def image_to_latex(image: bytes) -> str | None:
+    """Use Mathpix API to extract LaTeX from image."""
 
     client = await get_client()
     request = client.post(
@@ -28,7 +27,4 @@ async def image_to_mathematica(image: bytes) -> str | None:
     )
 
     async with request as response:
-        latex = (await response.json())['text']
-        print(latex)
-
-    return await convert(latex)
+        return (await response.json())['text']
