@@ -1,6 +1,7 @@
 from telethon import events
 
 from chatgpt.convert_to_mathematica import convert
+from helper.download import download
 from wolfram.helper import get_step_by_step_solution_image_only
 
 from .config import bot
@@ -20,4 +21,4 @@ async def solve_text(msg: events.NewMessage) -> None:
         await msg.reply('Something went wrong')
         return
 
-    await msg.reply(file=image_url, force_document=False)
+    await msg.reply(file=[await download(image_url, 'solution.jpg')], force_document=True)
