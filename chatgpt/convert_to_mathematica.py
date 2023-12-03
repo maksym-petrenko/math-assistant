@@ -17,5 +17,7 @@ async def convert(latex: str) -> str | None:
         messages=messages,  # type: ignore[arg-type]
         temperature=0,
     )
-
+    if response.choices[0].message.content == "None":
+        print("Something went wrong")
+        return None
     return response.choices[0].message.content
