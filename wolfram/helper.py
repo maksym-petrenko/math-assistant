@@ -12,9 +12,9 @@ POSSIBLE_FORMATS = Literal['image', 'imagemap', 'plaintext', 'MathML', 'Sound', 
 
 # returns pod
 async def get_step_by_step_solution(query: str, output_format: POSSIBLE_FORMATS) -> Any | None:
-    query = 'Solve: ' + quote_plus(query)
+    query = quote_plus(query)
 
-    pod_data = 'includepodid=Result&podstate=Step-by-step solution'
+    pod_data = 'podstate=Step-by-step solution'
     url = f'{base_query}&input={query}&format={output_format}&output=json&{pod_data}'
 
     client = await get_client()
@@ -25,33 +25,29 @@ async def get_step_by_step_solution(query: str, output_format: POSSIBLE_FORMATS)
 
         result = (await response.json())['queryresult']
 
-    if result['numpods'] != 1:
+    solution = result['pods']
+
+    # find probable step-by-step solution
+    for subpod in solution:
+        for pod in subpod['subpods']:
+            if 'steps' not in pod['title']:
+                continue
+
+            return [pod]
+
+    return [subpod['subpods'][0] for subpod in solution]
+
+
+def patch_query(urls: list, **kwargs: str) -> list:
+    return [urlparse(url)._replace(query=urlencode(dict(parse_qsl(urlparse(url).query), **kwargs))).geturl() for url in urls]
+
+
+# returns URL to image with step-by-step solution
+async def get_step_by_step_solution_image_only(query: str, image_type: str = 'jpg') -> list | None:
+    pods = await get_step_by_step_solution(query, 'image')
+    if pods is None:
         return None
 
-    solution = result['pods'][0]
+    urls = [pod['img']['src'] for pod in pods]
 
-    # if there only one possible output then return it
-    if len(solution['subpods']) == 1:
-        return solution['subpods'][0]
-
-    # find probable step by step solution
-    for pod in solution['subpods']:
-        if 'steps' not in pod['title']:
-            continue
-
-        return pod
-    return None
-
-
-def patch_query(url: str, **kwargs: str) -> str:
-    return urlparse(url)._replace(query=urlencode(dict(parse_qsl(urlparse(url).query), **kwargs))).geturl()
-
-
-# returns URL to image with step by step solution
-async def get_step_by_step_solution_image_only(query: str, image_type: str = 'jpg') -> str | None:
-    pod = await get_step_by_step_solution(query, 'image')
-    if pod is None:
-        return None
-
-    url = pod['img']['src']
-    return patch_query(url, MSPStoreType='image/' + image_type)
+    return patch_query(urls, MSPStoreType='image/' + image_type)
