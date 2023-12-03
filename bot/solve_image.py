@@ -25,4 +25,5 @@ async def solve_image(msg: events.NewMessage) -> None:
         await msg.reply('Something went wrong')
         return
 
-    await msg.reply(file=image_url, force_document=False)
+    for image in image_url:
+        await msg.reply(file=image, force_document=False)
