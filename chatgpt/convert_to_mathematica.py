@@ -6,7 +6,7 @@ You must identify the intention of the formula's author.
 For example, if infinite sum is expressed, you should give wolfram instructions
 to find out whether it converges and if yes, to calculate the sum.
 Convert the following text to Wolfram Mathematica language
-If you can't transform this LaTeX to mathematica, you must reply with the only word: None.
+If you can't transform this LaTeX to mathematica, you must reply with the only word: "None".
 """
 
 
@@ -17,7 +17,8 @@ async def convert(latex: str) -> str | None:
         messages=messages,  # type: ignore[arg-type]
         temperature=0,
     )
-    if response.choices[0].message.content == "None":
-        print("Something went wrong")
+
+    answer = response.choices[0].message.content
+    if answer == 'None':
         return None
-    return response.choices[0].message.content
+    return answer
