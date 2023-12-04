@@ -1,7 +1,7 @@
 from helper.aiohttp_client import stop as stop_aiohttp
 from helper.main_handler import main_handler
 
-from . import solve_image, solve_text  # noqa: F401
+from . import handlers  # noqa: F401
 from .config import run, start
 
 
