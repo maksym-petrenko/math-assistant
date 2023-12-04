@@ -1,4 +1,4 @@
-from typing import Any, Literal
+from typing import Literal
 from urllib.parse import parse_qsl, quote_plus, urlencode, urlparse
 
 from helper.aiohttp_client import get_client
@@ -11,7 +11,7 @@ base_query = f'http://api.wolframalpha.com/v2/query?appid={credentials.APP_ID}'
 POSSIBLE_FORMATS = Literal['image', 'imagemap', 'plaintext', 'MathML', 'Sound', 'wav']
 
 # returns pod
-async def get_step_by_step_solution(query: str, output_format: POSSIBLE_FORMATS) -> Any | None:
+async def get_step_by_step_solution(query: str, output_format: POSSIBLE_FORMATS) -> list | None:
     query = quote_plus(query)
 
     pod_data = 'podstate=Step-by-step solution'
@@ -38,16 +38,16 @@ async def get_step_by_step_solution(query: str, output_format: POSSIBLE_FORMATS)
     return [subpod['subpods'][0] for subpod in solution]
 
 
-def patch_query(urls: list, **kwargs: str) -> list:
-    return [urlparse(url)._replace(query=urlencode(dict(parse_qsl(urlparse(url).query), **kwargs))).geturl() for url in urls]
+def patch_query(url: str, **kwargs: str) -> str:
+    return urlparse(url)._replace(query=urlencode(dict(parse_qsl(urlparse(url).query), **kwargs))).geturl()
 
 
 # returns URL to image with step-by-step solution
-async def get_step_by_step_solution_image_only(query: str, image_type: str = 'jpg') -> list | None:
+async def get_step_by_step_solution_image_only(query: str, image_type: str = 'jpg') -> list[str] | None:
     pods = await get_step_by_step_solution(query, 'image')
     if pods is None:
         return None
 
     urls = [pod['img']['src'] for pod in pods]
 
-    return patch_query(urls, MSPStoreType='image/' + image_type)
+    return [patch_query(url, MSPStoreType='image/' + image_type) for url in urls]
