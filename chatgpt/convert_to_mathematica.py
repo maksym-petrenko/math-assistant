@@ -5,8 +5,11 @@ Your response must contain a formula only, description text and other explanatio
 You must identify the intention of the formula's author.
 For example, if infinite sum is expressed, you should give wolfram instructions
 to find out whether it converges and if yes, to calculate the sum.
+If possible, apply Solve to it, but only if it makes sense.
 Convert the following text to Wolfram Mathematica language.
+Please, make sure it can be processed by Wolfram.
 
+Only if case the input is invalid and doesn't contain any formulas, you have to respond with the only word "None".
 You must answer with the formula only. Here are some examples:
 
 Input: x^{3}-12 x^{2}+19 x+8=0

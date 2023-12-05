@@ -16,5 +16,8 @@
     },
     {
         "question": "x^{2}-x=1"
+    },
+    {
+        "question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1"
     }
 ]
