@@ -1,0 +1,1 @@
+Solve for x:\nx^2 - x = 1\nAdd 1/4 to both sides:\nx^2 - x + 1/4 = 5/4\nWrite the left hand side as a square:\n(x - 1/2)^2 = 5/4\nTake the square root of both sides:\nx - 1/2 = sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nx = 1/2 + sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nAnswer: | \n | x = 1/2 + sqrt(5)/2 or x = 1/2 - sqrt(5)/2
