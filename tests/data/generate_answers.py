@@ -1,28 +1,26 @@
+import argparse
 import asyncio
 import json
 from pathlib import Path
 from typing import Any
 
-from chatgpt.convert_to_mathematica import convert
 from helper.aiohttp_client import stop as stop_client
 from helper.main_handler import main_handler
-from wolfram.helper import get_step_by_step_solution
+from tests.test_helper import question2pods
 
 data_path = Path(__file__).parent
 
+force_regenerate: bool
+
 # only generates if there no answer yet
-async def generate_answer(test: dict[str, Any]) -> str:
+async def generate_answer(test: dict[str, Any]) -> list[str] | None:
     question = test['question']
-    if 'answer' in test:
+    if 'answer' in test and not force_regenerate:
         print('skipping:', question)
         return test['answer']
 
     print('generating for:', question)
-
-    converted = await convert(question)
-    pods = await get_step_by_step_solution(converted, 'image')
-
-    return pods[0]['img']['alt']
+    return await question2pods(question)
 
 
 async def main() -> None:
@@ -39,4 +37,12 @@ async def main() -> None:
         text_data.write('\n')
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        prog='Answer generator',
+        description='Generates answers for tests',
+    )
+    parser.add_argument('--force', action='store_true', help='forces to regenerate already existing answers')
+    args = parser.parse_args()
+    force_regenerate = args.force
+
     main_handler(main, None, stop_client)
