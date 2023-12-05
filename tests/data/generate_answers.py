@@ -1,6 +1,7 @@
 import asyncio
 import json
 from pathlib import Path
+from typing import Any
 
 from chatgpt.convert_to_mathematica import convert
 from helper.aiohttp_client import stop as stop_client
@@ -10,11 +11,12 @@ from wolfram.helper import get_step_by_step_solution
 data_path = Path(__file__).parent
 
 # only generates if there no answer yet
-async def generate_answer(test: dict) -> str:
+async def generate_answer(test: dict[str, Any]) -> str:
+    question = test['question']
     if 'answer' in test:
+        print('skipping:', question)
         return test['answer']
 
-    question = test['question']
     print('generating for:', question)
 
     converted = await convert(question)
@@ -34,6 +36,7 @@ async def main() -> None:
 
     with open(data_path / 'text.json', 'w') as text_data:  # noqa: ASYNC101
         json.dump(tests, text_data, indent=4)
+        text_data.write('\n')
 
 if __name__ == '__main__':
     main_handler(main, None, stop_client)
