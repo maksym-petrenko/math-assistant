@@ -7,6 +7,7 @@ from typing import Any
 from chatgpt.convert_to_mathematica import convert
 from helper.aiohttp_client import stop as stop_client
 from helper.main_handler import main_handler
+from tests.serealize_answer import serealize
 from wolfram.helper import get_step_by_step_solution
 
 data_path = Path(__file__).parent
@@ -14,7 +15,7 @@ data_path = Path(__file__).parent
 force_regenerate: bool
 
 # only generates if there no answer yet
-async def generate_answer(test: dict[str, Any]) -> str:
+async def generate_answer(test: dict[str, Any]) -> list[str]:
     question = test['question']
     if 'answer' in test and not force_regenerate:
         print('skipping:', question)
@@ -25,7 +26,7 @@ async def generate_answer(test: dict[str, Any]) -> str:
     converted = await convert(question)
     pods = await get_step_by_step_solution(converted, 'image')
 
-    return pods[0]['img']['alt']
+    return serealize(pods)
 
 
 async def main() -> None:

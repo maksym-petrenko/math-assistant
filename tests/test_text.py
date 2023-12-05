@@ -3,6 +3,7 @@ import json
 import pytest
 
 from chatgpt.convert_to_mathematica import convert
+from tests.serealize_answer import serealize
 from wolfram.helper import get_step_by_step_solution
 
 with open('tests/data/text.json') as data:
@@ -19,4 +20,4 @@ async def test_text2answer(question: str, answer: str):
     converted = await convert(question)
     pods = await get_step_by_step_solution(converted, 'image')
 
-    assert pods[0]['title'] == answer
+    assert serealize(pods) == answer
