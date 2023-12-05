@@ -10,7 +10,7 @@ base_query = f'http://api.wolframalpha.com/v2/query?appid={credentials.APP_ID}'
 
 POSSIBLE_FORMATS = Literal['image', 'imagemap', 'plaintext', 'MathML', 'Sound', 'wav']
 
-# returns pod
+# returns list of pods
 async def get_step_by_step_solution(query: str, output_format: POSSIBLE_FORMATS) -> list | None:
     query = quote_plus(query)
 
@@ -42,7 +42,7 @@ def patch_query(url: str, **kwargs: str) -> str:
     return urlparse(url)._replace(query=urlencode(dict(parse_qsl(urlparse(url).query), **kwargs))).geturl()
 
 
-# returns URL to image with step-by-step solution
+# returns list of URLs to images with step-by-step solution
 async def get_step_by_step_solution_image_only(query: str, image_type: str = 'jpg') -> list[str] | None:
     pods = await get_step_by_step_solution(query, 'image')
     if pods is None:
