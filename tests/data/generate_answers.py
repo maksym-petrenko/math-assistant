@@ -1,3 +1,4 @@
+import argparse
 import asyncio
 import json
 from pathlib import Path
@@ -10,10 +11,12 @@ from wolfram.helper import get_step_by_step_solution
 
 data_path = Path(__file__).parent
 
+force_regenerate: bool
+
 # only generates if there no answer yet
 async def generate_answer(test: dict[str, Any]) -> str:
     question = test['question']
-    if 'answer' in test:
+    if 'answer' in test and not force_regenerate:
         print('skipping:', question)
         return test['answer']
 
@@ -39,4 +42,12 @@ async def main() -> None:
         text_data.write('\n')
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        prog='Answer generator',
+        description='Generates answers for tests',
+    )
+    parser.add_argument('--force', action='store_true', help='forces to regenerate already existing answers')
+    args = parser.parse_args()
+    force_regenerate = args.force
+
     main_handler(main, None, stop_client)
