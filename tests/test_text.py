@@ -19,4 +19,4 @@ async def test_text2answer(question: str, answer: str):
     converted = await convert(question)
     pods = await get_step_by_step_solution(converted, 'image')
 
-    assert pods[0]['title'] == answer
+    assert pods[0]['img']['alt'] == answer
