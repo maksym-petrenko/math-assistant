@@ -4,29 +4,23 @@ import json
 from pathlib import Path
 from typing import Any
 
-from chatgpt.convert_to_mathematica import convert
 from helper.aiohttp_client import stop as stop_client
 from helper.main_handler import main_handler
-from tests.serealize_answer import serealize
-from wolfram.helper import get_step_by_step_solution
+from tests.test_helper import question2pods
 
 data_path = Path(__file__).parent
 
 force_regenerate: bool
 
 # only generates if there no answer yet
-async def generate_answer(test: dict[str, Any]) -> list[str]:
+async def generate_answer(test: dict[str, Any]) -> list[str] | None:
     question = test['question']
     if 'answer' in test and not force_regenerate:
         print('skipping:', question)
         return test['answer']
 
     print('generating for:', question)
-
-    converted = await convert(question)
-    pods = await get_step_by_step_solution(converted, 'image')
-
-    return serealize(pods)
+    return await question2pods(question)
 
 
 async def main() -> None:
