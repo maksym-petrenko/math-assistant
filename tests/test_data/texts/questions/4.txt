@@ -1,1 +1,0 @@
-\operatorname{Rank}\left[\begin{array}{ccc}1 & 2 & 3 \\ 2 & 1 & -2 \\ 4 & 5 & 4 \\ 1 & 3 & 4\end{array}\right]
