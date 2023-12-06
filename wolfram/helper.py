@@ -25,6 +25,9 @@ async def get_step_by_step_solution(query: str, output_format: POSSIBLE_FORMATS)
 
         result = (await response.json())['queryresult']
 
+    if not result['success']:
+        return None
+
     solution = result['pods']
 
     # find probable step-by-step solution
