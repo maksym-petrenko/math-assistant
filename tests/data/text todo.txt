@@ -1,0 +1,2 @@
+graph me 2x + 3 - should graph not step by step
+Solve 3^x + 2^x = 13 - should return some solution at least
