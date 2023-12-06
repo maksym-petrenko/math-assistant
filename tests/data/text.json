@@ -43,5 +43,17 @@
             "solve log(0.1, (x - 5)^2) + log(0.1, x - 2)>=-1 for x",
             "2<x<5"
         ]
+    },
+    {
+        "question": "Help me with some math, pls",
+        "answer": null
+    },
+    {
+        "question": "Generate random problem and solve it",
+        "answer": null
+    },
+    {
+        "question": "Formulate a problem",
+        "answer": null
     }
 ]
