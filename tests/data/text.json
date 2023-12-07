@@ -55,5 +55,12 @@
     {
         "question": "Formulate a problem",
         "answer": null
+    },
+    {
+        "question": "graph x^2 + y^3 = 3",
+        "answer": [
+            "plot | x^2 + y^3 = 3 | x = -10 to 10\ny = -10 to 10",
+            ""
+        ]
     }
 ]

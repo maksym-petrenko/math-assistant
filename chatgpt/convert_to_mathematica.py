@@ -41,6 +41,9 @@ Output: MatrixRank[{{1, 1, 1}, {1, 3, -4}, {1, 7, 1}, {3, 9, 11}}]
 Input: \sum_{x=1}^{12} x^{k}=k
 Output: Sum[x^k, {x, 1, 12}] = k
 
+Input: draw x^2 + y^3 = 3
+Output: Plot[x^2 + y^3 == 3, {x, -10, 10}, {y, -10, 10}]
+
 If the input is invalid or user doesn't provided any mathematical problem,
 you should respond with the only word "None".
 
