@@ -1,26 +1,51 @@
+from io import BytesIO
+from typing import Any
+from urllib.parse import parse_qsl, urlencode, urlparse
+
 from telethon import events
 
 from helper.download import download
+from helper.flatten import make_flat
 from mathpix.helper import image_to_latex
+from wolfram.helper import Pod
 
 from .config import bot
 from .helper import generate_code
 from .solver import Response, solve
 
 
+def patch_query(url: str, **kwargs: str) -> str:
+    return urlparse(url)._replace(query=urlencode(dict(parse_qsl(urlparse(url).query), **kwargs))).geturl()
+
+
+def extract_image(subpod: Any) -> str:
+    return patch_query(subpod['img']['src'], MSPStoreType='image/jpg')
+
+
+async def download_images(pod: Pod) -> list[BytesIO]:
+    return [await download(extract_image(subpod), 'solution.jpg') for subpod in pod['subpods']]
+
+
 async def respond_to_message(msg: events.NewMessage, response: Response) -> None:
     if response.debug:
         await msg.reply(response.debug)
+
     if response.exception:
         await msg.reply(response.exception)
+        return
+
+    if response.best_solution:
+        await msg.reply('The best answer', file=await download_images(response.best_solution), force_document=True)
     else:
-        await msg.reply(file=[await download(image, 'solution.jpg') for image in response.solution], force_document=True)
+        await msg.reply('No best answer :(')
+
+    await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
 
 
 async def solve_image(image: bytes) -> Response:
     latex: str | None = await image_to_latex(image)
     if latex is None:
-        return Response(exception="Can't extract problem from the photo, try to send another one")
+        return Response(original_question='', exception="Can't extract problem from the photo, try to send another one")
 
     solution = await solve(latex)
     solution.debug = generate_code(latex, 'LaTeX') + '\n\n' + solution.debug
