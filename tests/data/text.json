@@ -22,7 +22,7 @@
         "question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
         "answer": [
             "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082",
-            "Partial sums"
+            ""
         ]
     },
     {
