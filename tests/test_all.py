@@ -11,7 +11,7 @@ test_tuples = [(test['question'], test['answer']) for test in tests]
 
 
 @pytest.mark.parametrize(('question', 'answer'), test_tuples)
-async def test_text2answer(question: str, answer: str):
-    """Test ChatGPT + Wolfram performance on input strings."""
+async def test_question_to_all_solutions(question: str, answer: str):
+    """Test ChatGPT(question) + Wolfram performance on input strings."""
 
     assert await question2pods(question) == answer

@@ -13,7 +13,7 @@ data_path = Path(__file__).parent
 force_regenerate: bool
 
 # only generates if there no answer yet
-async def generate_answer(test: dict[str, Any]) -> list[str] | None:
+async def generate_answer(test: dict[str, Any]) -> Any:
     question = test['question']
     if 'answer' in test and not force_regenerate:
         print('skipping:', question)
