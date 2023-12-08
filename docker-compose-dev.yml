@@ -5,7 +5,7 @@ services:
         restart: always
         build:
             context: ./
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile-dev
         env_file:
             - env/bot.env
             - env/wolfram.env
@@ -13,5 +13,6 @@ services:
             - env/openai.env
         volumes:
             - telethon-sessions:/bot/sessions
+            - ./:/bot
 volumes:
     telethon-sessions:
