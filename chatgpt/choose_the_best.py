@@ -6,6 +6,8 @@ PROMPT = r"""
 You are given a question(may contain LaTeX) and Wolfram Alpha response categories.
 Try to find the best category for the given question.
 
+If you are given a function then user probably wants a plot.
+
 Examples with only question and output WITHOUT categories:
 Input: x^2 + 3x = 2
 Output: Results
@@ -25,8 +27,13 @@ async def choose(question: str, pods: list) -> Pod | None:
     if len(pods) == 0:  # small shortcut
         return None
 
+    # use subpod proposed by wolfram
+    for pod in pods:
+        if pod.get('primary', False):
+            return pod
+
+    # in other way use subpod chosen by ChatGPT
     categories = [pod['title'] for pod in pods]
-    print(categories)
     text = f'Question:\n{question}\nCategories:\n' + '\n'.join(categories)
 
     messages = [{'role': 'system', 'content': PROMPT}, {'role': 'user', 'content': text}]
