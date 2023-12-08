@@ -7,7 +7,7 @@ from telethon import events
 from helper.download import download
 from helper.flatten import make_flat
 from mathpix.helper import image_to_latex
-from wolfram.helper import Pod
+from wolfram.helper import Pod, extract_usefull_subpods
 
 from .config import bot
 from .helper import generate_code
@@ -23,7 +23,8 @@ def extract_image(subpod: Any) -> str:
 
 
 async def download_images(pod: Pod) -> list[BytesIO]:
-    return [await download(extract_image(subpod), 'solution.jpg') for subpod in pod['subpods']]
+    subpods = extract_usefull_subpods(pod)
+    return [await download(extract_image(pod), 'solution.jpg') for pod in subpods]
 
 
 async def respond_to_message(msg: events.NewMessage, response: Response) -> None:

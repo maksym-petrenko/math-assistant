@@ -30,3 +30,14 @@ async def get_pods(query: str, output_format: POSSIBLE_FORMATS) -> list[Pod] | N
         return None
 
     return result['pods']
+
+
+def extract_usefull_subpods(pod: Pod) -> list[Pod]:
+    subpods = pod['subpods']
+
+    # firstly try to extract subpods with titles
+    if with_titles := [subpod for subpod in subpods if subpod['title']]:
+        return with_titles
+
+    # if no one has a title then return all of them
+    return subpods
