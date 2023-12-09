@@ -34,7 +34,7 @@ async def get_all_solutions(text: str) -> Response:
         return response.set_exception("Can't understand the problem, try to rephrase it")
     response.debug = generate_code(mathematica, 'mathematica')
 
-    pods = await get_pods(mathematica, 'image')
+    pods = await get_pods(mathematica)
     if pods is None:
         return response.set_exception('Something went wrong')
     if len(pods) == 0:
