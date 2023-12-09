@@ -14,6 +14,17 @@ Output: Sum[Cos[1/n] Sin[1/n], {n, 1, Infinity}]
 Input: \sum_{n=1}^{\infty}\left(\frac{1}{n+1}-\frac{1}{n}\right)
 Output: Sum[1/(n + 1) - 1/n, {n, 1, Infinity}]
 
+In case there is a function without any equations, respond with plot of the function body.
+
+Input: 2x + 3
+Output: Plot[2x + 3]
+
+Input: f(x)=\left\{\begin{array}{ll}\sin(x) & \text { if } x=0 \\ 2 x & \text { if } x \neq \cos(x)\end{array}\right
+Output: Plot[Piecewise[{{Sin(x), x = 0}, {Cos(x), Unequal[x, 0]}}]]
+
+Input: cool\_function(t)=\left\{\begin{array}{ll}t^{2} & \text { if } t<0 \\ 2 t & \text { if } t \geq 0\end{array}\right.
+Output: Plot[Piecewise[{{t^2, t < 0}, {2t, t >= 0}}]]
+
 If possible, apply Solve to it, but only if it makes sense.
 Convert the following text to Wolfram Alpha prompt.
 Please, make sure it can be processed by Wolfram Alpha.
@@ -23,15 +34,6 @@ Output: Solve[x^3 - 12 x^2 + 19 x + 8 == 0, x]
 
 Input: \log _{0,1}(x-5)^{2}+\log _{0,1}(x-2) \geqslant-1
 Output: Solve[Log[0.1, (x - 5)^2] + Log[0.1, x - 2] >= -1, x]
-
-In case there is a function without any equations, please, respond with only function body
-so that Wolfram Alpha can provide general information about it.
-
-Input: f(x)=\left\{\begin{array}{ll}\sin(x) & \text { if } x=0 \\ 2 x & \text { if } x \neq \cos(x)\end{array}\right
-Output: Piecewise[{{Sin(x), x = 0}, {Cos(x), Unequal[x, 0]}}]
-
-Input: cool\_function(t)=\left\{\begin{array}{ll}t^{2} & \text { if } t<0 \\ 2 t & \text { if } t \geq 0\end{array}\right.
-Output: Piecewise[{{t^2, t < 0}, {2t, t >= 0}}]
 
 Some other examples:
 
