@@ -1,7 +1,7 @@
 from .config import client
 
 
-with open("chatgpt/instruction.txt") as f:
+with open("chatgpt/instructions/mathematica.txt") as f:
     contents = f.readlines()
     PROMPT = ""
     for line in contents:
