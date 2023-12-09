@@ -2,34 +2,69 @@
     {
         "question": "16 x^{3}-18 x^{2}+4 x-21=0",
         "result": {
-            "best_solution": [
-                "x = 1/48 (18 + (73224 - 96 sqrt(581538))^(1/3) + 2 (3 (3051 + 4 sqrt(581538)))^(1/3))",
-                "x = 3/8 - 1/96 (1 - i sqrt(3)) (73224 - 96 sqrt(581538))^(1/3) - ((1 + i sqrt(3)) (3051 + 4 sqrt(581538))^(1/3))/(16 3^(2/3))",
-                "x = 3/8 - 1/96 (1 + i sqrt(3)) (73224 - 96 sqrt(581538))^(1/3) - ((1 - i sqrt(3)) (3051 + 4 sqrt(581538))^(1/3))/(16 3^(2/3))",
-                "Solve for x:\n16 x^3 - 18 x^2 + 4 x - 21 = 0\nEliminate the quadratic term by substituting x = x - 3/8:\n-21 + 4 (x + 3/8) - 18 (x + 3/8)^2 + 16 (x + 3/8)^3 = 0\nExpand out terms of the left hand side:\n16 x^3 - (11 x)/4 - 339/16 = 0\nDivide both sides by 16:\nx^3 - (11 x)/64 - 339/256 = 0\nChange coordinates by substituting x = y + \u03bb/y, where \u03bb is a constant value that will be determined later:\n-339/256 - 11/64 (y + \u03bb/y) + (y + \u03bb/y)^3 = 0\nMultiply both sides by y^3 and collect in terms of y:\ny^6 + y^4 (3 \u03bb - 11/64) - (339 y^3)/256 + y^2 (3 \u03bb^2 - (11 \u03bb)/64) + \u03bb^3 = 0\nSubstitute \u03bb = 11/192 and then z = y^3, yielding a quadratic equation in the variable z:\nz^2 - (339 z)/256 + 1331/7077888 = 0\nFind the positive solution to the quadratic equation:\nz = (3051 + 4 sqrt(581538))/4608\nSubstitute back for z = y^3:\ny^3 = (3051 + 4 sqrt(581538))/4608\nTaking cube roots gives (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) times the third roots of unity:\ny = (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = -(-3051 - 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3))/(8 3^(2/3))\nSubstitute each value of y into x = y + 11/(192 y):\nx = (4 sqrt(581538) + 3051)^(1/3)/(8 3^(2/3)) + 11/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) or x = (11 (-1)^(2/3))/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) - (-4 sqrt(581538) - 3051)^(1/3)/(8 3^(2/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3))/(8 3^(2/3)) - 11/8 ((-1)/(3 (4 sqrt(581538) + 3051)))^(1/3)\nBring each solution to a common denominator and simplify:\nx = ((4 sqrt(581538) + 3051)^(2/3) + 11 3^(1/3))/(8 3^(2/3) (3051 + 4 sqrt(581538))^(1/3)) or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (3051 + 4 sqrt(581538))^(1/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3) - 11 ((-3)/(4 sqrt(581538) + 3051))^(1/3))/(8 3^(2/3))\nSubstitute back for x = x + 3/8:\nAnswer: | \n | x = (11 3^(1/3) + (4 sqrt(581538) + 3051)^(2/3))/(8 3^(2/3) (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3) - 11 (-3/(3051 + 4 sqrt(581538)))^(1/3))/(8 3^(2/3)) + 3/8"
-            ],
-            "all_solutions": [
-                [
-                    "solve 16 x^3 - 18 x^2 + 4 x - 21 = 0 for x"
-                ],
-                [
+            "best_solution": {
+                "all_subpods": [
                     "x = 1/48 (18 + (73224 - 96 sqrt(581538))^(1/3) + 2 (3 (3051 + 4 sqrt(581538)))^(1/3))",
                     "x = 3/8 - 1/96 (1 - i sqrt(3)) (73224 - 96 sqrt(581538))^(1/3) - ((1 + i sqrt(3)) (3051 + 4 sqrt(581538))^(1/3))/(16 3^(2/3))",
                     "x = 3/8 - 1/96 (1 + i sqrt(3)) (73224 - 96 sqrt(581538))^(1/3) - ((1 - i sqrt(3)) (3051 + 4 sqrt(581538))^(1/3))/(16 3^(2/3))",
                     "Solve for x:\n16 x^3 - 18 x^2 + 4 x - 21 = 0\nEliminate the quadratic term by substituting x = x - 3/8:\n-21 + 4 (x + 3/8) - 18 (x + 3/8)^2 + 16 (x + 3/8)^3 = 0\nExpand out terms of the left hand side:\n16 x^3 - (11 x)/4 - 339/16 = 0\nDivide both sides by 16:\nx^3 - (11 x)/64 - 339/256 = 0\nChange coordinates by substituting x = y + \u03bb/y, where \u03bb is a constant value that will be determined later:\n-339/256 - 11/64 (y + \u03bb/y) + (y + \u03bb/y)^3 = 0\nMultiply both sides by y^3 and collect in terms of y:\ny^6 + y^4 (3 \u03bb - 11/64) - (339 y^3)/256 + y^2 (3 \u03bb^2 - (11 \u03bb)/64) + \u03bb^3 = 0\nSubstitute \u03bb = 11/192 and then z = y^3, yielding a quadratic equation in the variable z:\nz^2 - (339 z)/256 + 1331/7077888 = 0\nFind the positive solution to the quadratic equation:\nz = (3051 + 4 sqrt(581538))/4608\nSubstitute back for z = y^3:\ny^3 = (3051 + 4 sqrt(581538))/4608\nTaking cube roots gives (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) times the third roots of unity:\ny = (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = -(-3051 - 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3))/(8 3^(2/3))\nSubstitute each value of y into x = y + 11/(192 y):\nx = (4 sqrt(581538) + 3051)^(1/3)/(8 3^(2/3)) + 11/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) or x = (11 (-1)^(2/3))/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) - (-4 sqrt(581538) - 3051)^(1/3)/(8 3^(2/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3))/(8 3^(2/3)) - 11/8 ((-1)/(3 (4 sqrt(581538) + 3051)))^(1/3)\nBring each solution to a common denominator and simplify:\nx = ((4 sqrt(581538) + 3051)^(2/3) + 11 3^(1/3))/(8 3^(2/3) (3051 + 4 sqrt(581538))^(1/3)) or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (3051 + 4 sqrt(581538))^(1/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3) - 11 ((-3)/(4 sqrt(581538) + 3051))^(1/3))/(8 3^(2/3))\nSubstitute back for x = x + 3/8:\nAnswer: | \n | x = (11 3^(1/3) + (4 sqrt(581538) + 3051)^(2/3))/(8 3^(2/3) (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3) - 11 (-3/(3051 + 4 sqrt(581538)))^(1/3))/(8 3^(2/3)) + 3/8"
                 ],
-                [
-                    ""
-                ],
-                [
-                    ""
-                ],
-                [
-                    "9/8"
-                ],
-                [
-                    "21/16"
+                "usefull_subpods": [
+                    "Solve for x:\n16 x^3 - 18 x^2 + 4 x - 21 = 0\nEliminate the quadratic term by substituting x = x - 3/8:\n-21 + 4 (x + 3/8) - 18 (x + 3/8)^2 + 16 (x + 3/8)^3 = 0\nExpand out terms of the left hand side:\n16 x^3 - (11 x)/4 - 339/16 = 0\nDivide both sides by 16:\nx^3 - (11 x)/64 - 339/256 = 0\nChange coordinates by substituting x = y + \u03bb/y, where \u03bb is a constant value that will be determined later:\n-339/256 - 11/64 (y + \u03bb/y) + (y + \u03bb/y)^3 = 0\nMultiply both sides by y^3 and collect in terms of y:\ny^6 + y^4 (3 \u03bb - 11/64) - (339 y^3)/256 + y^2 (3 \u03bb^2 - (11 \u03bb)/64) + \u03bb^3 = 0\nSubstitute \u03bb = 11/192 and then z = y^3, yielding a quadratic equation in the variable z:\nz^2 - (339 z)/256 + 1331/7077888 = 0\nFind the positive solution to the quadratic equation:\nz = (3051 + 4 sqrt(581538))/4608\nSubstitute back for z = y^3:\ny^3 = (3051 + 4 sqrt(581538))/4608\nTaking cube roots gives (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) times the third roots of unity:\ny = (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = -(-3051 - 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3))/(8 3^(2/3))\nSubstitute each value of y into x = y + 11/(192 y):\nx = (4 sqrt(581538) + 3051)^(1/3)/(8 3^(2/3)) + 11/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) or x = (11 (-1)^(2/3))/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) - (-4 sqrt(581538) - 3051)^(1/3)/(8 3^(2/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3))/(8 3^(2/3)) - 11/8 ((-1)/(3 (4 sqrt(581538) + 3051)))^(1/3)\nBring each solution to a common denominator and simplify:\nx = ((4 sqrt(581538) + 3051)^(2/3) + 11 3^(1/3))/(8 3^(2/3) (3051 + 4 sqrt(581538))^(1/3)) or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (3051 + 4 sqrt(581538))^(1/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3) - 11 ((-3)/(4 sqrt(581538) + 3051))^(1/3))/(8 3^(2/3))\nSubstitute back for x = x + 3/8:\nAnswer: | \n | x = (11 3^(1/3) + (4 sqrt(581538) + 3051)^(2/3))/(8 3^(2/3) (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3) - 11 (-3/(3051 + 4 sqrt(581538)))^(1/3))/(8 3^(2/3)) + 3/8"
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "solve 16 x^3 - 18 x^2 + 4 x - 21 = 0 for x"
+                    ],
+                    "usefull_subpods": [
+                        "solve 16 x^3 - 18 x^2 + 4 x - 21 = 0 for x"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "x = 1/48 (18 + (73224 - 96 sqrt(581538))^(1/3) + 2 (3 (3051 + 4 sqrt(581538)))^(1/3))",
+                        "x = 3/8 - 1/96 (1 - i sqrt(3)) (73224 - 96 sqrt(581538))^(1/3) - ((1 + i sqrt(3)) (3051 + 4 sqrt(581538))^(1/3))/(16 3^(2/3))",
+                        "x = 3/8 - 1/96 (1 + i sqrt(3)) (73224 - 96 sqrt(581538))^(1/3) - ((1 - i sqrt(3)) (3051 + 4 sqrt(581538))^(1/3))/(16 3^(2/3))",
+                        "Solve for x:\n16 x^3 - 18 x^2 + 4 x - 21 = 0\nEliminate the quadratic term by substituting x = x - 3/8:\n-21 + 4 (x + 3/8) - 18 (x + 3/8)^2 + 16 (x + 3/8)^3 = 0\nExpand out terms of the left hand side:\n16 x^3 - (11 x)/4 - 339/16 = 0\nDivide both sides by 16:\nx^3 - (11 x)/64 - 339/256 = 0\nChange coordinates by substituting x = y + \u03bb/y, where \u03bb is a constant value that will be determined later:\n-339/256 - 11/64 (y + \u03bb/y) + (y + \u03bb/y)^3 = 0\nMultiply both sides by y^3 and collect in terms of y:\ny^6 + y^4 (3 \u03bb - 11/64) - (339 y^3)/256 + y^2 (3 \u03bb^2 - (11 \u03bb)/64) + \u03bb^3 = 0\nSubstitute \u03bb = 11/192 and then z = y^3, yielding a quadratic equation in the variable z:\nz^2 - (339 z)/256 + 1331/7077888 = 0\nFind the positive solution to the quadratic equation:\nz = (3051 + 4 sqrt(581538))/4608\nSubstitute back for z = y^3:\ny^3 = (3051 + 4 sqrt(581538))/4608\nTaking cube roots gives (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) times the third roots of unity:\ny = (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = -(-3051 - 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3))/(8 3^(2/3))\nSubstitute each value of y into x = y + 11/(192 y):\nx = (4 sqrt(581538) + 3051)^(1/3)/(8 3^(2/3)) + 11/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) or x = (11 (-1)^(2/3))/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) - (-4 sqrt(581538) - 3051)^(1/3)/(8 3^(2/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3))/(8 3^(2/3)) - 11/8 ((-1)/(3 (4 sqrt(581538) + 3051)))^(1/3)\nBring each solution to a common denominator and simplify:\nx = ((4 sqrt(581538) + 3051)^(2/3) + 11 3^(1/3))/(8 3^(2/3) (3051 + 4 sqrt(581538))^(1/3)) or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (3051 + 4 sqrt(581538))^(1/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3) - 11 ((-3)/(4 sqrt(581538) + 3051))^(1/3))/(8 3^(2/3))\nSubstitute back for x = x + 3/8:\nAnswer: | \n | x = (11 3^(1/3) + (4 sqrt(581538) + 3051)^(2/3))/(8 3^(2/3) (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3) - 11 (-3/(3051 + 4 sqrt(581538)))^(1/3))/(8 3^(2/3)) + 3/8"
+                    ],
+                    "usefull_subpods": [
+                        "Solve for x:\n16 x^3 - 18 x^2 + 4 x - 21 = 0\nEliminate the quadratic term by substituting x = x - 3/8:\n-21 + 4 (x + 3/8) - 18 (x + 3/8)^2 + 16 (x + 3/8)^3 = 0\nExpand out terms of the left hand side:\n16 x^3 - (11 x)/4 - 339/16 = 0\nDivide both sides by 16:\nx^3 - (11 x)/64 - 339/256 = 0\nChange coordinates by substituting x = y + \u03bb/y, where \u03bb is a constant value that will be determined later:\n-339/256 - 11/64 (y + \u03bb/y) + (y + \u03bb/y)^3 = 0\nMultiply both sides by y^3 and collect in terms of y:\ny^6 + y^4 (3 \u03bb - 11/64) - (339 y^3)/256 + y^2 (3 \u03bb^2 - (11 \u03bb)/64) + \u03bb^3 = 0\nSubstitute \u03bb = 11/192 and then z = y^3, yielding a quadratic equation in the variable z:\nz^2 - (339 z)/256 + 1331/7077888 = 0\nFind the positive solution to the quadratic equation:\nz = (3051 + 4 sqrt(581538))/4608\nSubstitute back for z = y^3:\ny^3 = (3051 + 4 sqrt(581538))/4608\nTaking cube roots gives (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) times the third roots of unity:\ny = (3051 + 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = -(-3051 - 4 sqrt(581538))^(1/3)/(8 3^(2/3)) or y = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3))/(8 3^(2/3))\nSubstitute each value of y into x = y + 11/(192 y):\nx = (4 sqrt(581538) + 3051)^(1/3)/(8 3^(2/3)) + 11/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) or x = (11 (-1)^(2/3))/(8 (3 (4 sqrt(581538) + 3051))^(1/3)) - (-4 sqrt(581538) - 3051)^(1/3)/(8 3^(2/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3))/(8 3^(2/3)) - 11/8 ((-1)/(3 (4 sqrt(581538) + 3051)))^(1/3)\nBring each solution to a common denominator and simplify:\nx = ((4 sqrt(581538) + 3051)^(2/3) + 11 3^(1/3))/(8 3^(2/3) (3051 + 4 sqrt(581538))^(1/3)) or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (3051 + 4 sqrt(581538))^(1/3)) or x = ((-1)^(2/3) (4 sqrt(581538) + 3051)^(1/3) - 11 ((-3)/(4 sqrt(581538) + 3051))^(1/3))/(8 3^(2/3))\nSubstitute back for x = x + 3/8:\nAnswer: | \n | x = (11 3^(1/3) + (4 sqrt(581538) + 3051)^(2/3))/(8 3^(2/3) (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = (11 (-3)^(2/3) - (-3)^(1/3) (4 sqrt(581538) + 3051)^(2/3))/(24 (4 sqrt(581538) + 3051)^(1/3)) + 3/8 or x = ((-1)^(2/3) (3051 + 4 sqrt(581538))^(1/3) - 11 (-3/(3051 + 4 sqrt(581538)))^(1/3))/(8 3^(2/3)) + 3/8"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "9/8"
+                    ],
+                    "usefull_subpods": [
+                        "9/8"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "21/16"
+                    ],
+                    "usefull_subpods": [
+                        "21/16"
+                    ]
+                }
             ],
             "exception": null
         }
@@ -37,16 +72,31 @@
     {
         "question": "\\sum_{x=1}^{20} x^{k}=k",
         "result": {
-            "best_solution": [
-                "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
-            ],
-            "all_solutions": [
-                [
-                    "sum_(x=1)^20 x^k = k"
+            "best_solution": {
+                "all_subpods": [
+                    "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
                 ],
-                [
+                "usefull_subpods": [
                     "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "sum_(x=1)^20 x^k = k"
+                    ],
+                    "usefull_subpods": [
+                        "sum_(x=1)^20 x^k = k"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
+                    ],
+                    "usefull_subpods": [
+                        "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
+                    ]
+                }
             ],
             "exception": null
         }
@@ -54,31 +104,63 @@
     {
         "question": "\\operatorname{Rank}\\left[\\begin{array}{ccc}1 & 2 & 3 \\\\ 2 & 1 & -2 \\\\ 4 & 5 & 4 \\\\ 1 & 3 & 4\\end{array}\\right]",
         "result": {
-            "best_solution": [
-                "3",
-                "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
-            ],
-            "all_solutions": [
-                [
-                    "rank | (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)"
-                ],
-                [
+            "best_solution": {
+                "all_subpods": [
                     "3",
                     "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
                 ],
-                [
-                    "(3, -2, 4, 4) | (2, 1, 5, 3) | (1, 2, 4, 1)",
-                    "(0.431331, -0.539164, 0.323498, -0.646997) | (0.319112, -0.600681, 0.0375426, 0.73208) | (0.213201, 0.426401, 0.852803, 0.213201)",
-                    "3",
-                    "1"
-                ],
-                [
-                    "(1, 3, 4) | (2, 1, -2) | (1, 2, 3)",
-                    "(-0.63375, 0.724286, -0.271607) | (0.725901, 0.435541, -0.532327) | (0.267261, 0.534522, 0.801784)",
-                    "3",
-                    "0",
-                    "R^3"
+                "usefull_subpods": [
+                    "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "rank | (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)"
+                    ],
+                    "usefull_subpods": [
+                        "rank | (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "3",
+                        "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
+                    ],
+                    "usefull_subpods": [
+                        "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "(3, -2, 4, 4) | (2, 1, 5, 3) | (1, 2, 4, 1)",
+                        "(0.431331, -0.539164, 0.323498, -0.646997) | (0.319112, -0.600681, 0.0375426, 0.73208) | (0.213201, 0.426401, 0.852803, 0.213201)",
+                        "3",
+                        "1"
+                    ],
+                    "usefull_subpods": [
+                        "(3, -2, 4, 4) | (2, 1, 5, 3) | (1, 2, 4, 1)",
+                        "(0.431331, -0.539164, 0.323498, -0.646997) | (0.319112, -0.600681, 0.0375426, 0.73208) | (0.213201, 0.426401, 0.852803, 0.213201)",
+                        "3",
+                        "1"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "(1, 3, 4) | (2, 1, -2) | (1, 2, 3)",
+                        "(-0.63375, 0.724286, -0.271607) | (0.725901, 0.435541, -0.532327) | (0.267261, 0.534522, 0.801784)",
+                        "3",
+                        "0",
+                        "R^3"
+                    ],
+                    "usefull_subpods": [
+                        "(1, 3, 4) | (2, 1, -2) | (1, 2, 3)",
+                        "(-0.63375, 0.724286, -0.271607) | (0.725901, 0.435541, -0.532327) | (0.267261, 0.534522, 0.801784)",
+                        "3",
+                        "0",
+                        "R^3"
+                    ]
+                }
             ],
             "exception": null
         }
@@ -86,16 +168,31 @@
     {
         "question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
         "result": {
-            "best_solution": [
-                "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082"
-            ],
-            "all_solutions": [
-                [
+            "best_solution": {
+                "all_subpods": [
                     "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082"
                 ],
-                [
-                    ""
+                "usefull_subpods": [
+                    "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082"
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082"
+                    ],
+                    "usefull_subpods": [
+                        "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                }
             ],
             "exception": null
         }
@@ -103,34 +200,69 @@
     {
         "question": "x^3 + x^2 + x = 3",
         "result": {
-            "best_solution": [
-                "x = 1",
-                "x = -1 - i sqrt(2)",
-                "x = -1 + i sqrt(2)",
-                "Solve for x:\nx^3 + x^2 + x = 3\nSubtract 3 from both sides:\nx^3 + x^2 + x - 3 = 0\nThe left hand side factors into a product with two terms:\n(x - 1) (x^2 + 2 x + 3) = 0\nSplit into two equations:\nx - 1 = 0 or x^2 + 2 x + 3 = 0\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 3 = 0\nSubtract 3 from both sides:\nx = 1 or x^2 + 2 x = -3\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 1 = -2\nWrite the left hand side as a square:\nx = 1 or (x + 1)^2 = -2\nTake the square root of both sides:\nx = 1 or x + 1 = i sqrt(2) or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nx = 1 or x = i sqrt(2) - 1 or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nAnswer: | \n | x = 1 or x = i sqrt(2) - 1 or x = -i sqrt(2) - 1"
-            ],
-            "all_solutions": [
-                [
-                    "solve x^3 + x^2 + x = 3 for x"
-                ],
-                [
+            "best_solution": {
+                "all_subpods": [
                     "x = 1",
                     "x = -1 - i sqrt(2)",
                     "x = -1 + i sqrt(2)",
                     "Solve for x:\nx^3 + x^2 + x = 3\nSubtract 3 from both sides:\nx^3 + x^2 + x - 3 = 0\nThe left hand side factors into a product with two terms:\n(x - 1) (x^2 + 2 x + 3) = 0\nSplit into two equations:\nx - 1 = 0 or x^2 + 2 x + 3 = 0\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 3 = 0\nSubtract 3 from both sides:\nx = 1 or x^2 + 2 x = -3\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 1 = -2\nWrite the left hand side as a square:\nx = 1 or (x + 1)^2 = -2\nTake the square root of both sides:\nx = 1 or x + 1 = i sqrt(2) or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nx = 1 or x = i sqrt(2) - 1 or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nAnswer: | \n | x = 1 or x = i sqrt(2) - 1 or x = -i sqrt(2) - 1"
                 ],
-                [
-                    ""
-                ],
-                [
-                    ""
-                ],
-                [
-                    "-1"
-                ],
-                [
-                    "3"
+                "usefull_subpods": [
+                    "Solve for x:\nx^3 + x^2 + x = 3\nSubtract 3 from both sides:\nx^3 + x^2 + x - 3 = 0\nThe left hand side factors into a product with two terms:\n(x - 1) (x^2 + 2 x + 3) = 0\nSplit into two equations:\nx - 1 = 0 or x^2 + 2 x + 3 = 0\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 3 = 0\nSubtract 3 from both sides:\nx = 1 or x^2 + 2 x = -3\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 1 = -2\nWrite the left hand side as a square:\nx = 1 or (x + 1)^2 = -2\nTake the square root of both sides:\nx = 1 or x + 1 = i sqrt(2) or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nx = 1 or x = i sqrt(2) - 1 or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nAnswer: | \n | x = 1 or x = i sqrt(2) - 1 or x = -i sqrt(2) - 1"
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "solve x^3 + x^2 + x = 3 for x"
+                    ],
+                    "usefull_subpods": [
+                        "solve x^3 + x^2 + x = 3 for x"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "x = 1",
+                        "x = -1 - i sqrt(2)",
+                        "x = -1 + i sqrt(2)",
+                        "Solve for x:\nx^3 + x^2 + x = 3\nSubtract 3 from both sides:\nx^3 + x^2 + x - 3 = 0\nThe left hand side factors into a product with two terms:\n(x - 1) (x^2 + 2 x + 3) = 0\nSplit into two equations:\nx - 1 = 0 or x^2 + 2 x + 3 = 0\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 3 = 0\nSubtract 3 from both sides:\nx = 1 or x^2 + 2 x = -3\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 1 = -2\nWrite the left hand side as a square:\nx = 1 or (x + 1)^2 = -2\nTake the square root of both sides:\nx = 1 or x + 1 = i sqrt(2) or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nx = 1 or x = i sqrt(2) - 1 or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nAnswer: | \n | x = 1 or x = i sqrt(2) - 1 or x = -i sqrt(2) - 1"
+                    ],
+                    "usefull_subpods": [
+                        "Solve for x:\nx^3 + x^2 + x = 3\nSubtract 3 from both sides:\nx^3 + x^2 + x - 3 = 0\nThe left hand side factors into a product with two terms:\n(x - 1) (x^2 + 2 x + 3) = 0\nSplit into two equations:\nx - 1 = 0 or x^2 + 2 x + 3 = 0\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 3 = 0\nSubtract 3 from both sides:\nx = 1 or x^2 + 2 x = -3\nAdd 1 to both sides:\nx = 1 or x^2 + 2 x + 1 = -2\nWrite the left hand side as a square:\nx = 1 or (x + 1)^2 = -2\nTake the square root of both sides:\nx = 1 or x + 1 = i sqrt(2) or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nx = 1 or x = i sqrt(2) - 1 or x + 1 = -i sqrt(2)\nSubtract 1 from both sides:\nAnswer: | \n | x = 1 or x = i sqrt(2) - 1 or x = -i sqrt(2) - 1"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "-1"
+                    ],
+                    "usefull_subpods": [
+                        "-1"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "3"
+                    ],
+                    "usefull_subpods": [
+                        "3"
+                    ]
+                }
             ],
             "exception": null
         }
@@ -138,32 +270,67 @@
     {
         "question": "x^{2}-x=1",
         "result": {
-            "best_solution": [
-                "x = 1/2 (1 - sqrt(5))",
-                "x = 1/2 (1 + sqrt(5))",
-                "Solve for x:\nx^2 - x = 1\nAdd 1/4 to both sides:\nx^2 - x + 1/4 = 5/4\nWrite the left hand side as a square:\n(x - 1/2)^2 = 5/4\nTake the square root of both sides:\nx - 1/2 = sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nx = 1/2 + sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nAnswer: | \n | x = 1/2 + sqrt(5)/2 or x = 1/2 - sqrt(5)/2"
-            ],
-            "all_solutions": [
-                [
-                    "solve x^2 - x = 1 for x"
-                ],
-                [
+            "best_solution": {
+                "all_subpods": [
                     "x = 1/2 (1 - sqrt(5))",
                     "x = 1/2 (1 + sqrt(5))",
                     "Solve for x:\nx^2 - x = 1\nAdd 1/4 to both sides:\nx^2 - x + 1/4 = 5/4\nWrite the left hand side as a square:\n(x - 1/2)^2 = 5/4\nTake the square root of both sides:\nx - 1/2 = sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nx = 1/2 + sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nAnswer: | \n | x = 1/2 + sqrt(5)/2 or x = 1/2 - sqrt(5)/2"
                 ],
-                [
-                    ""
-                ],
-                [
-                    ""
-                ],
-                [
-                    "1"
-                ],
-                [
-                    "-1"
+                "usefull_subpods": [
+                    "Solve for x:\nx^2 - x = 1\nAdd 1/4 to both sides:\nx^2 - x + 1/4 = 5/4\nWrite the left hand side as a square:\n(x - 1/2)^2 = 5/4\nTake the square root of both sides:\nx - 1/2 = sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nx = 1/2 + sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nAnswer: | \n | x = 1/2 + sqrt(5)/2 or x = 1/2 - sqrt(5)/2"
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "solve x^2 - x = 1 for x"
+                    ],
+                    "usefull_subpods": [
+                        "solve x^2 - x = 1 for x"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "x = 1/2 (1 - sqrt(5))",
+                        "x = 1/2 (1 + sqrt(5))",
+                        "Solve for x:\nx^2 - x = 1\nAdd 1/4 to both sides:\nx^2 - x + 1/4 = 5/4\nWrite the left hand side as a square:\n(x - 1/2)^2 = 5/4\nTake the square root of both sides:\nx - 1/2 = sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nx = 1/2 + sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nAnswer: | \n | x = 1/2 + sqrt(5)/2 or x = 1/2 - sqrt(5)/2"
+                    ],
+                    "usefull_subpods": [
+                        "Solve for x:\nx^2 - x = 1\nAdd 1/4 to both sides:\nx^2 - x + 1/4 = 5/4\nWrite the left hand side as a square:\n(x - 1/2)^2 = 5/4\nTake the square root of both sides:\nx - 1/2 = sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nx = 1/2 + sqrt(5)/2 or x - 1/2 = -sqrt(5)/2\nAdd 1/2 to both sides:\nAnswer: | \n | x = 1/2 + sqrt(5)/2 or x = 1/2 - sqrt(5)/2"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "1"
+                    ],
+                    "usefull_subpods": [
+                        "1"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "-1"
+                    ],
+                    "usefull_subpods": [
+                        "-1"
+                    ]
+                }
             ],
             "exception": null
         }
@@ -171,18 +338,35 @@
     {
         "question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1",
         "result": {
-            "best_solution": [
-                "2<x<5",
-                "5<x<=6.49203"
-            ],
-            "all_solutions": [
-                [
-                    "solve log(0.1, (x - 5)^2) + log(0.1, x - 2)>=-1 for x"
+            "best_solution": {
+                "all_subpods": [
+                    "2<x<5",
+                    "5<x<=6.49203"
                 ],
-                [
+                "usefull_subpods": [
                     "2<x<5",
                     "5<x<=6.49203"
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "solve log(0.1, (x - 5)^2) + log(0.1, x - 2)>=-1 for x"
+                    ],
+                    "usefull_subpods": [
+                        "solve log(0.1, (x - 5)^2) + log(0.1, x - 2)>=-1 for x"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "2<x<5",
+                        "5<x<=6.49203"
+                    ],
+                    "usefull_subpods": [
+                        "2<x<5",
+                        "5<x<=6.49203"
+                    ]
+                }
             ],
             "exception": null
         }
@@ -214,24 +398,49 @@
     {
         "question": "2x + 3 = 0",
         "result": {
-            "best_solution": [
-                "x = -3/2",
-                "Solve for x:\n2 x + 3 = 0\nSubtract 3 from both sides:\n2 x + (3 - 3) = -3\n3 - 3 = 0:\n2 x = -3\nDivide both sides of 2 x = -3 by 2:\n(2 x)/2 = (-3)/2\n2/2 = 1:\nAnswer: | \n | x = (-3)/2"
-            ],
-            "all_solutions": [
-                [
-                    "solve 2 x + 3 = 0 for x"
-                ],
-                [
+            "best_solution": {
+                "all_subpods": [
                     "x = -3/2",
                     "Solve for x:\n2 x + 3 = 0\nSubtract 3 from both sides:\n2 x + (3 - 3) = -3\n3 - 3 = 0:\n2 x = -3\nDivide both sides of 2 x = -3 by 2:\n(2 x)/2 = (-3)/2\n2/2 = 1:\nAnswer: | \n | x = (-3)/2"
                 ],
-                [
-                    ""
-                ],
-                [
-                    ""
+                "usefull_subpods": [
+                    "Solve for x:\n2 x + 3 = 0\nSubtract 3 from both sides:\n2 x + (3 - 3) = -3\n3 - 3 = 0:\n2 x = -3\nDivide both sides of 2 x = -3 by 2:\n(2 x)/2 = (-3)/2\n2/2 = 1:\nAnswer: | \n | x = (-3)/2"
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "solve 2 x + 3 = 0 for x"
+                    ],
+                    "usefull_subpods": [
+                        "solve 2 x + 3 = 0 for x"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "x = -3/2",
+                        "Solve for x:\n2 x + 3 = 0\nSubtract 3 from both sides:\n2 x + (3 - 3) = -3\n3 - 3 = 0:\n2 x = -3\nDivide both sides of 2 x = -3 by 2:\n(2 x)/2 = (-3)/2\n2/2 = 1:\nAnswer: | \n | x = (-3)/2"
+                    ],
+                    "usefull_subpods": [
+                        "Solve for x:\n2 x + 3 = 0\nSubtract 3 from both sides:\n2 x + (3 - 3) = -3\n3 - 3 = 0:\n2 x = -3\nDivide both sides of 2 x = -3 by 2:\n(2 x)/2 = (-3)/2\n2/2 = 1:\nAnswer: | \n | x = (-3)/2"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                }
             ],
             "exception": null
         }
@@ -239,18 +448,85 @@
     {
         "question": "x^2 + 3x",
         "result": {
-            "best_solution": [
-                "",
-                ""
-            ],
-            "all_solutions": [
-                [
-                    "plot | x^2 + 3 x"
+            "best_solution": {
+                "all_subpods": [
+                    "",
+                    ""
                 ],
-                [
+                "usefull_subpods": [
                     "",
                     ""
                 ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "plot | x^2 + 3 x"
+                    ],
+                    "usefull_subpods": [
+                        "plot | x^2 + 3 x"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "",
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        "",
+                        ""
+                    ]
+                }
+            ],
+            "exception": null
+        }
+    },
+    {
+        "question": "3^x + 2^x = 13",
+        "result": {
+            "best_solution": {
+                "all_subpods": [
+                    "x = 2",
+                    "(step-by-step solution unavailable)"
+                ],
+                "usefull_subpods": [
+                    "x = 2"
+                ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "solve 3^x + 2^x = 13 for x"
+                    ],
+                    "usefull_subpods": [
+                        "solve 3^x + 2^x = 13 for x"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "x = 2",
+                        "(step-by-step solution unavailable)"
+                    ],
+                    "usefull_subpods": [
+                        "x = 2"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                }
             ],
             "exception": null
         }

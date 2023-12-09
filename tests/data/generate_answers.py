@@ -1,7 +1,7 @@
 import argparse
 import asyncio
 import json
-from dataclasses import asdict, fields
+from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
@@ -19,13 +19,15 @@ async def generate_answer(test: dict[str, Any]) -> TestResult:
 
     regenerate = force_regenerate
 
-    result = test.get('result') or {}
-    if list(result.keys()) != [field.name for field in fields(TestResult)]:
+    # validate previous result
+    try:
+        result = TestResult.from_dict(test['result'])
+    except (KeyError, TypeError):
         regenerate = True
 
     if not regenerate:
         print('skipping:', question)
-        return TestResult.from_dict(result)
+        return result
 
     print('generating for:', question)
     return await question_to_test_result(question)
