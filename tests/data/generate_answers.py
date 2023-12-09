@@ -1,26 +1,34 @@
 import argparse
 import asyncio
 import json
+from dataclasses import asdict, fields
 from pathlib import Path
 from typing import Any
 
 from helper.aiohttp_client import stop as stop_client
 from helper.main_handler import main_handler
-from tests.test_helper import question2pods
+from tests.test_helper import TestResult, question_to_test_result
 
 data_path = Path(__file__).parent
 
 force_regenerate: bool
 
 # only generates if there no answer yet
-async def generate_answer(test: dict[str, Any]) -> Any:
+async def generate_answer(test: dict[str, Any]) -> TestResult:
     question = test['question']
-    if 'answer' in test and not force_regenerate:
+
+    regenerate = force_regenerate
+
+    result = test.get('result') or {}
+    if list(result.keys()) != [field.name for field in fields(TestResult)]:
+        regenerate = True
+
+    if not regenerate:
         print('skipping:', question)
-        return test['answer']
+        return TestResult.from_dict(result)
 
     print('generating for:', question)
-    return await question2pods(question)
+    return await question_to_test_result(question)
 
 
 async def main() -> None:
@@ -29,11 +37,14 @@ async def main() -> None:
         tests = json.load(text_data)
 
     answers = await asyncio.gather(*[generate_answer(test) for test in tests])
+
+    new_tests = []
     for test, answer in zip(tests, answers, strict=True):
-        test['answer'] = answer
+        # generate only necessary fields
+        new_tests.append({'question': test['question'], 'result': asdict(answer)})
 
     with open(data_path / 'text.json', 'w') as text_data:  # noqa: ASYNC101
-        json.dump(tests, text_data, indent=4)
+        json.dump(new_tests, text_data, indent=4)
         text_data.write('\n')
 
 if __name__ == '__main__':

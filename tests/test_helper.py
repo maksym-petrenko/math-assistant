@@ -1,7 +1,32 @@
+from dataclasses import dataclass, field, fields
 from typing import Any
 
-from chatgpt.convert_to_mathematica import convert
-from wolfram.helper import Pod, get_pods
+import pytest
+
+from bot.solver import Response, solve
+from wolfram.helper import Pod
+
+
+@pytest.mark.skip()
+@dataclass(init=False)
+class TestResult:
+    best_solution: Pod | None = None
+    all_solutions: list[list[str]] = field(default_factory=list)
+    exception: str | None = None
+
+    def __init__(self, response: Response):
+        self.best_solution = serealize_pod(response.best_solution) if response.best_solution else None
+        self.all_solutions = serealize_pods(response.all_solutions)
+        self.exception = response.exception
+
+    @staticmethod
+    def from_dict(data: dict[str, Any]) -> 'TestResult':
+        response_placeholder = Response(original_question='')
+        obj = TestResult(response_placeholder)
+        for f in fields(obj):
+            name = f.name
+            setattr(obj, name, data[name])
+        return obj
 
 
 def serealize_subpod(subpod: Any) -> str:
@@ -12,17 +37,10 @@ def serealize_pod(pod: Pod) -> list[str]:
     return [serealize_subpod(subpod) for subpod in pod['subpods']]
 
 
-def serealize_pods(pods: list[Pod] | None) -> list[list[str]] | None:
-    if pods is None:
-        return None
-
+def serealize_pods(pods: list[Pod]) -> list[list[str]]:
     return [serealize_pod(pod) for pod in pods]
 
 
-async def question2pods(question: str) -> Any:
-    converted = await convert(question)
-    if converted is None:
-        return None
-
-    pods = await get_pods(converted, 'plaintext')
-    return serealize_pods(pods)
+async def question_to_test_result(question: str) -> TestResult:
+    result = await solve(question)
+    return TestResult(result)
