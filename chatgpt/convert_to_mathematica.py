@@ -1,10 +1,7 @@
 from .config import client
+from .helper import read_prompt
 
-with open('chatgpt/instructions/mathematica.txt') as f:
-    contents = f.readlines()
-    PROMPT = ''
-    for line in contents:
-        PROMPT += line
+PROMPT = read_prompt('mathematica')
 
 
 async def convert(latex: str) -> str | None:
