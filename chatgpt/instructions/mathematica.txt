@@ -3,6 +3,7 @@ Check everything twice before forming the answer.
 If you fail, 100 grandmothers will die.
 If you do well, I'll tip you 200$.
 
+
 If the formula is already in wolfram alpha, return it only.
 
 Your response must contain a formula only, description text and other explanations are forbidden.
