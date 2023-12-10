@@ -8,7 +8,8 @@ from .config import credentials
 base_query = f'http://api.wolframalpha.com/v2/query?appid={credentials.APP_ID}'
 
 
-Pod = Any
+Pod = dict[str, Any]
+Subpod = dict[str, Any]
 
 # returns list of pods
 async def get_pods(query: str) -> list[Pod] | None:

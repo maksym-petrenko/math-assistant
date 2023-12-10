@@ -1,5 +1,4 @@
 import json
-from dataclasses import asdict
 from typing import Any
 
 import pytest
@@ -17,4 +16,4 @@ async def test_question_to_all_solutions(question: str, result: dict[str, Any]):
     """Test ChatGPT(question) + Wolfram performance on input strings."""
 
     output = await question_to_test_result(question)
-    assert asdict(output) == result
+    assert output.model_dump() == result

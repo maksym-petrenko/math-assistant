@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from pydantic import BaseModel, Field
 
 from chatgpt.choose_the_best import choose
 from chatgpt.convert_to_mathematica import convert
@@ -7,11 +7,10 @@ from wolfram.helper import Pod, get_pods
 from .helper import generate_code
 
 
-@dataclass
-class Response:
+class Response(BaseModel):
     original_question: str
     best_solution: Pod | None = None
-    all_solutions: list[Pod] = field(default_factory=list)
+    all_solutions: list[Pod] = Field(default_factory=list)
     exception: str | None = None
     debug: str = ''
 

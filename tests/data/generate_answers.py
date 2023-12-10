@@ -1,9 +1,10 @@
 import argparse
 import asyncio
 import json
-from dataclasses import asdict
 from pathlib import Path
 from typing import Any
+
+from pydantic import ValidationError
 
 from helper.aiohttp_client import stop as stop_client
 from helper.main_handler import main_handler
@@ -21,8 +22,8 @@ async def generate_answer(test: dict[str, Any]) -> TestResult:
 
     # validate previous result
     try:
-        result = TestResult.from_dict(test['result'])
-    except (KeyError, TypeError):
+        result = TestResult.model_validate(test['result'])
+    except ValidationError:
         regenerate = True
 
     if not regenerate:
@@ -43,7 +44,7 @@ async def main() -> None:
     new_tests = []
     for test, answer in zip(tests, answers, strict=True):
         # generate only necessary fields
-        new_tests.append({'question': test['question'], 'result': asdict(answer)})
+        new_tests.append({'question': test['question'], 'result': answer.model_dump()})
 
     with open(data_path / 'text.json', 'w') as text_data:  # noqa: ASYNC101
         json.dump(new_tests, text_data, indent=4)
