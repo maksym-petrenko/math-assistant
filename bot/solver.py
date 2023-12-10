@@ -1,31 +1,50 @@
 from dataclasses import dataclass, field
 
+from chatgpt.choose_the_best import choose
 from chatgpt.convert_to_mathematica import convert
-from wolfram.helper import get_step_by_step_solution_image_only
+from wolfram.helper import Pod, get_pods
 
 from .helper import generate_code
 
 
 @dataclass
 class Response:
-    solution: list[str] = field(default_factory=list)
+    original_question: str
+    best_solution: Pod | None = None
+    all_solutions: list[Pod] = field(default_factory=list)
     exception: str | None = None
     debug: str = ''
 
+    async def calculate_the_best_answer(self) -> None:
+        if self.exception:
+            return
 
-async def solve(text: str) -> Response:
+        self.best_solution = await choose(self.original_question, self.all_solutions)
+
+    def set_exception(self, exception: str) -> 'Response':
+        self.exception = exception
+        return self
+
+
+async def get_all_solutions(text: str) -> Response:
+    response = Response(original_question=text)
+
     mathematica: str | None = await convert(text)
     if mathematica is None:
-        return Response(exception="Can't understand the problem, try to rephrase it")
+        return response.set_exception("Can't understand the problem, try to rephrase it")
+    response.debug = generate_code(mathematica, 'mathematica')
 
-    response = Response(debug=generate_code(mathematica, 'mathematica'))
+    pods = await get_pods(mathematica)
+    if pods is None:
+        return response.set_exception('Something went wrong')
+    if len(pods) == 0:
+        return response.set_exception("Can't solve this problem, try to rephrase it")
 
-    images = await get_step_by_step_solution_image_only(mathematica)
-    if images is None:
-        response.exception = 'Something went wrong'
-    elif len(images) == 0:
-        response.exception = "Can't solve this problem, try to rephrase it"
-    else:
-        response.solution = images
+    response.all_solutions = pods
+    return response
 
+
+async def solve(text: str) -> Response:
+    response = await get_all_solutions(text)
+    await response.calculate_the_best_answer()
     return response

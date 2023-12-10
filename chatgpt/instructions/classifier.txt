@@ -1,0 +1,59 @@
+Take a deep breath and calmly do the task.
+Check everything twice before forming the answer.
+If you fail, 100 grandmothers will die.
+If you do well, I'll tip you 200$.
+
+
+You will be given text. Your task is to classify whether it's a math expression/task or not.
+If not, please respond with word "None".
+
+For example, these can't be processed and are not even math formulas:
+
+```
+I'm here
+
+hehehe
+
+Help me with math please
+
+asgvoewiqbv1378bg
+
+What type of government is in Canada?
+```
+
+Otherwise, detect whether it's possible to solve or at least process this task with Wolfram or not.
+
+For example, these can be solved:
+
+```
+\sum_{n=1}^{\infty}\left(\cos \frac{1}{n} \sin \frac{1}{n}\right).
+
+\sum_{n=1}^{\infty}\left(\frac{1}{n+1}-\frac{1}{n}\right)
+
+2x + 3
+
+Draw me a function f(x)=\left\{\begin{array}{ll}\sin(x) & \text { if } x=0 \\ 2 x & \text { if } x \neq \cos(x)\end{array}\right
+
+cool\_function(t)=\left\{\begin{array}{ll}t^{2} & \text { if } t<0 \\ 2 t & \text { if } t \geq 0\end{array}\right.
+
+Please, solve this: x^{3}-12 x^{2}+19 x+8=0
+
+\log _{0,1}(x-5)^{2}+\log _{0,1}(x-2) \geqslant-1
+
+\operatorname{Rank}\left[\begin{array}{ccc}1 & 1 & 1 \\ 1 & 3 & -4 \\ 1 & 7 & 1 \\ 3 & 9 & 11\end{array}\right]
+
+Find k if \sum_{x=1}^{12} x^{k}=k
+```
+
+If the request is processable, respond with word "Wolfram".
+
+The last case is when the task is stated, but it can't be processed by Wolfram. In this case respond with word "GPT"
+
+Here's an example:
+```
+Prove that \sum_{n=1}^\infty \frac{1}{n^2} - converge using integrals.
+
+Is there a bijection between \mathbb{R} and \mathbb{R}^2?
+
+How to define integral on several segments?
+```

@@ -1,18 +1,60 @@
-from chatgpt.convert_to_mathematica import convert
-from wolfram.helper import get_step_by_step_solution
+from dataclasses import dataclass, field
+from typing import Any
+
+from bot.solver import Response, solve
+from wolfram.helper import Pod, extract_usefull_subpods
 
 
-def serealize_pods(pods: list | None) -> list[str] | None:
-    if pods is None:
-        return None
+@dataclass(init=False)
+class SerealizedPod:
+    all_subpods: list[str]
+    usefull_subpods: list[str]
 
-    return [pod['plaintext'] for pod in pods]
+    def __init__(self, pod: Pod):
+        self.all_subpods = serealize_subpods(pod['subpods'])
+        self.usefull_subpods = serealize_subpods(extract_usefull_subpods(pod))
+
+    @staticmethod
+    def from_dict(data: dict[str, Any]) -> 'SerealizedPod':
+        pod_placeholder: Pod = {'subpods': []}
+        obj = SerealizedPod(pod_placeholder)
+
+        obj.all_subpods = data['all_subpods']
+        obj.usefull_subpods = data['usefull_subpods']
+
+        return obj
+
+# FIXME: pytest is interpreting this class as a test
+@dataclass(init=False)
+class TestResult:
+    best_solution: SerealizedPod | None = None
+    all_solutions: list[SerealizedPod] = field(default_factory=list)
+    exception: str | None = None
+
+    def __init__(self, response: Response):
+        self.best_solution = SerealizedPod(response.best_solution) if response.best_solution else None
+        self.all_solutions = [SerealizedPod(pod) for pod in response.all_solutions]
+        self.exception = response.exception
+
+    @staticmethod
+    def from_dict(data: dict[str, Any]) -> 'TestResult':
+        response_placeholder = Response(original_question='')
+        obj = TestResult(response_placeholder)
+
+        obj.best_solution = SerealizedPod.from_dict(data['best_solution'])
+        obj.all_solutions = [SerealizedPod.from_dict(pod) for pod in data['all_solutions']]
+        obj.exception = data['exception']
+
+        return obj
 
 
-async def question2pods(question: str) -> list[str] | None:
-    converted = await convert(question)
-    if converted is None:
-        return None
+def serealize_subpod(subpod: Any) -> str:
+    return subpod['plaintext']
 
-    pods = await get_step_by_step_solution(converted, 'plaintext')
-    return serealize_pods(pods)
+def serealize_subpods(subpods: list[Any]) -> list[str]:
+    return [subpod['plaintext'] for subpod in subpods]
+
+
+async def question_to_test_result(question: str) -> TestResult:
+    result = await solve(question)
+    return TestResult(result)
