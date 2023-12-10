@@ -41,7 +41,8 @@ class TestResult:
         response_placeholder = Response(original_question='')
         obj = TestResult(response_placeholder)
 
-        obj.best_solution = SerealizedPod.from_dict(data['best_solution'])
+        if best_solution := data['best_solution']:
+            obj.best_solution = SerealizedPod.from_dict(best_solution)
         obj.all_solutions = [SerealizedPod.from_dict(pod) for pod in data['all_solutions']]
         obj.exception = data['exception']
 
