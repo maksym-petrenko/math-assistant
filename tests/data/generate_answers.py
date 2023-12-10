@@ -7,7 +7,7 @@ from typing import Any
 
 from helper.aiohttp_client import stop as stop_client
 from helper.main_handler import main_handler
-from tests.test_helper import TestResult, question_to_test_result
+from tests.runner import TestResult, question_to_test_result
 
 data_path = Path(__file__).parent
 

@@ -24,7 +24,7 @@ class SerealizedPod:
 
         return obj
 
-# FIXME: pytest is interpreting this class as a test
+
 @dataclass(init=False)
 class TestResult:
     best_solution: SerealizedPod | None = None

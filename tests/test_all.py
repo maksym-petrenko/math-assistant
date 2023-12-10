@@ -4,7 +4,7 @@ from typing import Any
 
 import pytest
 
-from tests.test_helper import question_to_test_result
+from tests.runner import question_to_test_result
 
 with open('tests/data/text.json') as data:
     tests: list = json.load(data)
