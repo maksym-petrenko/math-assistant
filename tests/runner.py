@@ -37,7 +37,7 @@ class TestResult(BaseModel):
 
     @model_validator(mode='before')
     @classmethod
-    def from_pod(cls, data: Any) -> Any:
+    def from_response(cls, data: Any) -> Any:
         if isinstance(data, Response):
             return {
                 'best_solution': data.best_solution,
