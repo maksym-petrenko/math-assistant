@@ -9,7 +9,6 @@ from .helper import generate_code
 
 @dataclass
 class Response:
-    response_type: str
     original_question: str
 
 
@@ -44,7 +43,6 @@ async def get_all_solutions(text: str) -> Response | None:
     if request_type == 'Wolfram':
 
         response = WolframResponse(
-            response_type='Wolfram',
             original_question=text,
         )
 
@@ -64,20 +62,18 @@ async def get_all_solutions(text: str) -> Response | None:
         return response
 
     response = TextResponse(
-        response_type='text',
         original_question=text,
     )
 
-    message = gpt(text, 'Classify', model='gpt-4') if request_type == 'GPT' else "Can't solve this"
-    print('Here', message)
+    message = await gpt(text, 'Solve', model='gpt-4') if request_type == 'GPT' else "Can't solve this"
+
     response.answer = message
 
     return response
 
 
-
 async def solve(text: str) -> Response:
     response = await get_all_solutions(text)
-    if response.response_type == 'Wolfram':
+    if isinstance(response, WolframResponse):
         await response.calculate_the_best_answer()
     return response
