@@ -1,9 +1,7 @@
 from dataclasses import dataclass, field
 
+from chatgpt.chat_api import gpt
 from chatgpt.choose_the_best import choose
-from chatgpt.classifier import classify
-from chatgpt.convert_to_mathematica import convert
-from chatgpt.solver import gpt_solve
 from wolfram.helper import Pod, get_pods
 
 from .helper import generate_code
@@ -11,7 +9,7 @@ from .helper import generate_code
 
 @dataclass
 class Response:
-    type: str
+    response_type: str
     original_question: str
 
 
@@ -40,16 +38,18 @@ class TextResponse(Response):
 
 async def get_all_solutions(text: str) -> Response | None:
 
-    request_type = await classify(text)
+    request_type = await gpt(text, 'Classify')
+    print(request_type)
 
     if request_type == 'Wolfram':
 
         response = WolframResponse(
-            type='Wolfram',
+            response_type='Wolfram',
             original_question=text,
         )
 
-        mathematica: str | None = await convert(text)
+        mathematica: str | None = await gpt(text, 'Wolfram')
+        print(mathematica)
         if mathematica is None:
             return response.set_exception("Can't understand the problem, try to rephrase it")
         response.debug = generate_code(mathematica, 'mathematica')
@@ -64,10 +64,12 @@ async def get_all_solutions(text: str) -> Response | None:
         return response
 
     response = TextResponse(
-        type='text',
+        response_type='text',
         original_question=text,
     )
-    message = gpt_solve(text) if request_type == 'GPT' else "Can't solve this"
+
+    message = gpt(text, 'Classify', model='gpt-4') if request_type == 'GPT' else "Can't solve this"
+    print('Here', message)
     response.answer = message
 
     return response
@@ -76,6 +78,6 @@ async def get_all_solutions(text: str) -> Response | None:
 
 async def solve(text: str) -> Response:
     response = await get_all_solutions(text)
-    if response.type == 'Wolfram':
+    if response.response_type == 'Wolfram':
         await response.calculate_the_best_answer()
     return response

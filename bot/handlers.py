@@ -28,7 +28,7 @@ async def download_images(pod: Pod) -> list[BytesIO]:
 
 
 async def respond_to_message(msg: events.NewMessage, response: Response) -> None:
-    if response.type == 'text':
+    if response.response_type == 'text':
         await msg.reply(response.answer)
         return
 
