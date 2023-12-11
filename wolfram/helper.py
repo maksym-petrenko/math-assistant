@@ -44,7 +44,7 @@ async def get_pods(query: str) -> list[Pod] | None:
     return [Pod.model_validate(pod) for pod in result['pods']]
 
 
-def extract_usefull_subpods(pod: Pod) -> list[Pod]:
+def extract_usefull_subpods(pod: Pod) -> list[Subpod]:
     subpods = pod.subpods
 
     # remove step-by-step if not available
