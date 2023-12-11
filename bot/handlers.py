@@ -19,7 +19,7 @@ def patch_query(url: str, **kwargs: str) -> str:
 
 
 def extract_image(subpod: Any) -> str:
-    return patch_query(subpod['img']['src'], MSPStoreType='image/jpg')
+    return patch_query(subpod.img['src'], MSPStoreType='image/jpg')
 
 
 async def download_images(pod: Pod) -> list[BytesIO]:

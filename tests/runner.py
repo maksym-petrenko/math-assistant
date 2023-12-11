@@ -3,11 +3,11 @@ from typing import Any
 from pydantic import BaseModel, model_validator
 
 from bot.solver import Response, solve
-from wolfram.helper import Subpod, extract_usefull_subpods
+from wolfram.helper import Pod, Subpod, extract_usefull_subpods
 
 
 def serealize_subpod(subpod: Subpod) -> str:
-    return subpod['plaintext']
+    return subpod.plaintext
 
 
 def serealize_subpods(subpods: list[Subpod]) -> list[str]:
@@ -21,10 +21,9 @@ class SerealizedPod(BaseModel):
     @model_validator(mode='before')
     @classmethod
     def from_pod(cls, data: Any) -> Any:
-        # FIXME: use type checking here
-        if 'subpods' in data:
+        if isinstance(data, Pod):
             return {
-                'all_subpods': serealize_subpods(data['subpods']),
+                'all_subpods': serealize_subpods(data.subpods),
                 'usefull_subpods': serealize_subpods(extract_usefull_subpods(data)),
             }
         return data
