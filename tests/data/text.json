@@ -530,5 +530,78 @@
             ],
             "exception": null
         }
+    },
+    {
+        "question": "draw me a quadratic function",
+        "result": {
+            "best_solution": {
+                "all_subpods": [
+                    ""
+                ],
+                "usefull_subpods": [
+                    ""
+                ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "plot | x^2 | x = -10 to 10"
+                    ],
+                    "usefull_subpods": [
+                        "plot | x^2 | x = -10 to 10"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "integral_(-10)^10 sqrt(1 + 4 x^2)dx = 1/2 (20 sqrt(401) + sinh^(-1)(20))\u2248202.09",
+                        "Calculate the arc length of the following curve from x = -10 to x = 10:\ny(x) = x^2\nApply the definition of arc length to y(x) = x^2 for -10<x<10:\ns = integral_(-10)^10 sqrt(1 + (d/dx(x^2))^2)dx\nCompute the derivative d/dx(x^2):\n = integral_(-10)^10 sqrt(1 + (2 x)^2)dx\nSimplify sqrt(1 + (2 x)^2):\n = integral_(-10)^10 sqrt(1 + 4 x^2)dx\nCompute the definite integral:\nAnswer: | \n | = 1/2 (20 sqrt(401) + sinh^(-1)(20))\u2248202.09"
+                    ],
+                    "usefull_subpods": [
+                        "Calculate the arc length of the following curve from x = -10 to x = 10:\ny(x) = x^2\nApply the definition of arc length to y(x) = x^2 for -10<x<10:\ns = integral_(-10)^10 sqrt(1 + (d/dx(x^2))^2)dx\nCompute the derivative d/dx(x^2):\n = integral_(-10)^10 sqrt(1 + (2 x)^2)dx\nSimplify sqrt(1 + (2 x)^2):\n = integral_(-10)^10 sqrt(1 + 4 x^2)dx\nCompute the definite integral:\nAnswer: | \n | = 1/2 (20 sqrt(401) + sinh^(-1)(20))\u2248202.09"
+                    ]
+                }
+            ],
+            "exception": null
+        }
+    },
+    {
+        "question": "Is 5 bigger than sqrt(29)?",
+        "result": {
+            "best_solution": {
+                "all_subpods": [
+                    "False"
+                ],
+                "usefull_subpods": [
+                    "False"
+                ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "sqrt(29)<5"
+                    ],
+                    "usefull_subpods": [
+                        "sqrt(29)<5"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "False"
+                    ],
+                    "usefull_subpods": [
+                        "False"
+                    ]
+                }
+            ],
+            "exception": null
+        }
     }
 ]
