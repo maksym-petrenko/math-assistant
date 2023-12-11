@@ -2,9 +2,9 @@ from pydantic import BaseModel, Field
 
 from chatgpt.choose_the_best import choose
 from chatgpt.convert_to_mathematica import convert
-from wolfram.helper import Pod, get_pods
+from wolfram.api import Pod, get_pods
 
-from .helper import generate_code
+from .markup_code import generate_code
 
 
 class Response(BaseModel):

@@ -3,7 +3,7 @@ from typing import Any
 from pydantic import BaseModel, model_validator
 
 from bot.solver import Response, solve
-from wolfram.helper import Pod, Subpod, extract_usefull_subpods
+from wolfram.api import Pod, Subpod, extract_usefull_subpods
 
 
 def serealize_subpod(subpod: Subpod) -> str:

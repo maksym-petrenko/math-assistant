@@ -6,7 +6,7 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from helper.aiohttp_client import stop as stop_client
+from helper.aiohttp_client import stop_client
 from helper.main_handler import main_handler
 from tests.runner import TestResult, question_to_test_result
 

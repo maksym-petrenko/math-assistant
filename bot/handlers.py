@@ -6,11 +6,11 @@ from telethon import events
 
 from helper.download import download
 from helper.flatten import make_flat
-from mathpix.helper import image_to_latex
-from wolfram.helper import Pod, extract_usefull_subpods
+from mathpix.api import image_to_latex
+from wolfram.api import Pod, extract_usefull_subpods
 
 from .config import bot
-from .helper import generate_code
+from .markup_code import generate_code
 from .solver import Response, solve
 
 
