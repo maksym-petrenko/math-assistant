@@ -10,14 +10,13 @@ from .helper import generate_code
 @dataclass
 class Response:
     original_question: str
+    exception: str | None = None
+    debug: str = ''
 
 
 class WolframResponse(Response):
-
     best_solution: Pod | None = None
     all_solutions: list[Pod] = field(default_factory=list)
-    exception: str | None = None
-    debug: str = ''
 
     async def calculate_the_best_answer(self) -> None:
         if self.exception:
@@ -30,8 +29,7 @@ class WolframResponse(Response):
         return self
 
 
-class TextResponse(Response):
-
+class GPTResponse(Response):
     answer: str
 
 
@@ -61,15 +59,21 @@ async def get_all_solutions(text: str) -> Response | None:
         response.all_solutions = pods
         return response
 
-    response = TextResponse(
+    if request_type == 'GPT':
+
+        response = GPTResponse(
+            original_question=text,
+        )
+
+        message = await gpt(text, 'Solve', model='gpt-4')
+        response.answer = message
+        return response
+
+    return Response(
         original_question=text,
+        exception="Can't solve this",
     )
 
-    message = await gpt(text, 'Solve', model='gpt-4') if request_type == 'GPT' else "Can't solve this"
-
-    response.answer = message
-
-    return response
 
 
 async def solve(text: str) -> Response:

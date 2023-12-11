@@ -11,7 +11,7 @@ from wolfram.helper import Pod, extract_usefull_subpods
 
 from .config import bot
 from .helper import generate_code
-from .solver import TextResponse, WolframResponse, solve
+from .solver import GPTResponse, Response, WolframResponse, solve
 
 
 def patch_query(url: str, **kwargs: str) -> str:
@@ -27,9 +27,13 @@ async def download_images(pod: Pod) -> list[BytesIO]:
     return [await download(extract_image(pod), 'solution.jpg') for pod in subpods]
 
 
-async def respond_to_message(msg: events.NewMessage, response: TextResponse | WolframResponse) -> None:
-    if isinstance(response, TextResponse):
+async def respond_to_message(msg: events.NewMessage, response: Response | GPTResponse | WolframResponse) -> None:
+    if isinstance(response, GPTResponse):
         await msg.reply(response.answer)
+        return
+
+    if not isinstance(response, WolframResponse):
+        await msg.reply(response.exception)
         return
 
     if response.debug:
@@ -47,10 +51,10 @@ async def respond_to_message(msg: events.NewMessage, response: TextResponse | Wo
     await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
 
 
-async def solve_image(image: bytes) -> TextResponse | WolframResponse:
+async def solve_image(image: bytes) -> Response | GPTResponse | WolframResponse:
     latex: str | None = await image_to_latex(image)
     if latex is None:
-        return TextResponse(original_question='', answer="Can't extract problem from the photo, try to send another one")
+        return Response(original_question='', exception="Can't extract problem from the photo, try to send another one")
 
     solution = await solve(latex)
     solution.debug = generate_code(latex, 'LaTeX') + '\n\n' + solution.debug
