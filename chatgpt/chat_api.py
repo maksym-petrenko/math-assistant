@@ -1,18 +1,18 @@
 from .config import client
 from .helper import read_prompt
 
+prompt2file = {
+    'Classify': read_prompt('classifier'),
+    'Wolfram': read_prompt('mathematica'),
+    'Solve': read_prompt('gpt_solver'),
+}
+
 
 async def gpt(message: str, request_type: str, model: str = 'gpt-3.5-turbo') -> str:
     """Interact with ChatGPT API."""
 
     #  transform the task type to filename with relevant prompt
-    prompt2file = {
-        'Classify': 'classifier',
-        'Wolfram': 'mathematica',
-        'Solve': 'gpt_solver',
-    }
-
-    prompt = read_prompt(prompt2file[request_type])
+    prompt = prompt2file[request_type]
 
     messages = [{'role': 'system', 'content': prompt}, {'role': 'user', 'content': message}]
 
