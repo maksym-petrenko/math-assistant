@@ -14,8 +14,8 @@ data_path = Path(__file__).parent
 
 force_regenerate: bool
 
-# only generates if there no answer yet
-async def generate_answer(test: dict[str, Any]) -> TestResult:
+# only generates if there no result yet
+async def update_result(test: dict[str, Any]) -> TestResult:
     question = test['question']
 
     regenerate = force_regenerate
@@ -39,12 +39,12 @@ async def main() -> None:
     with open(data_path / 'text.json') as text_data:  # noqa: ASYNC101
         tests = json.load(text_data)
 
-    answers = await asyncio.gather(*[generate_answer(test) for test in tests])
+    results = await asyncio.gather(*[update_result(test) for test in tests])
 
     new_tests = []
-    for test, answer in zip(tests, answers, strict=True):
+    for test, result in zip(tests, results, strict=True):
         # generate only necessary fields
-        new_tests.append({'question': test['question'], 'result': answer.model_dump()})
+        new_tests.append({'question': test['question'], 'result': result.model_dump()})
 
     with open(data_path / 'text.json', 'w') as text_data:  # noqa: ASYNC101
         json.dump(new_tests, text_data, indent=4)
