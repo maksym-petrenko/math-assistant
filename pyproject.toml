@@ -7,13 +7,12 @@ ignore = ["D", "INP001", "T20", "PLW0603", "FBT", "ANN101", "ANN102", "ANN204", 
 fixable = ["ALL"]
 unfixable = []
 
-# Same as Black.
 line-length = 150
 
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
-target-version = "py311"
+target-version = "py312"
 
 pylint.max-args = 8
 
