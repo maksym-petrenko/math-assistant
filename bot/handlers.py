@@ -53,14 +53,14 @@ async def solve_image(image: bytes) -> Response:
     return solution
 
 
-@bot.on(events.NewMessage(incoming=True, func=lambda event: event.photo is not None))
+@bot.on(events.NewMessage(incoming=True, func=lambda event: event.photo is not None))  # type: ignore[misc]
 async def solve_image_handler(msg: events.NewMessage) -> None:
     image = await msg.download_media(bytes)
     solution = await solve_image(image)
     await respond_to_message(msg, solution)
 
 
-@bot.on(events.NewMessage(incoming=True, func=lambda event: event.raw_text != ''))
+@bot.on(events.NewMessage(incoming=True, func=lambda event: event.raw_text != ''))  # type: ignore[misc]
 async def solve_text_handler(msg: events.NewMessage) -> None:
     solution = await solve(msg.raw_text)
     await respond_to_message(msg, solution)

@@ -27,4 +27,4 @@ async def image_to_latex(image: bytes) -> str | None:
     )
 
     async with request as response:
-        return (await response.json())['text']
+        return (await response.json())['text']  # type: ignore[no-any-return]
