@@ -1,4 +1,4 @@
-from wolfram.helper import Pod
+from wolfram.api import Pod
 
 from .config import client
 from .helper import read_prompt
