@@ -1,3 +1,5 @@
+from typing import Literal
+
 from .config import SEED, client
 from .helper import read_prompt
 
@@ -8,11 +10,12 @@ prompt2file = {
 }
 
 
-async def gpt(message: str, request_type: str, model: str = 'gpt-3.5-turbo') -> str | None:
+async def gpt(message: str, request_type: Literal['Classify', 'Solve', 'Wolfram']) -> str | None:
     """Interact with ChatGPT API."""
 
     #  transform the task type to filename with relevant prompt
     prompt = prompt2file[request_type]
+    model = 'gpt-4' if request_type == 'Solve' else 'gpt-3.5-turbo'
 
     messages = [{'role': 'system', 'content': prompt}, {'role': 'user', 'content': message}]
 

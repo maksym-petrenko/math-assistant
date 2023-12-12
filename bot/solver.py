@@ -62,7 +62,7 @@ async def get_all_solutions(text: str) -> Response | GPTResponse | WolframRespon
     if request_type == 'GPT':
         gpt_response = GPTResponse(original_question=text)
 
-        message = await gpt(text, 'Solve', model='gpt-4')
+        message = await gpt(text, 'Solve')
 
         if message is None:
             message = "Can't solve this, try to rephrase it."
