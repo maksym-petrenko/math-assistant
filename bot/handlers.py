@@ -27,34 +27,52 @@ async def download_images(pod: Pod) -> list[BytesIO]:
     return [await download(extract_image(pod), 'solution.jpg') for pod in subpods]
 
 
-async def respond_to_message(msg: events.NewMessage, response: Response | GPTResponse | WolframResponse) -> None:
-    if isinstance(response, GPTResponse):
-        await msg.reply(response.answer)
-        return
+async def respond_to_message(msg: events.NewMessage, response: Response) -> None:
+    match response:
+        case WolframResponse():
 
-    if not isinstance(response, WolframResponse):
-        await msg.reply(response.exception)
-        return
+            if response.debug:
+                await msg.reply(response.debug)
 
-    if response.debug:
-        await msg.reply(response.debug)
+            if response.exception:
+                await msg.reply(response.exception)
+                return
 
-    if response.exception:
-        await msg.reply(response.exception)
-        return
+            if response.best_solution:
+                await msg.reply(
+                    'The best answer',
+                    file=await download_images(response.best_solution),
+                    force_document=True,
+                )
+            else:
+                await msg.reply('No best answer :(')
 
-    if response.best_solution:
-        await msg.reply('The best answer', file=await download_images(response.best_solution), force_document=True)
-    else:
-        await msg.reply('No best answer :(')
+            await msg.reply(
+                'All answers',
+                file=make_flat([await download_images(pod) for pod in response.all_solutions]),
+                force_document=True,
+            )
 
-    await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
+        case GPTResponse():
+            await msg.reply(response.answer)
+            return
+
+        case Response():
+            await msg.reply(response.exception)
+            return
+
+        case _:
+            await msg.reply('Internal error occurred.')
+            return
 
 
-async def solve_image(image: bytes) -> Response | GPTResponse | WolframResponse:
+async def solve_image(image: bytes) -> Response:
     latex: str | None = await image_to_latex(image)
     if latex is None:
-        return Response(original_question='', exception="Can't extract problem from the photo, try to send another one")
+        return Response(
+            original_question='',
+            exception="Can't extract problem from the photo, try to send another one",
+        )
 
     solution = await solve(latex)
     solution.debug = generate_code(latex, 'LaTeX') + '\n\n' + solution.debug
