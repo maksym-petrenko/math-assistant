@@ -30,7 +30,6 @@ async def download_images(pod: Pod) -> list[BytesIO]:
 async def respond_to_message(msg: events.NewMessage, response: Response) -> None:
     match response:
         case WolframResponse():
-
             if response.debug:
                 await msg.reply(response.debug)
 
