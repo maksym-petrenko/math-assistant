@@ -66,7 +66,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -98,7 +99,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -162,7 +164,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -194,7 +197,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -264,7 +268,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -332,7 +337,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -368,31 +374,35 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "Help me with some math, pls",
         "result": {
             "best_solution": null,
-            "all_solutions": [],
-            "exception": "Can't understand the problem, try to rephrase it"
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
         }
     },
     {
         "question": "Generate random problem and solve it",
         "result": {
             "best_solution": null,
-            "all_solutions": [],
-            "exception": "Can't understand the problem, try to rephrase it"
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
         }
     },
     {
         "question": "Formulate a problem",
         "result": {
             "best_solution": null,
-            "all_solutions": [],
-            "exception": "Can't understand the problem, try to rephrase it"
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
         }
     },
     {
@@ -442,7 +452,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -478,7 +489,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -528,7 +540,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -569,7 +582,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
@@ -601,7 +615,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     }
 ]
