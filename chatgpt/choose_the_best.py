@@ -1,6 +1,6 @@
 from wolfram.api import Pod
 
-from .config import client
+from .config import SEED, client
 from .helper import read_prompt
 
 PROMPT = read_prompt('choose_pod')
@@ -23,6 +23,7 @@ async def choose(question: str, pods: list[Pod]) -> Pod | None:
     response = await client.chat.completions.create(
         model='gpt-3.5-turbo',
         messages=messages,  # type: ignore[arg-type]
+        seed=SEED,
         temperature=0,
     )
 
