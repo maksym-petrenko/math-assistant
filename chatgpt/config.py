@@ -7,5 +7,6 @@ class OpenAICredentials(BaseSettings):
 
     API_KEY: str
 
+
 credentials = OpenAICredentials()
 client = AsyncOpenAI(api_key=credentials.API_KEY)

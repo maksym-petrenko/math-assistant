@@ -1,28 +1,29 @@
 import argparse
 import asyncio
 import json
-from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
-from helper.aiohttp_client import stop as stop_client
+from pydantic import ValidationError
+
+from helper.aiohttp_client import stop_client
 from helper.main_handler import main_handler
-from tests.test_helper import TestResult, question_to_test_result
+from tests.runner import TestResult, question_to_test_result
 
 data_path = Path(__file__).parent
 
 force_regenerate: bool
 
-# only generates if there no answer yet
-async def generate_answer(test: dict[str, Any]) -> TestResult:
+# only generates if there no result yet
+async def update_result(test: dict[str, Any]) -> TestResult:
     question = test['question']
 
     regenerate = force_regenerate
 
     # validate previous result
     try:
-        result = TestResult.from_dict(test['result'])
-    except (KeyError, TypeError):
+        result = TestResult.model_validate(test['result'])
+    except ValidationError:
         regenerate = True
 
     if not regenerate:
@@ -38,12 +39,12 @@ async def main() -> None:
     with open(data_path / 'text.json') as text_data:  # noqa: ASYNC101
         tests = json.load(text_data)
 
-    answers = await asyncio.gather(*[generate_answer(test) for test in tests])
+    results = await asyncio.gather(*[update_result(test) for test in tests])
 
     new_tests = []
-    for test, answer in zip(tests, answers, strict=True):
+    for test, result in zip(tests, results, strict=True):
         # generate only necessary fields
-        new_tests.append({'question': test['question'], 'result': asdict(answer)})
+        new_tests.append({'question': test['question'], 'result': result.model_dump()})
 
     with open(data_path / 'text.json', 'w') as text_data:  # noqa: ASYNC101
         json.dump(new_tests, text_data, indent=4)

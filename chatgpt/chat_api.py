@@ -25,4 +25,4 @@ async def gpt(message: str, request_type: str, model: str = 'gpt-3.5-turbo') -> 
     answer = response.choices[0].message.content
     print(f'message {answer}')
 
-    return answer
+    return str(answer)

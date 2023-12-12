@@ -10,7 +10,7 @@ async def get_client() -> aiohttp.ClientSession:
     return _client
 
 
-async def stop() -> None:
+async def stop_client() -> None:
     global _client
     if _client is not None:
         await _client.close()

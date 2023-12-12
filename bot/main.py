@@ -1,4 +1,4 @@
-from helper.aiohttp_client import stop as stop_aiohttp
+from helper.aiohttp_client import stop_client
 from helper.main_handler import main_handler
 
 from . import handlers  # noqa: F401
@@ -10,7 +10,7 @@ async def main() -> None:
     await run()
 
 async def close() -> None:
-    await stop_aiohttp()
+    await stop_client()
 
 if __name__ == '__main__':
     main_handler(main, None, close)

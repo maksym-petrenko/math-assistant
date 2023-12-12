@@ -13,4 +13,13 @@ repos:
     rev: v0.0.284
     hooks:
     -   id: ruff
-        args: [ --fix, --exit-non-zero-on-fix ]
+        args: [--fix, --exit-non-zero-on-fix]
+
+-   repo: local
+    hooks:
+    -   id: mypy
+        name: mypy
+        language: system
+        entry: mypy --strict -p bot -p tests
+        pass_filenames: false
+        always_run: true

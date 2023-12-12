@@ -1,14 +1,13 @@
-from dataclasses import dataclass, field
+from pydantic import BaseModel, Field
 
 from chatgpt.chat_api import gpt
 from chatgpt.choose_the_best import choose
-from wolfram.helper import Pod, get_pods
+from wolfram.api import Pod, get_pods
 
-from .helper import generate_code
+from .markup_code import generate_code
 
 
-@dataclass
-class Response:
+class Response(BaseModel):
     original_question: str
     exception: str | None = None
     debug: str = ''
@@ -16,7 +15,9 @@ class Response:
 
 class WolframResponse(Response):
     best_solution: Pod | None = None
-    all_solutions: list[Pod] = field(default_factory=list)
+    exception: str | None = None
+    debug: str = ''
+    all_solutions: list[Pod] = Field(default_factory=list)
 
     async def calculate_the_best_answer(self) -> None:
         if self.exception:
@@ -30,44 +31,42 @@ class WolframResponse(Response):
 
 
 class GPTResponse(Response):
-    answer: str
+    answer: str = ''
 
 
-async def get_all_solutions(text: str) -> Response | None:
-
+async def get_all_solutions(text: str) -> Response | GPTResponse | WolframResponse:
     request_type = await gpt(text, 'Classify')
     print(request_type)
 
     if request_type == 'Wolfram':
 
-        response = WolframResponse(
+        wolfram_response = WolframResponse(
             original_question=text,
         )
 
         mathematica: str | None = await gpt(text, 'Wolfram')
         print(mathematica)
         if mathematica is None:
-            return response.set_exception("Can't understand the problem, try to rephrase it")
-        response.debug = generate_code(mathematica, 'mathematica')
+            return wolfram_response.set_exception("Can't understand the problem, try to rephrase it")
+        wolfram_response.debug = generate_code(mathematica, 'mathematica')
 
         pods = await get_pods(mathematica)
         if pods is None:
-            return response.set_exception('Something went wrong')
+            return wolfram_response.set_exception('Something went wrong')
         if len(pods) == 0:
-            return response.set_exception("Can't solve this problem, try to rephrase it")
+            return wolfram_response.set_exception("Can't solve this problem, try to rephrase it")
 
-        response.all_solutions = pods
-        return response
+        wolfram_response.all_solutions = pods
+        return wolfram_response
 
     if request_type == 'GPT':
-
-        response = GPTResponse(
+        gpt_response = GPTResponse(
             original_question=text,
         )
 
         message = await gpt(text, 'Solve', model='gpt-4')
-        response.answer = message
-        return response
+        gpt_response.answer = message
+        return gpt_response
 
     return Response(
         original_question=text,
@@ -75,8 +74,7 @@ async def get_all_solutions(text: str) -> Response | None:
     )
 
 
-
-async def solve(text: str) -> Response:
+async def solve(text: str) -> Response | GPTResponse | WolframResponse:
     response = await get_all_solutions(text)
     if isinstance(response, WolframResponse):
         await response.calculate_the_best_answer()

@@ -6,11 +6,11 @@ from telethon import events
 
 from helper.download import download
 from helper.flatten import make_flat
-from mathpix.helper import image_to_latex
-from wolfram.helper import Pod, extract_usefull_subpods
+from mathpix.api import image_to_latex
+from wolfram.api import Pod, extract_usefull_subpods
 
 from .config import bot
-from .helper import generate_code
+from .markup_code import generate_code
 from .solver import GPTResponse, Response, WolframResponse, solve
 
 
@@ -19,7 +19,7 @@ def patch_query(url: str, **kwargs: str) -> str:
 
 
 def extract_image(subpod: Any) -> str:
-    return patch_query(subpod['img']['src'], MSPStoreType='image/jpg')
+    return patch_query(subpod.img['src'], MSPStoreType='image/jpg')
 
 
 async def download_images(pod: Pod) -> list[BytesIO]:
@@ -61,14 +61,14 @@ async def solve_image(image: bytes) -> Response | GPTResponse | WolframResponse:
     return solution
 
 
-@bot.on(events.NewMessage(incoming=True, func=lambda event: event.photo is not None))
+@bot.on(events.NewMessage(incoming=True, func=lambda event: event.photo is not None))  # type: ignore[misc]
 async def solve_image_handler(msg: events.NewMessage) -> None:
     image = await msg.download_media(bytes)
     solution = await solve_image(image)
     await respond_to_message(msg, solution)
 
 
-@bot.on(events.NewMessage(incoming=True, func=lambda event: event.raw_text != ''))
+@bot.on(events.NewMessage(incoming=True, func=lambda event: event.raw_text != ''))  # type: ignore[misc]
 async def solve_text_handler(msg: events.NewMessage) -> None:
     solution = await solve(msg.raw_text)
     await respond_to_message(msg, solution)
