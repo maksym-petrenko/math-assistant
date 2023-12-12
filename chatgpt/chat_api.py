@@ -8,7 +8,7 @@ prompt2file = {
 }
 
 
-async def gpt(message: str, request_type: str, model: str = 'gpt-3.5-turbo') -> str:
+async def gpt(message: str, request_type: str, model: str = 'gpt-3.5-turbo') -> str | None:
     """Interact with ChatGPT API."""
 
     #  transform the task type to filename with relevant prompt
@@ -21,9 +21,10 @@ async def gpt(message: str, request_type: str, model: str = 'gpt-3.5-turbo') -> 
         messages=messages,  # type: ignore[arg-type]
         seed=SEED,
         temperature=0,
+        top_p=0,
     )
 
     answer = response.choices[0].message.content
     print(f'message {answer}')
 
-    return str(answer)
+    return answer

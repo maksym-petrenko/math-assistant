@@ -12,6 +12,10 @@ class Response(BaseModel):
     exception: str | None = None
     debug: str = ''
 
+    def set_exception(self, exception: str) -> 'Response':
+        self.exception = exception
+        return self
+
 
 class WolframResponse(Response):
     best_solution: Pod | None = None
@@ -24,10 +28,6 @@ class WolframResponse(Response):
             return
 
         self.best_solution = await choose(self.original_question, self.all_solutions)
-
-    def set_exception(self, exception: str) -> 'Response':
-        self.exception = exception
-        return self
 
 
 class GPTResponse(Response):
@@ -60,12 +60,15 @@ async def get_all_solutions(text: str) -> Response | GPTResponse | WolframRespon
         return wolfram_response
 
     if request_type == 'GPT':
-        gpt_response = GPTResponse(
-            original_question=text,
-        )
+        gpt_response = GPTResponse(original_question=text)
 
         message = await gpt(text, 'Solve', model='gpt-4')
+
+        if message is None:
+            message = "Can't solve this, try to rephrase it."
+
         gpt_response.answer = message
+
         return gpt_response
 
     return Response(
@@ -74,7 +77,7 @@ async def get_all_solutions(text: str) -> Response | GPTResponse | WolframRespon
     )
 
 
-async def solve(text: str) -> Response | GPTResponse | WolframResponse:
+async def solve(text: str) -> Response:
     response = await get_all_solutions(text)
     if isinstance(response, WolframResponse):
         await response.calculate_the_best_answer()

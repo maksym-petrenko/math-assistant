@@ -2,6 +2,7 @@
     {
         "question": "16 x^{3}-18 x^{2}+4 x-21=0",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = 1/48 (18 + (73224 - 96 sqrt(581538))^(1/3) + 2 (3 (3051 + 4 sqrt(581538)))^(1/3))",
@@ -73,6 +74,7 @@
     {
         "question": "\\sum_{x=1}^{20} x^{k}=k",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
@@ -106,6 +108,7 @@
     {
         "question": "\\operatorname{Rank}\\left[\\begin{array}{ccc}1 & 2 & 3 \\\\ 2 & 1 & -2 \\\\ 4 & 5 & 4 \\\\ 1 & 3 & 4\\end{array}\\right]",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "3",
@@ -171,6 +174,7 @@
     {
         "question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082"
@@ -204,6 +208,7 @@
     {
         "question": "x^3 + x^2 + x = 3",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = 1",
@@ -275,6 +280,7 @@
     {
         "question": "x^{2}-x=1",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = 1/2 (1 - sqrt(5))",
@@ -344,6 +350,7 @@
     {
         "question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "2<x<5",
@@ -381,6 +388,7 @@
     {
         "question": "Help me with some math, pls",
         "result": {
+            "type": "Error",
             "best_solution": null,
             "all_solutions": null,
             "exception": "Can't solve this",
@@ -390,6 +398,7 @@
     {
         "question": "Generate random problem and solve it",
         "result": {
+            "type": "Error",
             "best_solution": null,
             "all_solutions": null,
             "exception": "Can't solve this",
@@ -399,6 +408,7 @@
     {
         "question": "Formulate a problem",
         "result": {
+            "type": "Error",
             "best_solution": null,
             "all_solutions": null,
             "exception": "Can't solve this",
@@ -408,6 +418,7 @@
     {
         "question": "2x + 3 = 0",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = -3/2",
@@ -459,6 +470,7 @@
     {
         "question": "x^2 + 3x",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "",
@@ -496,6 +508,7 @@
     {
         "question": "3^x + 2^x = 13",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = 2",
@@ -547,6 +560,7 @@
     {
         "question": "draw me a quadratic function",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     ""
@@ -589,6 +603,7 @@
     {
         "question": "Is 5 bigger than sqrt(29)?",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "False"
@@ -622,6 +637,7 @@
     {
         "question": "Prove that the Earth is flat",
         "result": {
+            "type": "Error",
             "best_solution": null,
             "all_solutions": null,
             "exception": "Can't solve this",
@@ -631,15 +647,17 @@
     {
         "question": "Prove that there are infinitely many prime integers",
         "result": {
+            "type": "GPT",
             "best_solution": null,
             "all_solutions": null,
             "exception": null,
-            "answer": "The proof that there are infinitely many prime numbers is a classic one, and it's often attributed to the ancient Greek mathematician Euclid.\n\nHere's how it goes:\n\n1. Assume to the contrary that there are only finitely many prime numbers. Let's list them as $p_1, p_2, ..., p_n$.\n\n2. Now, consider the number $P = p_1 \\cdot p_2 \\cdot ... \\cdot p_n + 1$. This number $P$ is larger than any of our assumed finite list of primes.\n\n3. Now, $P$ is either prime or it is not.\n\n4. If $P$ is prime, then $P$ is a prime number that was not in our original list, which contradicts our assumption that $p_1, p_2, ..., p_n$ were all the primes.\n\n5. If $P$ is not prime, then it has a prime divisor. But, $P$ leaves a remainder of 1 when divided by any of the primes $p_1, p_2, ..., p_n$. Therefore, none of these can be a divisor of $P$. So, this prime divisor of $P$ is a prime that was not in our original list, which again contradicts our assumption that $p_1, p_2, ..., p_n$ were all the primes.\n\n6. In either case, we obtain a contradiction. Therefore, our original assumption that there were only finitely many primes is false. Hence, there must be infinitely many prime numbers.\n\nThis is a proof by contradiction, and it's a common technique in mathematics. The idea is to assume the opposite of what you're trying to prove, and then show that this assumption leads to a contradiction. This means that the assumption must be false, and therefore the original statement is true."
+            "answer": null
         }
     },
     {
         "question": "Find the least likely coin toss sequence to occur considering that coin isn't fair",
         "result": {
+            "type": "Error",
             "best_solution": null,
             "all_solutions": null,
             "exception": "Can't solve this",
@@ -649,6 +667,7 @@
     {
         "question": "Tell me a joke",
         "result": {
+            "type": "Error",
             "best_solution": null,
             "all_solutions": null,
             "exception": "Can't solve this",
@@ -658,6 +677,7 @@
     {
         "question": "Find the derivative of exponent",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "d/dx(e^x) = e^x",

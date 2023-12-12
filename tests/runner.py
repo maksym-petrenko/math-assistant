@@ -30,6 +30,7 @@ class SerealizedPod(BaseModel):
 
 
 class TestResult(BaseModel):
+    type: str
     best_solution: SerealizedPod | None = None
     all_solutions: list[SerealizedPod] | None = None
     exception: str | None = None
@@ -41,16 +42,18 @@ class TestResult(BaseModel):
         match data:
             case WolframResponse():
                 return {
+                    'type': 'Wolfram',
                     'best_solution': data.best_solution,
                     'all_solutions': data.all_solutions,
                     'exception': data.exception,
                 }
             case GPTResponse():
                 return {
-                    'answer': data.answer,
+                    'type': 'GPT',
                 }
             case Response():
                 return {
+                    'type': 'Error',
                     'exception': data.exception,
                 }
             case _:
