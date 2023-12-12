@@ -11,6 +11,7 @@ async def convert(latex: str) -> str | None:
     response = await client.chat.completions.create(
         model='gpt-3.5-turbo',
         messages=messages,  # type: ignore[arg-type]
+        seed=1488,
         temperature=0,
     )
 
