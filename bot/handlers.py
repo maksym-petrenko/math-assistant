@@ -46,11 +46,7 @@ async def respond_to_message(msg: events.NewMessage, response: Response) -> None
             else:
                 await msg.reply('No best answer :(')
 
-            await msg.reply(
-                'All answers',
-                file=make_flat([await download_images(pod) for pod in response.all_solutions]),
-                force_document=True,
-            )
+            await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
 
         case GPTResponse():
             await msg.reply(response.answer)
@@ -68,10 +64,7 @@ async def respond_to_message(msg: events.NewMessage, response: Response) -> None
 async def solve_image(image: bytes) -> Response:
     latex: str | None = await image_to_latex(image)
     if latex is None:
-        return Response(
-            original_question='',
-            exception="Can't extract problem from the photo, try to send another one",
-        )
+        return Response(original_question='', exception="Can't extract problem from the photo, try to send another one")
 
     solution = await solve(latex)
     solution.debug = generate_code(latex, 'LaTeX') + '\n\n' + solution.debug

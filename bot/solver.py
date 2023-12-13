@@ -34,7 +34,7 @@ class GPTResponse(Response):
     answer: str = ''
 
 
-async def get_all_solutions(text: str) -> Response | GPTResponse | WolframResponse:
+async def solve(text: str) -> Response | GPTResponse | WolframResponse:
     request_type = await gpt(text, 'Classify')
     print(request_type)
 
@@ -57,6 +57,8 @@ async def get_all_solutions(text: str) -> Response | GPTResponse | WolframRespon
             return wolfram_response.set_exception("Can't solve this problem, try to rephrase it")
 
         wolfram_response.all_solutions = pods
+        await wolfram_response.calculate_the_best_answer()
+
         return wolfram_response
 
     if request_type == 'GPT':
@@ -75,10 +77,3 @@ async def get_all_solutions(text: str) -> Response | GPTResponse | WolframRespon
         original_question=text,
         exception="Can't solve this",
     )
-
-
-async def solve(text: str) -> Response:
-    response = await get_all_solutions(text)
-    if isinstance(response, WolframResponse):
-        await response.calculate_the_best_answer()
-    return response
