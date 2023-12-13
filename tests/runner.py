@@ -31,10 +31,10 @@ class SerealizedPod(BaseModel):
 
 class TestResult(BaseModel):
     type: str
-    best_solution: SerealizedPod | None = None
-    all_solutions: list[SerealizedPod] | None = None
-    exception: str | None = None
-    answer: str | None = None
+    best_solution: SerealizedPod | None
+    all_solutions: list[SerealizedPod] | None
+    exception: str | None
+    answer: str | None
 
     @model_validator(mode='before')
     @classmethod
@@ -46,15 +46,23 @@ class TestResult(BaseModel):
                     'best_solution': data.best_solution,
                     'all_solutions': data.all_solutions,
                     'exception': data.exception,
+                    'answer': None,
                 }
             case GPTResponse():
                 return {
                     'type': 'GPT',
+                    'best_solution': None,
+                    'all_solutions': None,
+                    'exception': None,
+                    'answer': None,
                 }
             case Response():
                 return {
                     'type': 'Error',
+                    'best_solution': None,
+                    'all_solutions': None,
                     'exception': data.exception,
+                    'answer': None,
                 }
             case _:
                 print('internal error occurred')
