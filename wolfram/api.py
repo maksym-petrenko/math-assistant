@@ -30,7 +30,7 @@ async def get_pods(query: str) -> list[Pod] | None:
     url = f'{base_query}&input={query}&output=json&{pod_data}'
 
     client = await get_client()
-    async with client.get(url, timeout=5) as response:
+    async with client.get(url, timeout=15) as response:
         if not response.ok:
             print('Error fetching response from Wolfram Alpha')
             return None
