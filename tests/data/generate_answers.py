@@ -22,7 +22,7 @@ async def update_result(test: dict[str, Any]) -> TestResult:
 
     # validate previous result
     try:
-        result = TestResult.model_validate(test['result'])
+        result = TestResult.model_validate(test.get('result', None), strict=True)
     except ValidationError:
         regenerate = True
 
