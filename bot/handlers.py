@@ -28,15 +28,19 @@ async def download_images(pod: Pod) -> list[BytesIO]:
 
 
 async def respond_to_message(msg: events.NewMessage, response: Response) -> None:
+    if not isinstance(response, Response):
+        await msg.reply('Internal error occurred.')
+        return
+
+    if response.debug:
+        await msg.reply(response.debug)
+
+    if response.exception:
+        await msg.reply(response.exception)
+        return
+
     match response:
         case WolframResponse():
-            if response.debug:
-                await msg.reply(response.debug)
-
-            if response.exception:
-                await msg.reply(response.exception)
-                return
-
             if response.best_solution:
                 await msg.reply(
                     'The best answer',
@@ -47,6 +51,7 @@ async def respond_to_message(msg: events.NewMessage, response: Response) -> None
                 await msg.reply('No best answer :(')
 
             await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
+            return
 
         case GPTResponse():
             await msg.reply(response.answer)
@@ -54,10 +59,6 @@ async def respond_to_message(msg: events.NewMessage, response: Response) -> None
 
         case Response():
             await msg.reply(response.exception)
-            return
-
-        case _:
-            await msg.reply('Internal error occurred.')
             return
 
 
