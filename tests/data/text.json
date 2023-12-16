@@ -107,10 +107,10 @@
             "best_solution": {
                 "all_subpods": [
                     "3",
-                    "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
+                    "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2 \u00d7 (row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4 \u00d7 (row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3 \u00d7 (row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3 \u00d7 (row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
                 ],
                 "usefull_subpods": [
-                    "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
+                    "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2 \u00d7 (row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4 \u00d7 (row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3 \u00d7 (row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3 \u00d7 (row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
                 ]
             },
             "all_solutions": [
@@ -125,10 +125,10 @@
                 {
                     "all_subpods": [
                         "3",
-                        "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
+                        "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2 \u00d7 (row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4 \u00d7 (row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3 \u00d7 (row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3 \u00d7 (row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
                     ],
                     "usefull_subpods": [
-                        "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2\u00d7(row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4\u00d7(row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3\u00d7(row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
+                        "Find the rank of the matrix:\nM = (1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nReduce matrix M to row echelon form:\n(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 2 \u00d7 (row 1) from row 2:\n(1 | 2 | 3\n0 | -3 | -8\n4 | 5 | 4\n1 | 3 | 4)\nSubtract 4 \u00d7 (row 1) from row 3:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n1 | 3 | 4)\nSubtract row 1 from row 4:\n(1 | 2 | 3\n0 | -3 | -8\n0 | -3 | -8\n0 | 1 | 1)\nSwap row 2 with row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | -3 | -8\n0 | -3 | -8)\nAdd 3 \u00d7 (row 2) to row 3:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | -3 | -8)\nAdd 3 \u00d7 (row 2) to row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | -5)\nSubtract row 3 from row 4:\n(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0)\nThere are 3 nonzero rows in the row echelon form of the matrix, so the rank is 3:\nAnswer: | \n | rank(1 | 2 | 3\n2 | 1 | -2\n4 | 5 | 4\n1 | 3 | 4) = rank(1 | 2 | 3\n0 | 1 | 1\n0 | 0 | -5\n0 | 0 | 0) = 3"
                     ]
                 },
                 {
@@ -605,159 +605,79 @@
         }
     },
     {
-        "question": "(Sqrt[1 - x^2] + x*(1/Sqrt[1 - x^2]) * x)/(1 - x^2)",
+        "question": "plot x^2 + y^2 = 3",
         "result": {
             "best_solution": {
                 "all_subpods": [
-                    "(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2)"
+                    ""
                 ],
                 "usefull_subpods": [
-                    "(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2)"
+                    ""
                 ]
             },
             "all_solutions": [
                 {
                     "all_subpods": [
-                        "(sqrt(1 - x^2) + x\u00d71/sqrt(1 - x^2) x)/(1 - x^2)"
+                        "plot | x^2 + y^2 = 3"
                     ],
                     "usefull_subpods": [
-                        "(sqrt(1 - x^2) + x\u00d71/sqrt(1 - x^2) x)/(1 - x^2)"
+                        "plot | x^2 + y^2 = 3"
                     ]
                 },
                 {
                     "all_subpods": [
-                        "(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2)"
-                    ],
-                    "usefull_subpods": [
-                        "(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "",
                         ""
                     ],
                     "usefull_subpods": [
-                        "",
                         ""
                     ]
                 },
                 {
                     "all_subpods": [
-                        "1/(1 - x^2)^(3/2)",
-                        "-1/(sqrt(1 - x^2) (x^2 - 1))",
-                        "-1/((x - 1) (x + 1) sqrt(1 - x^2))"
+                        "circle"
                     ],
                     "usefull_subpods": [
-                        "1/(1 - x^2)^(3/2)",
-                        "-1/(sqrt(1 - x^2) (x^2 - 1))",
-                        "-1/((x - 1) (x + 1) sqrt(1 - x^2))"
+                        "circle"
+                    ]
+                }
+            ],
+            "exception": null
+        }
+    },
+    {
+        "question": "\\ln \\left(e^{m x}+e^{-m x}\\right)",
+        "result": {
+            "best_solution": {
+                "all_subpods": [
+                    ""
+                ],
+                "usefull_subpods": [
+                    ""
+                ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "plot | log(exp(m x) + exp(-m x))"
+                    ],
+                    "usefull_subpods": [
+                        "plot | log(exp(m x) + exp(-m x))"
                     ]
                 },
                 {
                     "all_subpods": [
-                        "x^2/(1 - x^2)^(3/2) + 1/sqrt(1 - x^2)",
-                        "Expand the following:\n(sqrt(-x^2 + 1) + (x x)/sqrt(-x^2 + 1))/(-x^2 + 1)\nCombine powers. (x x)/sqrt(-x^2 + 1) = x^(1 + 1)/sqrt(-x^2 + 1):\n(sqrt(-x^2 + 1) + x^(1 + 1)/sqrt(-x^2 + 1))/(-x^2 + 1)\n1 + 1 = 2:\n(sqrt(-x^2 + 1) + x^2/sqrt(-x^2 + 1))/(-x^2 + 1)\n(x^2 1/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) = (x^2 1/sqrt(-x^2 + 1))/(-x^2 + 1) + (sqrt(-x^2 + 1))/(-x^2 + 1):\n(x^2 1/sqrt(-x^2 + 1))/(-x^2 + 1) + (sqrt(-x^2 + 1))/(-x^2 + 1)\n(x^2 1/sqrt(-x^2 + 1))/(-x^2 + 1) = (-x^2 + 1)^(-1/2 - 1) x^2:\n(x^2 (-x^2 + 1)^(-1/2 - 1)) + (sqrt(-x^2 + 1))/(-x^2 + 1)\n-1 - 1/2 = -3/2:\nx^2 (-x^2 + 1)^(-3/2) + (sqrt(-x^2 + 1))/(-x^2 + 1)\n(sqrt(-x^2 + 1))/(-x^2 + 1) = (-x^2 + 1)^(1/2 - 1):\nx^2/(-x^2 + 1)^(3/2) + ((-x^2 + 1)^(1/2 - 1))\n1/2 - 1 = -1/2:\nAnswer: | \n | x^2/(-x^2 + 1)^(3/2) + (-x^2 + 1)^(-1/2)"
+                        ""
                     ],
                     "usefull_subpods": [
-                        "Expand the following:\n(sqrt(-x^2 + 1) + (x x)/sqrt(-x^2 + 1))/(-x^2 + 1)\nCombine powers. (x x)/sqrt(-x^2 + 1) = x^(1 + 1)/sqrt(-x^2 + 1):\n(sqrt(-x^2 + 1) + x^(1 + 1)/sqrt(-x^2 + 1))/(-x^2 + 1)\n1 + 1 = 2:\n(sqrt(-x^2 + 1) + x^2/sqrt(-x^2 + 1))/(-x^2 + 1)\n(x^2 1/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) = (x^2 1/sqrt(-x^2 + 1))/(-x^2 + 1) + (sqrt(-x^2 + 1))/(-x^2 + 1):\n(x^2 1/sqrt(-x^2 + 1))/(-x^2 + 1) + (sqrt(-x^2 + 1))/(-x^2 + 1)\n(x^2 1/sqrt(-x^2 + 1))/(-x^2 + 1) = (-x^2 + 1)^(-1/2 - 1) x^2:\n(x^2 (-x^2 + 1)^(-1/2 - 1)) + (sqrt(-x^2 + 1))/(-x^2 + 1)\n-1 - 1/2 = -3/2:\nx^2 (-x^2 + 1)^(-3/2) + (sqrt(-x^2 + 1))/(-x^2 + 1)\n(sqrt(-x^2 + 1))/(-x^2 + 1) = (-x^2 + 1)^(1/2 - 1):\nx^2/(-x^2 + 1)^(3/2) + ((-x^2 + 1)^(1/2 - 1))\n1/2 - 1 = -1/2:\nAnswer: | \n | x^2/(-x^2 + 1)^(3/2) + (-x^2 + 1)^(-1/2)"
+                        ""
                     ]
                 },
                 {
                     "all_subpods": [
-                        "-sqrt(1 - x^2)/(4 (x - 1)) + sqrt(1 - x^2)/(4 (x + 1)) + sqrt(1 - x^2)/(4 (x - 1)^2) + sqrt(1 - x^2)/(4 (x + 1)^2)",
-                        "(step-by-step solution unavailable)"
+                        ""
                     ],
                     "usefull_subpods": [
-                        "-sqrt(1 - x^2)/(4 (x - 1)) + sqrt(1 - x^2)/(4 (x + 1)) + sqrt(1 - x^2)/(4 (x - 1)^2) + sqrt(1 - x^2)/(4 (x + 1)^2)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "(no roots exist)",
-                        "Solve for x:\n(x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) = 0\nMultiply both sides by -x^2 + 1:\nx^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1) = 0\nSubtract sqrt(-x^2 + 1) from both sides:\nx^2/sqrt(-x^2 + 1) = -sqrt(-x^2 + 1)\nMultiply both sides by sqrt(-x^2 + 1):\nx^2 = x^2 - 1\nSubtract x^2 from both sides:\n0 = -1\n0 = -1 is trivially false:\nAnswer: | \n | (no solutions)"
-                    ],
-                    "usefull_subpods": [
-                        "Solve for x:\n(x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) = 0\nMultiply both sides by -x^2 + 1:\nx^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1) = 0\nSubtract sqrt(-x^2 + 1) from both sides:\nx^2/sqrt(-x^2 + 1) = -sqrt(-x^2 + 1)\nMultiply both sides by sqrt(-x^2 + 1):\nx^2 = x^2 - 1\nSubtract x^2 from both sides:\n0 = -1\n0 = -1 is trivially false:\nAnswer: | \n | (no solutions)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "{x element R : -1<x<1}",
-                        "{y element R : y>=1}",
-                        "even"
-                    ],
-                    "usefull_subpods": [
-                        "{x element R : -1<x<1}",
-                        "{y element R : y>=1}",
-                        "even"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "1/(2 sqrt(2) (x + 1)^(3/2)) + O(1/(x + 1))\n(Puiseux series)"
-                    ],
-                    "usefull_subpods": [
-                        "1/(2 sqrt(2) (x + 1)^(3/2)) + O(1/(x + 1))\n(Puiseux series)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "1 + (3 x^2)/2 + (15 x^4)/8 + O(x^5)\n(Taylor series)"
-                    ],
-                    "usefull_subpods": [
-                        "1 + (3 x^2)/2 + (15 x^4)/8 + O(x^5)\n(Taylor series)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "(x - 1)^(3/2)/(2 sqrt(2) (1 - x)^(3/2) (x - 1)^(3/2)) + O(1/(x - 1))\n(Puiseux series)"
-                    ],
-                    "usefull_subpods": [
-                        "(x - 1)^(3/2)/(2 sqrt(2) (1 - x)^(3/2) (x - 1)^(3/2)) + O(1/(x - 1))\n(Puiseux series)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "x^3/((-x^2)^(3/2) x^3) - (3 x)/(2 sqrt(-x^2) x^5) - (15 x)/(8 sqrt(-x^2) x^7) + O((1/x)^9)\n(generalized Puiseux series)"
-                    ],
-                    "usefull_subpods": [
-                        "x^3/((-x^2)^(3/2) x^3) - (3 x)/(2 sqrt(-x^2) x^5) - (15 x)/(8 sqrt(-x^2) x^7) + O((1/x)^9)\n(generalized Puiseux series)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "d/dx((sqrt(1 - x^2) + (x x)/sqrt(1 - x^2))/(1 - x^2)) = (3 x)/(1 - x^2)^(5/2)",
-                        "Possible derivation:\nd/dx((sqrt(1 - x^2) + (x x)/sqrt(1 - x^2))/(1 - x^2))\nRewrite the expression: (sqrt(1 - x^2) + (x x)/sqrt(1 - x^2))/(1 - x^2) = (x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2):\n = d/dx((x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2))\nUse the quotient rule, d/dx(u/v) = (-(dv)/(dx) u + (du)/(dx) v)/v^2, where u = x^2/sqrt(1 - x^2) + sqrt(1 - x^2) and v = 1 - x^2:\n = (-(x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) (d/dx(1 - x^2)) + (1 - x^2) (d/dx(x^2 (1 - x^2)^(-1/2) + sqrt(1 - x^2))))/(1 - x^2)^2\nDifferentiate the sum term by term and factor out constants:\n = ((1 - x^2) (d/dx(x^2 (1 - x^2)^(-1/2) + sqrt(1 - x^2))) - (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) (d/dx(1) - d/dx(x^2)))/(1 - x^2)^2\nThe derivative of 1 is zero:\n = ((1 - x^2) (d/dx(x^2 (1 - x^2)^(-1/2) + sqrt(1 - x^2))) - (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) (-(d/dx(x^2)) + 0))/(1 - x^2)^2\nSimplify the expression:\n = ((x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) (d/dx(x^2)) + (1 - x^2) (d/dx(x^2 (1 - x^2)^(-1/2) + sqrt(1 - x^2))))/(1 - x^2)^2\nUse the power rule, d/dx(x^n) = n x^(n - 1), where n = 2.\nd/dx(x^2) = 2 x:\n = ((1 - x^2) (d/dx(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))) + (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) 2 x)/(1 - x^2)^2\nDifferentiate the sum term by term:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (d/dx(x^2/sqrt(1 - x^2)) + d/dx(sqrt(1 - x^2))))/(1 - x^2)^2\nUse the product rule, d/dx(u v) = (dv)/(dx) u + (du)/(dx) v, where u = x^2 and v = 1/sqrt(1 - x^2):\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (d/dx(sqrt(1 - x^2)) + ((d/dx(x^2))/sqrt(1 - x^2) + x^2 (d/dx((1 - x^2)^(-1/2))))))/(1 - x^2)^2\nSimplify the expression:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((d/dx(x^2))/sqrt(1 - x^2) + x^2 (d/dx((1 - x^2)^(-1/2))) + d/dx(sqrt(1 - x^2))))/(1 - x^2)^2\nUse the power rule, d/dx(x^n) = n x^(n - 1), where n = 2.\nd/dx(x^2) = 2 x:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^2 (d/dx(1/sqrt(1 - x^2))) + d/dx(sqrt(1 - x^2)) + 2 x 1/sqrt(1 - x^2)))/(1 - x^2)^2\nUsing the chain rule, d/dx(1/sqrt(1 - x^2)) = d/(du) 1/sqrt(u) (du)/(dx), where u = 1 - x^2 and d/(du) (1/sqrt(u)) = -1/(2 u^(3/2)):\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2)) + (-(d/dx(1 - x^2))/(2 (1 - x^2)^(3/2))) x^2))/(1 - x^2)^2\nDifferentiate the sum term by term and factor out constants:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2)) - (d/dx(1) - d/dx(x^2)) x^2/(2 (1 - x^2)^(3/2))))/(1 - x^2)^2\nThe derivative of 1 is zero:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2)) - (x^2 (-(d/dx(x^2)) + 0))/(2 (1 - x^2)^(3/2))))/(1 - x^2)^2\nSimplify the expression:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + (x^2 (d/dx(x^2)))/(2 (1 - x^2)^(3/2)) + d/dx(sqrt(1 - x^2))))/(1 - x^2)^2\nUse the power rule, d/dx(x^n) = n x^(n - 1), where n = 2.\nd/dx(x^2) = 2 x:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2)) + 2 x x^2/(2 (1 - x^2)^(3/2))))/(1 - x^2)^2\nSimplify the expression:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2))))/(1 - x^2)^2\nUsing the chain rule, d/dx(sqrt(1 - x^2)) = (dsqrt(u))/(du) (du)/(dx), where u = 1 - x^2 and d/(du) (sqrt(u)) = 1/(2 sqrt(u)):\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) + ((d/dx(1 - x^2))/(2 sqrt(1 - x^2)))))/(1 - x^2)^2\nDifferentiate the sum term by term and factor out constants:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) + (d/dx(1) - d/dx(x^2)) 1/(2 sqrt(1 - x^2))))/(1 - x^2)^2\nThe derivative of 1 is zero:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) + (-(d/dx(x^2)) + 0)/(2 sqrt(1 - x^2))))/(1 - x^2)^2\nSimplify the expression:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) - (d/dx(x^2))/(2 sqrt(1 - x^2))))/(1 - x^2)^2\nUse the power rule, d/dx(x^n) = n x^(n - 1), where n = 2.\nd/dx(x^2) = 2 x:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) - 2 x 1/(2 sqrt(1 - x^2))))/(1 - x^2)^2\nSimplify the expression:\n = ((1 - x^2) (x^3/(1 - x^2)^(3/2) + x/sqrt(1 - x^2)) + 2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)))/(1 - x^2)^2\nSimplify the expression:\nAnswer: | \n | = (3 x)/(1 - x^2)^(5/2)"
-                    ],
-                    "usefull_subpods": [
-                        "Possible derivation:\nd/dx((sqrt(1 - x^2) + (x x)/sqrt(1 - x^2))/(1 - x^2))\nRewrite the expression: (sqrt(1 - x^2) + (x x)/sqrt(1 - x^2))/(1 - x^2) = (x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2):\n = d/dx((x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2))\nUse the quotient rule, d/dx(u/v) = (-(dv)/(dx) u + (du)/(dx) v)/v^2, where u = x^2/sqrt(1 - x^2) + sqrt(1 - x^2) and v = 1 - x^2:\n = (-(x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) (d/dx(1 - x^2)) + (1 - x^2) (d/dx(x^2 (1 - x^2)^(-1/2) + sqrt(1 - x^2))))/(1 - x^2)^2\nDifferentiate the sum term by term and factor out constants:\n = ((1 - x^2) (d/dx(x^2 (1 - x^2)^(-1/2) + sqrt(1 - x^2))) - (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) (d/dx(1) - d/dx(x^2)))/(1 - x^2)^2\nThe derivative of 1 is zero:\n = ((1 - x^2) (d/dx(x^2 (1 - x^2)^(-1/2) + sqrt(1 - x^2))) - (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) (-(d/dx(x^2)) + 0))/(1 - x^2)^2\nSimplify the expression:\n = ((x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) (d/dx(x^2)) + (1 - x^2) (d/dx(x^2 (1 - x^2)^(-1/2) + sqrt(1 - x^2))))/(1 - x^2)^2\nUse the power rule, d/dx(x^n) = n x^(n - 1), where n = 2.\nd/dx(x^2) = 2 x:\n = ((1 - x^2) (d/dx(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))) + (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) 2 x)/(1 - x^2)^2\nDifferentiate the sum term by term:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (d/dx(x^2/sqrt(1 - x^2)) + d/dx(sqrt(1 - x^2))))/(1 - x^2)^2\nUse the product rule, d/dx(u v) = (dv)/(dx) u + (du)/(dx) v, where u = x^2 and v = 1/sqrt(1 - x^2):\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (d/dx(sqrt(1 - x^2)) + ((d/dx(x^2))/sqrt(1 - x^2) + x^2 (d/dx((1 - x^2)^(-1/2))))))/(1 - x^2)^2\nSimplify the expression:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((d/dx(x^2))/sqrt(1 - x^2) + x^2 (d/dx((1 - x^2)^(-1/2))) + d/dx(sqrt(1 - x^2))))/(1 - x^2)^2\nUse the power rule, d/dx(x^n) = n x^(n - 1), where n = 2.\nd/dx(x^2) = 2 x:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^2 (d/dx(1/sqrt(1 - x^2))) + d/dx(sqrt(1 - x^2)) + 2 x 1/sqrt(1 - x^2)))/(1 - x^2)^2\nUsing the chain rule, d/dx(1/sqrt(1 - x^2)) = d/(du) 1/sqrt(u) (du)/(dx), where u = 1 - x^2 and d/(du) (1/sqrt(u)) = -1/(2 u^(3/2)):\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2)) + (-(d/dx(1 - x^2))/(2 (1 - x^2)^(3/2))) x^2))/(1 - x^2)^2\nDifferentiate the sum term by term and factor out constants:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2)) - (d/dx(1) - d/dx(x^2)) x^2/(2 (1 - x^2)^(3/2))))/(1 - x^2)^2\nThe derivative of 1 is zero:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2)) - (x^2 (-(d/dx(x^2)) + 0))/(2 (1 - x^2)^(3/2))))/(1 - x^2)^2\nSimplify the expression:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + (x^2 (d/dx(x^2)))/(2 (1 - x^2)^(3/2)) + d/dx(sqrt(1 - x^2))))/(1 - x^2)^2\nUse the power rule, d/dx(x^n) = n x^(n - 1), where n = 2.\nd/dx(x^2) = 2 x:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) ((2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2)) + 2 x x^2/(2 (1 - x^2)^(3/2))))/(1 - x^2)^2\nSimplify the expression:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) + d/dx(sqrt(1 - x^2))))/(1 - x^2)^2\nUsing the chain rule, d/dx(sqrt(1 - x^2)) = (dsqrt(u))/(du) (du)/(dx), where u = 1 - x^2 and d/(du) (sqrt(u)) = 1/(2 sqrt(u)):\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) + ((d/dx(1 - x^2))/(2 sqrt(1 - x^2)))))/(1 - x^2)^2\nDifferentiate the sum term by term and factor out constants:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) + (d/dx(1) - d/dx(x^2)) 1/(2 sqrt(1 - x^2))))/(1 - x^2)^2\nThe derivative of 1 is zero:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) + (-(d/dx(x^2)) + 0)/(2 sqrt(1 - x^2))))/(1 - x^2)^2\nSimplify the expression:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) - (d/dx(x^2))/(2 sqrt(1 - x^2))))/(1 - x^2)^2\nUse the power rule, d/dx(x^n) = n x^(n - 1), where n = 2.\nd/dx(x^2) = 2 x:\n = (2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)) + (1 - x^2) (x^3/(1 - x^2)^(3/2) + (2 x)/sqrt(1 - x^2) - 2 x 1/(2 sqrt(1 - x^2))))/(1 - x^2)^2\nSimplify the expression:\n = ((1 - x^2) (x^3/(1 - x^2)^(3/2) + x/sqrt(1 - x^2)) + 2 x (x^2/sqrt(1 - x^2) + sqrt(1 - x^2)))/(1 - x^2)^2\nSimplify the expression:\nAnswer: | \n | = (3 x)/(1 - x^2)^(5/2)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "integral(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2) dx = x/sqrt(1 - x^2) + constant",
-                        "Take the integral:\n integral(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2) dx\nExpand (x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2) giving x^2/(1 - x^2)^(3/2) + 1/sqrt(1 - x^2):\n = integral(x^2/(1 - x^2)^(3/2) + 1/sqrt(1 - x^2)) dx\nIntegrate the sum term by term:\n = integral x^2/(1 - x^2)^(3/2) dx + integral1/sqrt(1 - x^2) dx\nFor the integrand x^2/(1 - x^2)^(3/2), integrate by parts, integral f dg = f g - integral g df, where \n f = x, dg = x/(1 - x^2)^(3/2) dx, df = dx, g = 1/sqrt(1 - x^2):\n = x/sqrt(1 - x^2) - integral1/sqrt(1 - x^2) dx + integral1/sqrt(1 - x^2) dx\nSimplify the integrand 1/sqrt(1 - x^2):\n = x/sqrt(1 - x^2) - integral1/sqrt(1 - x^2) dx + integral1/sqrt(1 - x^2) dx\nSimplify:\nAnswer: | \n | = x/sqrt(1 - x^2) + constant"
-                    ],
-                    "usefull_subpods": [
-                        "Take the integral:\n integral(x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2) dx\nExpand (x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2) giving x^2/(1 - x^2)^(3/2) + 1/sqrt(1 - x^2):\n = integral(x^2/(1 - x^2)^(3/2) + 1/sqrt(1 - x^2)) dx\nIntegrate the sum term by term:\n = integral x^2/(1 - x^2)^(3/2) dx + integral1/sqrt(1 - x^2) dx\nFor the integrand x^2/(1 - x^2)^(3/2), integrate by parts, integral f dg = f g - integral g df, where \n f = x, dg = x/(1 - x^2)^(3/2) dx, df = dx, g = 1/sqrt(1 - x^2):\n = x/sqrt(1 - x^2) - integral1/sqrt(1 - x^2) dx + integral1/sqrt(1 - x^2) dx\nSimplify the integrand 1/sqrt(1 - x^2):\n = x/sqrt(1 - x^2) - integral1/sqrt(1 - x^2) dx + integral1/sqrt(1 - x^2) dx\nSimplify:\nAnswer: | \n | = x/sqrt(1 - x^2) + constant"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "min{(sqrt(1 - x^2) + (x x)/sqrt(1 - x^2))/(1 - x^2)} = 1 at x = 0",
-                        "Find and classify the global extrema of the following function:\nf(x) = (sqrt(-x^2 + 1) + (x x)/sqrt(-x^2 + 1))/(-x^2 + 1)\nFind the critical points of f(x):\nCompute the critical points of (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1)\nThe domain of f(x) = (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) is {x element R : -1<x<1}:\nf(x) = (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) when -1<x<1\nTo find all critical points, first compute f'(x):\nd/(dx) ((x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1)) = (x^3/(-x^2 + 1)^(3/2) + x/sqrt(-x^2 + 1))/(-x^2 + 1) + (2 x (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1)))/(-x^2 + 1)^2:\nf'(x) = (x^3/(-x^2 + 1)^(3/2) + x/sqrt(-x^2 + 1))/(-x^2 + 1) + (2 x (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1)))/(-x^2 + 1)^2\nSolving (x^3/(-x^2 + 1)^(3/2) + x/sqrt(-x^2 + 1))/(-x^2 + 1) + (2 x (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1)))/(-x^2 + 1)^2 = 0 yields x = 0:\nx = 0\nf'(x) exists for all x such that -1<x<1:\n(x^3/(-x^2 + 1)^(3/2) + x/sqrt(-x^2 + 1))/(-x^2 + 1) + (2 x (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1)))/(-x^2 + 1)^2 exists for all x such that -1<x<1\nThe only critical point of (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) is at x = 0:\nx = 0\nThe domain of (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) is {x element R : -1<x<1}:\nThe endpoints of {x element R : -1<x<1} are x = -1 and 1\nEvaluate (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) at x = -1, 0 and 1:\nThe open endpoints of the domain are marked in gray\nx | f(x)\n(-1)^+ | \u221e\n0 | 1\n1^- | \u221e\nThe largest value corresponds to a global maximum, and the smallest value corresponds to a global minimum:\nThe open endpoints of the domain are marked in gray\nx | f(x) | extrema type\n(-1)^+ | \u221e | global max\n0 | 1 | global min\n1^- | \u221e | global max\nRemove the points x = (-1)^+ and 1^- from the table\nThese cannot be global extrema, as the value of f(x) here is never achieved:\nx | f(x) | extrema type\n0 | 1 | global min\nf(x) = (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) has one global minimum:\nAnswer: | \n | f(x) has a global minimum at x = 0"
-                    ],
-                    "usefull_subpods": [
-                        "Find and classify the global extrema of the following function:\nf(x) = (sqrt(-x^2 + 1) + (x x)/sqrt(-x^2 + 1))/(-x^2 + 1)\nFind the critical points of f(x):\nCompute the critical points of (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1)\nThe domain of f(x) = (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) is {x element R : -1<x<1}:\nf(x) = (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) when -1<x<1\nTo find all critical points, first compute f'(x):\nd/(dx) ((x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1)) = (x^3/(-x^2 + 1)^(3/2) + x/sqrt(-x^2 + 1))/(-x^2 + 1) + (2 x (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1)))/(-x^2 + 1)^2:\nf'(x) = (x^3/(-x^2 + 1)^(3/2) + x/sqrt(-x^2 + 1))/(-x^2 + 1) + (2 x (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1)))/(-x^2 + 1)^2\nSolving (x^3/(-x^2 + 1)^(3/2) + x/sqrt(-x^2 + 1))/(-x^2 + 1) + (2 x (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1)))/(-x^2 + 1)^2 = 0 yields x = 0:\nx = 0\nf'(x) exists for all x such that -1<x<1:\n(x^3/(-x^2 + 1)^(3/2) + x/sqrt(-x^2 + 1))/(-x^2 + 1) + (2 x (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1)))/(-x^2 + 1)^2 exists for all x such that -1<x<1\nThe only critical point of (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) is at x = 0:\nx = 0\nThe domain of (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) is {x element R : -1<x<1}:\nThe endpoints of {x element R : -1<x<1} are x = -1 and 1\nEvaluate (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) at x = -1, 0 and 1:\nThe open endpoints of the domain are marked in gray\nx | f(x)\n(-1)^+ | \u221e\n0 | 1\n1^- | \u221e\nThe largest value corresponds to a global maximum, and the smallest value corresponds to a global minimum:\nThe open endpoints of the domain are marked in gray\nx | f(x) | extrema type\n(-1)^+ | \u221e | global max\n0 | 1 | global min\n1^- | \u221e | global max\nRemove the points x = (-1)^+ and 1^- from the table\nThese cannot be global extrema, as the value of f(x) here is never achieved:\nx | f(x) | extrema type\n0 | 1 | global min\nf(x) = (x^2/sqrt(-x^2 + 1) + sqrt(-x^2 + 1))/(-x^2 + 1) has one global minimum:\nAnswer: | \n | f(x) has a global minimum at x = 0"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "lim_(x-> \u00b1 \u221e) (x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2) = 0"
-                    ],
-                    "usefull_subpods": [
-                        "lim_(x-> \u00b1 \u221e) (x^2/sqrt(1 - x^2) + sqrt(1 - x^2))/(1 - x^2) = 0"
+                        ""
                     ]
                 }
             ],
