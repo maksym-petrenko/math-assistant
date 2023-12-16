@@ -1,6 +1,6 @@
 from typing import Any
 
-from pydantic import BaseModel, model_validator
+from pydantic import BaseModel, ValidationError, model_validator
 
 from bot.solver import GPTResponse, Response, WolframResponse, solve
 from wolfram.api import Pod, Subpod, extract_usefull_subpods
@@ -65,8 +65,7 @@ class TestResult(BaseModel):
                     'answer': None,
                 }
             case _:
-                print('internal error occurred')
-                return None
+                raise ValidationError("This function operates Response's instances.")
 
 
 async def question_to_test_result(question: str) -> TestResult:
