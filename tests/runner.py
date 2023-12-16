@@ -2,7 +2,7 @@ from typing import Any
 
 from pydantic import BaseModel, model_validator
 
-from bot.solver import Response, solve
+from bot.solver import GPTResponse, Response, WolframResponse, solve
 from wolfram.api import Pod, Subpod, extract_usefull_subpods
 
 
@@ -30,20 +30,42 @@ class SerealizedPod(BaseModel):
 
 
 class TestResult(BaseModel):
+    type: str
     best_solution: SerealizedPod | None
-    all_solutions: list[SerealizedPod]
+    all_solutions: list[SerealizedPod] | None
     exception: str | None
+    answer: str | None
 
     @model_validator(mode='before')
     @classmethod
     def from_response(cls, data: Any) -> Any:
-        if isinstance(data, Response):
-            return {
-                'best_solution': data.best_solution,
-                'all_solutions': data.all_solutions,
-                'exception': data.exception,
-            }
-        return data
+        match data:
+            case WolframResponse():
+                return {
+                    'type': 'Wolfram',
+                    'best_solution': data.best_solution,
+                    'all_solutions': data.all_solutions,
+                    'exception': data.exception,
+                    'answer': None,
+                }
+            case GPTResponse():
+                return {
+                    'type': 'GPT',
+                    'best_solution': None,
+                    'all_solutions': None,
+                    'exception': None,
+                    'answer': None,
+                }
+            case Response():
+                return {
+                    'type': 'Error',
+                    'best_solution': None,
+                    'all_solutions': None,
+                    'exception': data.exception,
+                    'answer': None,
+                }
+            case _:
+                return data
 
 
 async def question_to_test_result(question: str) -> TestResult:

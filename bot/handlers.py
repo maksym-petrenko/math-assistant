@@ -11,7 +11,7 @@ from wolfram.api import Pod, extract_usefull_subpods
 
 from .config import bot
 from .markup_code import generate_code
-from .solver import Response, solve
+from .solver import GPTResponse, Response, WolframResponse, solve
 
 
 def patch_query(url: str, **kwargs: str) -> str:
@@ -35,12 +35,22 @@ async def respond_to_message(msg: events.NewMessage, response: Response) -> None
         await msg.reply(response.exception)
         return
 
-    if response.best_solution:
-        await msg.reply('The best answer', file=await download_images(response.best_solution), force_document=True)
-    else:
-        await msg.reply('No best answer :(')
+    match response:
+        case WolframResponse():
+            if response.best_solution:
+                await msg.reply(
+                    'The best answer',
+                    file=await download_images(response.best_solution),
+                    force_document=True,
+                )
+            else:
+                await msg.reply('No best answer :(')
 
-    await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
+            await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
+        case GPTResponse():
+            await msg.reply(response.answer)
+        case Response():
+            await msg.reply(response.exception)
 
 
 async def solve_image(image: bytes, additional_prompt: str) -> Response:

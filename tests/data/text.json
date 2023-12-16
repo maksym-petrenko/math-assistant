@@ -2,6 +2,7 @@
     {
         "question": "16 x^{3}-18 x^{2}+4 x-21=0",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = 1/48 (18 + (73224 - 96 sqrt(581538))^(1/3) + 2 (3 (3051 + 4 sqrt(581538)))^(1/3))",
@@ -66,12 +67,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "\\sum_{x=1}^{20} x^{k}=k",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
@@ -98,12 +101,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "\\operatorname{Rank}\\left[\\begin{array}{ccc}1 & 2 & 3 \\\\ 2 & 1 & -2 \\\\ 4 & 5 & 4 \\\\ 1 & 3 & 4\\end{array}\\right]",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "3",
@@ -162,12 +167,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082"
@@ -194,12 +201,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "x^3 + x^2 + x = 3",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = 1",
@@ -264,12 +273,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "x^{2}-x=1",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = 1/2 (1 - sqrt(5))",
@@ -332,12 +343,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "2<x<5",
@@ -368,36 +381,44 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "Help me with some math, pls",
         "result": {
+            "type": "Error",
             "best_solution": null,
-            "all_solutions": [],
-            "exception": "Can't understand the problem, try to rephrase it"
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
         }
     },
     {
         "question": "Generate random problem and solve it",
         "result": {
+            "type": "Error",
             "best_solution": null,
-            "all_solutions": [],
-            "exception": "Can't understand the problem, try to rephrase it"
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
         }
     },
     {
         "question": "Formulate a problem",
         "result": {
+            "type": "Error",
             "best_solution": null,
-            "all_solutions": [],
-            "exception": "Can't understand the problem, try to rephrase it"
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
         }
     },
     {
         "question": "2x + 3 = 0",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = -3/2",
@@ -442,12 +463,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "x^2 + 3x",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "",
@@ -478,12 +501,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "3^x + 2^x = 13",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "x = 2",
@@ -528,12 +553,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "draw me a quadratic function",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     ""
@@ -569,12 +596,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "Is 5 bigger than sqrt(29)?",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     "False"
@@ -601,12 +630,162 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
+        }
+    },
+    {
+        "question": "Prove that the Earth is flat",
+        "result": {
+            "type": "Error",
+            "best_solution": null,
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
+        }
+    },
+    {
+        "question": "Prove that there are infinitely many prime integers",
+        "result": {
+            "type": "GPT",
+            "best_solution": null,
+            "all_solutions": null,
+            "exception": null,
+            "answer": null
+        }
+    },
+    {
+        "question": "Find the least likely coin toss sequence to occur considering that coin isn't fair",
+        "result": {
+            "type": "Error",
+            "best_solution": null,
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
+        }
+    },
+    {
+        "question": "Tell me a joke",
+        "result": {
+            "type": "Error",
+            "best_solution": null,
+            "all_solutions": null,
+            "exception": "Can't solve this",
+            "answer": null
+        }
+    },
+    {
+        "question": "Find the derivative of exponent",
+        "result": {
+            "type": "Wolfram",
+            "best_solution": {
+                "all_subpods": [
+                    "d/dx(e^x) = e^x",
+                    "Possible derivation:\nd/dx(e^x)\nFrom the limit definition of the derivative, d/dx(e^x) = lim_(h->0) (e^(x + h) - e^x)/h:\n = lim_(h->0) (e^(x + h) - e^x)/h\nBy a law of exponents, e^(x + h) = e^x e^h:\n = lim_(h->0) (e^x e^h - e^x)/h\nFactor the numerator:\n = lim_(h->0) (e^x (-1 + e^h))/h\nFactor e^x out of the limit since it does not depend on h:\n = e^x lim_(h->0) (e^h - 1)/h\ne is the unique number such that lim_(h->0) (e^h - 1)/h = 1:\nAnswer: | \n | = e^x"
+                ],
+                "usefull_subpods": [
+                    "Possible derivation:\nd/dx(e^x)\nFrom the limit definition of the derivative, d/dx(e^x) = lim_(h->0) (e^(x + h) - e^x)/h:\n = lim_(h->0) (e^(x + h) - e^x)/h\nBy a law of exponents, e^(x + h) = e^x e^h:\n = lim_(h->0) (e^x e^h - e^x)/h\nFactor the numerator:\n = lim_(h->0) (e^x (-1 + e^h))/h\nFactor e^x out of the limit since it does not depend on h:\n = e^x lim_(h->0) (e^h - 1)/h\ne is the unique number such that lim_(h->0) (e^h - 1)/h = 1:\nAnswer: | \n | = e^x"
+                ]
+            },
+            "all_solutions": [
+                {
+                    "all_subpods": [
+                        "d/dx(e^x) = e^x",
+                        "Possible derivation:\nd/dx(e^x)\nFrom the limit definition of the derivative, d/dx(e^x) = lim_(h->0) (e^(x + h) - e^x)/h:\n = lim_(h->0) (e^(x + h) - e^x)/h\nBy a law of exponents, e^(x + h) = e^x e^h:\n = lim_(h->0) (e^x e^h - e^x)/h\nFactor the numerator:\n = lim_(h->0) (e^x (-1 + e^h))/h\nFactor e^x out of the limit since it does not depend on h:\n = e^x lim_(h->0) (e^h - 1)/h\ne is the unique number such that lim_(h->0) (e^h - 1)/h = 1:\nAnswer: | \n | = e^x"
+                    ],
+                    "usefull_subpods": [
+                        "Possible derivation:\nd/dx(e^x)\nFrom the limit definition of the derivative, d/dx(e^x) = lim_(h->0) (e^(x + h) - e^x)/h:\n = lim_(h->0) (e^(x + h) - e^x)/h\nBy a law of exponents, e^(x + h) = e^x e^h:\n = lim_(h->0) (e^x e^h - e^x)/h\nFactor the numerator:\n = lim_(h->0) (e^x (-1 + e^h))/h\nFactor e^x out of the limit since it does not depend on h:\n = e^x lim_(h->0) (e^h - 1)/h\ne is the unique number such that lim_(h->0) (e^h - 1)/h = 1:\nAnswer: | \n | = e^x"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "",
+                        ""
+                    ],
+                    "usefull_subpods": [
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "(no roots exist)",
+                        "Solve for x:\ne^x = 0\ne^x is never zero, which means no solutions exist:\nAnswer: | \n | (no solutions)"
+                    ],
+                    "usefull_subpods": [
+                        "Solve for x:\ne^x = 0\ne^x is never zero, which means no solutions exist:\nAnswer: | \n | (no solutions)"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "R (all real numbers)",
+                        "{y element R : y>0} (all positive real numbers)",
+                        "injective (one-to-one)"
+                    ],
+                    "usefull_subpods": [
+                        "R (all real numbers)",
+                        "{y element R : y>0} (all positive real numbers)",
+                        "injective (one-to-one)"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "periodic in x with period 2 i \u03c0"
+                    ],
+                    "usefull_subpods": [
+                        "periodic in x with period 2 i \u03c0"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "1 + x + x^2/2 + x^3/6 + x^4/24 + O(x^5)\n(Taylor series)"
+                    ],
+                    "usefull_subpods": [
+                        "1 + x + x^2/2 + x^3/6 + x^4/24 + O(x^5)\n(Taylor series)"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "integral e^x dx = e^x + constant",
+                        "Take the integral:\n integral e^x dx\nThe integral of e^x is e^x:\nAnswer: | \n | = e^x + constant"
+                    ],
+                    "usefull_subpods": [
+                        "Take the integral:\n integral e^x dx\nThe integral of e^x is e^x:\nAnswer: | \n | = e^x + constant"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "lim_(x->-\u221e) e^x = 0"
+                    ],
+                    "usefull_subpods": [
+                        "lim_(x->-\u221e) e^x = 0"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "integral_(-\u221e)^0 e^x dx = 1"
+                    ],
+                    "usefull_subpods": [
+                        "integral_(-\u221e)^0 e^x dx = 1"
+                    ]
+                },
+                {
+                    "all_subpods": [
+                        "integral_0^(i \u03c0) e^x dx = -2"
+                    ],
+                    "usefull_subpods": [
+                        "integral_0^(i \u03c0) e^x dx = -2"
+                    ]
+                }
+            ],
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "plot x^2 + y^2 = 3",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     ""
@@ -641,12 +820,14 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     },
     {
         "question": "\\ln \\left(e^{m x}+e^{-m x}\\right)",
         "result": {
+            "type": "Wolfram",
             "best_solution": {
                 "all_subpods": [
                     ""
@@ -681,7 +862,8 @@
                     ]
                 }
             ],
-            "exception": null
+            "exception": null,
+            "answer": null
         }
     }
 ]

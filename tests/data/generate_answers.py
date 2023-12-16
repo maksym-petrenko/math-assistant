@@ -14,7 +14,7 @@ data_path = Path(__file__).parent
 
 force_regenerate: bool
 
-# only generates if there no result yet
+# only generates if there is no result yet
 async def update_result(test: dict[str, Any]) -> TestResult:
     question = test['question']
 
