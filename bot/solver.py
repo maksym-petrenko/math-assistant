@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from chatgpt.choose_the_best import choose
+from chatgpt.choose_pod import choose_the_best_pod
 from chatgpt.convert_to_mathematica import convert
 from wolfram.api import Pod, get_pods
 
@@ -18,7 +18,7 @@ class Response(BaseModel):
         if self.exception:
             return
 
-        self.best_solution = await choose(self.original_question, self.all_solutions)
+        self.best_solution = await choose_the_best_pod(self.original_question, self.all_solutions)
 
     def set_exception(self, exception: str) -> 'Response':
         self.exception = exception

@@ -6,7 +6,7 @@ from .helper import read_prompt
 PROMPT = read_prompt('choose_pod')
 
 
-async def choose(question: str, pods: list[Pod]) -> Pod | None:
+async def choose_the_best_pod(question: str, pods: list[Pod]) -> Pod | None:
     if len(pods) == 0:  # small shortcut
         return None
 
