@@ -8,34 +8,33 @@ from .helper import read_prompt
 PROBLEM_TYPES = Literal['Classify', 'Solve', 'Wolfram']
 MODELS = Literal['gpt-3.5-turbo', 'gpt-4']
 
-PROMPT2INFO = {
-    'Classify': {
-        'prompt': read_prompt('classifier'),
-        'model': 'gpt-3.5-turbo',
-    },
-    'Wolfram': {
-        'prompt': read_prompt('mathematica'),
-        'model': 'gpt-3.5-turbo',
-    },
-    'Solve': {
-        'prompt': read_prompt('gpt_solver'),
-        'model': 'gpt-4',
-    },
-}
-
 
 class PromptInfo(BaseModel):
-
     prompt: str
     model: MODELS
+
+
+PROMPT2INFO = {
+    'Classify': PromptInfo(
+        prompt=read_prompt('classifier'),
+        model='gpt-3.5-turbo',
+    ),
+    'Wolfram': PromptInfo(
+        prompt=read_prompt('mathematica'),
+        model='gpt-3.5-turbo',
+    ),
+    'Solve': PromptInfo(
+        prompt=read_prompt('gpt_solver'),
+        model='gpt-4',
+    ),
+}
 
 
 async def gpt(message: str, request_type: PROBLEM_TYPES) -> str | None:
     """Interact with ChatGPT API."""
 
     #  get prompt and model suitable for the task type
-    info = PromptInfo(prompt=PROMPT2INFO[request_type]['prompt'],
-                      model=PROMPT2INFO[request_type]['model'])
+    info = PROMPT2INFO[request_type]
 
     messages = [{'role': 'system', 'content': info.prompt}, {'role': 'user', 'content': message}]
 
