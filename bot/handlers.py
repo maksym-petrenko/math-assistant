@@ -28,10 +28,6 @@ async def download_images(pod: Pod) -> list[BytesIO]:
 
 
 async def respond_to_message(msg: events.NewMessage, response: Response) -> None:
-    if not isinstance(response, Response):
-        await msg.reply('Internal error occurred.')
-        return
-
     if response.debug:
         await msg.reply(response.debug)
 
