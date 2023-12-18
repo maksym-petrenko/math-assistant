@@ -7,11 +7,11 @@ from telethon import events
 from helper.download import download
 from helper.flatten import make_flat
 from mathpix.api import image_to_latex
+from solver.solver import ErrorResponse, GPTResponse, Response, WolframResponse, solve
 from wolfram.api import Pod, extract_usefull_subpods
 
 from .config import bot
 from .markup_code import generate_code
-from .solver import GPTResponse, Response, WolframResponse, solve
 
 
 def patch_query(url: str, **kwargs: str) -> str:
@@ -27,40 +27,45 @@ async def download_images(pod: Pod) -> list[BytesIO]:
     return [await download(extract_image(pod), 'solution.jpg') for pod in subpods]
 
 
+async def respond_wolfram(msg: events.NewMessage, response: WolframResponse) -> None:
+    debug = ''
+    if response.image_text is not None:  # still could be empty
+        debug += generate_code(response.image_text, 'LaTeX') + '\n\n'
+    if response.wolfram_prompt:
+        debug += generate_code(response.wolfram_prompt, 'Mathematica') + '\n\n'
+
+    if debug:
+        await msg.reply('Debug:\n' + debug)
+
+    if response.best_solution:
+        await msg.reply(
+            'The best answer',
+            file=await download_images(response.best_solution),
+            force_document=True,
+        )
+    else:
+        await msg.reply('No best answer :(')
+
+    await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
+
 async def respond_to_message(msg: events.NewMessage, response: Response) -> None:
-    if response.debug:
-        await msg.reply(response.debug)
-
-    if response.exception:
-        await msg.reply(response.exception)
-        return
-
     match response:
+        case ErrorResponse():
+            await msg.reply(response.error)
         case WolframResponse():
-            if response.best_solution:
-                await msg.reply(
-                    'The best answer',
-                    file=await download_images(response.best_solution),
-                    force_document=True,
-                )
-            else:
-                await msg.reply('No best answer :(')
-
-            await msg.reply('All answers', file=make_flat([await download_images(pod) for pod in response.all_solutions]), force_document=True)
+            await respond_wolfram(msg, response)
         case GPTResponse():
             await msg.reply(response.answer)
-        case Response():
-            await msg.reply(response.exception)
 
 
 async def solve_image(image: bytes, additional_prompt: str) -> Response:
     latex: str | None = await image_to_latex(image)
     if latex is None:
-        return Response(original_question='', exception="Can't extract problem from the photo, try to send another one")
+        return ErrorResponse(original_question='', error="Can't extract problem from the photo, try to send another one")
 
-    solution = await solve(additional_prompt + '\n' + latex)
-    solution.debug = generate_code(latex, 'LaTeX') + '\n\n' + solution.debug
-    return solution
+    response = await solve(additional_prompt + '\n' + latex)
+    response.image_text = latex
+    return response
 
 
 @bot.on(events.NewMessage(incoming=True, func=lambda event: event.photo is not None))  # type: ignore[misc]
