@@ -25,6 +25,7 @@ async def update_result(test: dict[str, Any]) -> TestResult:
         result = TestResult.model_validate(test.get('result', None), strict=True)
     except ValidationError:
         regenerate = True
+    regenerate = True
 
     if not regenerate:
         print('skipping:', question)
