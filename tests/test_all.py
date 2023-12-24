@@ -1,15 +1,9 @@
 import json
-from typing import Any, TypedDict
+from typing import Any
 
 import pytest
 
-from tests.runner import TestResult, question_to_test_result
-
-
-class TestData(TypedDict):
-    question: str
-    result: TestResult
-
+from tests.runner import TestData, question_to_test_result
 
 with open('tests/data/text.json') as data:
     tests: list[TestData] = json.load(data)
@@ -22,4 +16,4 @@ async def test_question_to_all_solutions(question: str, result: dict[str, Any]) 
     """Test ChatGPT(question) + Wolfram performance on input strings."""
 
     output = await question_to_test_result(question)
-    assert output.model_dump() == result
+    assert output == result

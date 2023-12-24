@@ -8,27 +8,28 @@ from pydantic import ValidationError
 
 from helper.aiohttp_client import stop_client
 from helper.main_handler import main_handler
-from tests.runner import TestResult, question_to_test_result
+from solver.solver import deserealize
+from tests.runner import TestData, question_to_test_result
 
 data_path = Path(__file__).parent
 
 force_regenerate: bool
 
 # only generates if there is no result yet
-async def update_result(test: dict[str, Any]) -> TestResult:
+async def update_result(test: TestData) -> dict[str, Any]:
     question = test['question']
 
     regenerate = force_regenerate
 
     # validate previous result
     try:
-        result = TestResult.model_validate(test.get('result', None), strict=True)
+        deserealize(test.get('result', {}))
     except ValidationError:
         regenerate = True
 
     if not regenerate:
         print('skipping:', question)
-        return result
+        return test['result']
 
     print('generating for:', question)
     return await question_to_test_result(question)
@@ -44,7 +45,7 @@ async def main() -> None:
     new_tests = []
     for test, result in zip(tests, results, strict=True):
         # generate only necessary fields
-        new_tests.append({'question': test['question'], 'result': result.model_dump()})
+        new_tests.append({'question': test['question'], 'result': result})
 
     with open(data_path / 'text.json', 'w') as text_data:  # noqa: ASYNC101
         json.dump(new_tests, text_data, indent=4)

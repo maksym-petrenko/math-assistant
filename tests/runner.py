@@ -1,9 +1,14 @@
-from typing import Any
+from typing import Any, TypedDict
 
 from pydantic import BaseModel, model_validator
 
-from bot.solver import GPTResponse, Response, WolframResponse, solve
+from solver.solver import WolframResponse, solve
 from wolfram.api import Pod, Subpod, extract_usefull_subpods
+
+
+class TestData(TypedDict):
+    question: str
+    result: dict[str, Any]
 
 
 def serealize_subpod(subpod: Subpod) -> str:
@@ -29,45 +34,19 @@ class SerealizedPod(BaseModel):
         return data
 
 
-class TestResult(BaseModel):
-    type: str
-    best_solution: SerealizedPod | None
-    all_solutions: list[SerealizedPod] | None
-    exception: str | None
-    answer: str | None
-
-    @model_validator(mode='before')
-    @classmethod
-    def from_response(cls, data: Any) -> Any:
-        match data:
-            case WolframResponse():
-                return {
-                    'type': 'Wolfram',
-                    'best_solution': data.best_solution,
-                    'all_solutions': data.all_solutions,
-                    'exception': data.exception,
-                    'answer': None,
-                }
-            case GPTResponse():
-                return {
-                    'type': 'GPT',
-                    'best_solution': None,
-                    'all_solutions': None,
-                    'exception': None,
-                    'answer': None,
-                }
-            case Response():
-                return {
-                    'type': 'Error',
-                    'best_solution': None,
-                    'all_solutions': None,
-                    'exception': data.exception,
-                    'answer': None,
-                }
-            case _:
-                return data
+def serealize_pod(pod: Pod | None) -> dict[str, Any]:
+    return SerealizedPod.model_validate(pod).model_dump()
 
 
-async def question_to_test_result(question: str) -> TestResult:
+def serealize_wolfram(response: WolframResponse) -> dict[str, Any]:
+    result = response.model_dump()
+    result['best_solution'] = serealize_pod(response.best_solution)
+    result['all_solutions'] = [serealize_pod(pod) for pod in response.all_solutions]
+    return result
+
+
+async def question_to_test_result(question: str) -> dict[str, Any]:
     result = await solve(question)
-    return TestResult.model_validate(result)
+    if isinstance(result, WolframResponse):  # special handling caused by pods
+        return serealize_wolfram(result)
+    return result.model_dump()

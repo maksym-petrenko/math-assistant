@@ -3,6 +3,9 @@
         "question": "16 x^{3}-18 x^{2}+4 x-21=0",
         "result": {
             "type": "Wolfram",
+            "original_question": "16 x^{3}-18 x^{2}+4 x-21=0",
+            "image_text": null,
+            "wolfram_prompt": "Solve[16 x^3 - 18 x^2 + 4 x - 21 == 0, x]",
             "best_solution": {
                 "all_subpods": [
                     "x = 1/48 (18 + (73224 - 96 sqrt(581538))^(1/3) + 2 (3 (3051 + 4 sqrt(581538)))^(1/3))",
@@ -66,15 +69,16 @@
                         "21/16"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "\\sum_{x=1}^{20} x^{k}=k",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\sum_{x=1}^{20} x^{k}=k",
+            "image_text": null,
+            "wolfram_prompt": "Sum[x^k, {x, 1, 20}] = k",
             "best_solution": {
                 "all_subpods": [
                     "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
@@ -100,15 +104,16 @@
                         "2^k + 3^k + 4^k + 5^k + 6^k + 7^k + 8^k + 9^k + 10^k + 11^k + 12^k + 13^k + 14^k + 15^k + 16^k + 17^k + 18^k + 19^k + 20^k + 1 = k"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "\\operatorname{Rank}\\left[\\begin{array}{ccc}1 & 2 & 3 \\\\ 2 & 1 & -2 \\\\ 4 & 5 & 4 \\\\ 1 & 3 & 4\\end{array}\\right]",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\operatorname{Rank}\\left[\\begin{array}{ccc}1 & 2 & 3 \\\\ 2 & 1 & -2 \\\\ 4 & 5 & 4 \\\\ 1 & 3 & 4\\end{array}\\right]",
+            "image_text": null,
+            "wolfram_prompt": "MatrixRank[{{1, 2, 3}, {2, 1, -2}, {4, 5, 4}, {1, 3, 4}}]",
             "best_solution": {
                 "all_subpods": [
                     "3",
@@ -166,15 +171,16 @@
                         "R^3"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
+            "image_text": null,
+            "wolfram_prompt": "Sum[Sin[1/n] Tan[1/n], {n, 1, Infinity}]",
             "best_solution": {
                 "all_subpods": [
                     "sum_(n=1)^\u221e sin(1/n) tan(1/n) = 1.97082"
@@ -200,15 +206,16 @@
                         ""
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "x^3 + x^2 + x = 3",
         "result": {
             "type": "Wolfram",
+            "original_question": "x^3 + x^2 + x = 3",
+            "image_text": null,
+            "wolfram_prompt": "Solve[x^3 + x^2 + x == 3, x]",
             "best_solution": {
                 "all_subpods": [
                     "x = 1",
@@ -272,15 +279,16 @@
                         "3"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "x^{2}-x=1",
         "result": {
             "type": "Wolfram",
+            "original_question": "x^{2}-x=1",
+            "image_text": null,
+            "wolfram_prompt": "Solve[x^2 - x == 1, x]",
             "best_solution": {
                 "all_subpods": [
                     "x = 1/2 (1 - sqrt(5))",
@@ -342,15 +350,16 @@
                         "-1"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1",
+            "image_text": null,
+            "wolfram_prompt": "Solve[Log[0.1, (x - 5)^2] + Log[0.1, x - 2] >= -1, x]",
             "best_solution": {
                 "all_subpods": [
                     "2<x<5",
@@ -380,45 +389,43 @@
                         "5<x<=6.49203"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "Help me with some math, pls",
         "result": {
             "type": "Error",
-            "best_solution": null,
-            "all_solutions": null,
-            "exception": "Can't solve this",
-            "answer": null
+            "original_question": "Help me with some math, pls",
+            "image_text": null,
+            "error": "Can't solve this"
         }
     },
     {
         "question": "Generate random problem and solve it",
         "result": {
             "type": "Error",
-            "best_solution": null,
-            "all_solutions": null,
-            "exception": "Can't solve this",
-            "answer": null
+            "original_question": "Generate random problem and solve it",
+            "image_text": null,
+            "error": "Can't solve this"
         }
     },
     {
         "question": "Formulate a problem",
         "result": {
             "type": "Error",
-            "best_solution": null,
-            "all_solutions": null,
-            "exception": "Can't solve this",
-            "answer": null
+            "original_question": "Formulate a problem",
+            "image_text": null,
+            "error": "Can't solve this"
         }
     },
     {
         "question": "2x + 3 = 0",
         "result": {
             "type": "Wolfram",
+            "original_question": "2x + 3 = 0",
+            "image_text": null,
+            "wolfram_prompt": "Solve[2x + 3 == 0, x]",
             "best_solution": {
                 "all_subpods": [
                     "x = -3/2",
@@ -462,15 +469,16 @@
                         ""
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "x^2 + 3x",
         "result": {
             "type": "Wolfram",
+            "original_question": "x^2 + 3x",
+            "image_text": null,
+            "wolfram_prompt": "Plot[x^2 + 3x]",
             "best_solution": {
                 "all_subpods": [
                     "",
@@ -500,15 +508,16 @@
                         ""
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "3^x + 2^x = 13",
         "result": {
             "type": "Wolfram",
+            "original_question": "3^x + 2^x = 13",
+            "image_text": null,
+            "wolfram_prompt": "Solve[3^x + 2^x == 13, x]",
             "best_solution": {
                 "all_subpods": [
                     "x = 2",
@@ -552,15 +561,16 @@
                         ""
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "draw me a quadratic function",
         "result": {
             "type": "Wolfram",
+            "original_question": "draw me a quadratic function",
+            "image_text": null,
+            "wolfram_prompt": "Plot[x^2, {x, -10, 10}]",
             "best_solution": {
                 "all_subpods": [
                     ""
@@ -595,15 +605,16 @@
                         "Calculate the arc length of the following curve from x = -10 to x = 10:\ny(x) = x^2\nApply the definition of arc length to y(x) = x^2 for -10<x<10:\ns = integral_(-10)^10 sqrt(1 + (d/dx(x^2))^2)dx\nCompute the derivative d/dx(x^2):\n = integral_(-10)^10 sqrt(1 + (2 x)^2)dx\nSimplify sqrt(1 + (2 x)^2):\n = integral_(-10)^10 sqrt(1 + 4 x^2)dx\nCompute the definite integral:\nAnswer: | \n | = 1/2 (20 sqrt(401) + sinh^(-1)(20))\u2248202.09"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "Is 5 bigger than sqrt(29)?",
         "result": {
             "type": "Wolfram",
+            "original_question": "Is 5 bigger than sqrt(29)?",
+            "image_text": null,
+            "wolfram_prompt": "Sqrt[29] < 5",
             "best_solution": {
                 "all_subpods": [
                     "False"
@@ -629,163 +640,43 @@
                         "False"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "Prove that the Earth is flat",
         "result": {
             "type": "Error",
-            "best_solution": null,
-            "all_solutions": null,
-            "exception": "Can't solve this",
-            "answer": null
-        }
-    },
-    {
-        "question": "Prove that there are infinitely many prime integers",
-        "result": {
-            "type": "GPT",
-            "best_solution": null,
-            "all_solutions": null,
-            "exception": null,
-            "answer": null
+            "original_question": "Prove that the Earth is flat",
+            "image_text": null,
+            "error": "Can't solve this"
         }
     },
     {
         "question": "Find the least likely coin toss sequence to occur considering that coin isn't fair",
         "result": {
             "type": "Error",
-            "best_solution": null,
-            "all_solutions": null,
-            "exception": "Can't solve this",
-            "answer": null
+            "original_question": "Find the least likely coin toss sequence to occur considering that coin isn't fair",
+            "image_text": null,
+            "error": "Can't solve this"
         }
     },
     {
         "question": "Tell me a joke",
         "result": {
             "type": "Error",
-            "best_solution": null,
-            "all_solutions": null,
-            "exception": "Can't solve this",
-            "answer": null
-        }
-    },
-    {
-        "question": "Find the derivative of exponent",
-        "result": {
-            "type": "Wolfram",
-            "best_solution": {
-                "all_subpods": [
-                    "d/dx(e^x) = e^x",
-                    "Possible derivation:\nd/dx(e^x)\nFrom the limit definition of the derivative, d/dx(e^x) = lim_(h->0) (e^(x + h) - e^x)/h:\n = lim_(h->0) (e^(x + h) - e^x)/h\nBy a law of exponents, e^(x + h) = e^x e^h:\n = lim_(h->0) (e^x e^h - e^x)/h\nFactor the numerator:\n = lim_(h->0) (e^x (-1 + e^h))/h\nFactor e^x out of the limit since it does not depend on h:\n = e^x lim_(h->0) (e^h - 1)/h\ne is the unique number such that lim_(h->0) (e^h - 1)/h = 1:\nAnswer: | \n | = e^x"
-                ],
-                "usefull_subpods": [
-                    "Possible derivation:\nd/dx(e^x)\nFrom the limit definition of the derivative, d/dx(e^x) = lim_(h->0) (e^(x + h) - e^x)/h:\n = lim_(h->0) (e^(x + h) - e^x)/h\nBy a law of exponents, e^(x + h) = e^x e^h:\n = lim_(h->0) (e^x e^h - e^x)/h\nFactor the numerator:\n = lim_(h->0) (e^x (-1 + e^h))/h\nFactor e^x out of the limit since it does not depend on h:\n = e^x lim_(h->0) (e^h - 1)/h\ne is the unique number such that lim_(h->0) (e^h - 1)/h = 1:\nAnswer: | \n | = e^x"
-                ]
-            },
-            "all_solutions": [
-                {
-                    "all_subpods": [
-                        "d/dx(e^x) = e^x",
-                        "Possible derivation:\nd/dx(e^x)\nFrom the limit definition of the derivative, d/dx(e^x) = lim_(h->0) (e^(x + h) - e^x)/h:\n = lim_(h->0) (e^(x + h) - e^x)/h\nBy a law of exponents, e^(x + h) = e^x e^h:\n = lim_(h->0) (e^x e^h - e^x)/h\nFactor the numerator:\n = lim_(h->0) (e^x (-1 + e^h))/h\nFactor e^x out of the limit since it does not depend on h:\n = e^x lim_(h->0) (e^h - 1)/h\ne is the unique number such that lim_(h->0) (e^h - 1)/h = 1:\nAnswer: | \n | = e^x"
-                    ],
-                    "usefull_subpods": [
-                        "Possible derivation:\nd/dx(e^x)\nFrom the limit definition of the derivative, d/dx(e^x) = lim_(h->0) (e^(x + h) - e^x)/h:\n = lim_(h->0) (e^(x + h) - e^x)/h\nBy a law of exponents, e^(x + h) = e^x e^h:\n = lim_(h->0) (e^x e^h - e^x)/h\nFactor the numerator:\n = lim_(h->0) (e^x (-1 + e^h))/h\nFactor e^x out of the limit since it does not depend on h:\n = e^x lim_(h->0) (e^h - 1)/h\ne is the unique number such that lim_(h->0) (e^h - 1)/h = 1:\nAnswer: | \n | = e^x"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "",
-                        ""
-                    ],
-                    "usefull_subpods": [
-                        "",
-                        ""
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "(no roots exist)",
-                        "Solve for x:\ne^x = 0\ne^x is never zero, which means no solutions exist:\nAnswer: | \n | (no solutions)"
-                    ],
-                    "usefull_subpods": [
-                        "Solve for x:\ne^x = 0\ne^x is never zero, which means no solutions exist:\nAnswer: | \n | (no solutions)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "R (all real numbers)",
-                        "{y element R : y>0} (all positive real numbers)",
-                        "injective (one-to-one)"
-                    ],
-                    "usefull_subpods": [
-                        "R (all real numbers)",
-                        "{y element R : y>0} (all positive real numbers)",
-                        "injective (one-to-one)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "periodic in x with period 2 i \u03c0"
-                    ],
-                    "usefull_subpods": [
-                        "periodic in x with period 2 i \u03c0"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "1 + x + x^2/2 + x^3/6 + x^4/24 + O(x^5)\n(Taylor series)"
-                    ],
-                    "usefull_subpods": [
-                        "1 + x + x^2/2 + x^3/6 + x^4/24 + O(x^5)\n(Taylor series)"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "integral e^x dx = e^x + constant",
-                        "Take the integral:\n integral e^x dx\nThe integral of e^x is e^x:\nAnswer: | \n | = e^x + constant"
-                    ],
-                    "usefull_subpods": [
-                        "Take the integral:\n integral e^x dx\nThe integral of e^x is e^x:\nAnswer: | \n | = e^x + constant"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "lim_(x->-\u221e) e^x = 0"
-                    ],
-                    "usefull_subpods": [
-                        "lim_(x->-\u221e) e^x = 0"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "integral_(-\u221e)^0 e^x dx = 1"
-                    ],
-                    "usefull_subpods": [
-                        "integral_(-\u221e)^0 e^x dx = 1"
-                    ]
-                },
-                {
-                    "all_subpods": [
-                        "integral_0^(i \u03c0) e^x dx = -2"
-                    ],
-                    "usefull_subpods": [
-                        "integral_0^(i \u03c0) e^x dx = -2"
-                    ]
-                }
-            ],
-            "exception": null,
-            "answer": null
+            "original_question": "Tell me a joke",
+            "image_text": null,
+            "error": "Can't solve this"
         }
     },
     {
         "question": "plot x^2 + y^2 = 3",
         "result": {
             "type": "Wolfram",
+            "original_question": "plot x^2 + y^2 = 3",
+            "image_text": null,
+            "wolfram_prompt": "Plot[x^2 + y^2 == 3]",
             "best_solution": {
                 "all_subpods": [
                     ""
@@ -819,15 +710,16 @@
                         "circle"
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     },
     {
         "question": "\\ln \\left(e^{m x}+e^{-m x}\\right)",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\ln \\left(e^{m x}+e^{-m x}\\right)",
+            "image_text": null,
+            "wolfram_prompt": "Plot[Log[Exp[m*x] + Exp[-m*x]]]",
             "best_solution": {
                 "all_subpods": [
                     ""
@@ -861,9 +753,7 @@
                         ""
                     ]
                 }
-            ],
-            "exception": null,
-            "answer": null
+            ]
         }
     }
 ]
