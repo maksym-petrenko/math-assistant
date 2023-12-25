@@ -7,7 +7,7 @@ from telethon import events
 from helper.download import download
 from helper.flatten import make_flat
 from mathpix.api import image_to_latex
-from solver.solver import ErrorResponse, GPTResponse, Response, WolframResponse, solve
+from solver import ErrorResponse, GPTResponse, Response, WolframResponse, solve
 from wolfram.api import Pod, extract_usefull_subpods
 
 from .config import bot

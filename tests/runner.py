@@ -2,7 +2,7 @@ from typing import Any, TypedDict
 
 from pydantic import BaseModel, model_validator
 
-from solver.solver import WolframResponse, solve
+from solver import WolframResponse, solve
 from wolfram.api import Pod, Subpod, extract_usefull_subpods
 
 
