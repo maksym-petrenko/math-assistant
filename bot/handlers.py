@@ -8,7 +8,7 @@ from helper.download import download
 from helper.flatten import make_flat
 from mathpix.api import image_to_latex
 from solver import ErrorResponse, GPTResponse, Response, WolframResponse, solve
-from wolfram.api import Pod, extract_usefull_subpods
+from wolfram import Pod, extract_usefull_subpods
 
 from .config import bot
 from .markup_code import generate_code

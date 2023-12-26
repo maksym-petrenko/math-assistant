@@ -4,7 +4,8 @@ from pydantic import BaseModel, Field, ValidationError
 
 from chatgpt.chat_api import gpt
 from chatgpt.choose_pod import choose_the_best_pod
-from wolfram.api import Pod, get_pods
+from wolfram import Pod
+from wolfram.api import get_pods
 
 ResponseTypes = Literal['Error', 'Wolfram', 'GPT']
 

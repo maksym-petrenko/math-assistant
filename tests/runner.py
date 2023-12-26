@@ -3,7 +3,7 @@ from typing import Any, TypedDict
 from pydantic import BaseModel, model_validator
 
 from solver import WolframResponse, solve
-from wolfram.api import Pod, Subpod, extract_usefull_subpods
+from wolfram import Pod, Subpod, extract_usefull_subpods
 
 
 class TestData(TypedDict):
