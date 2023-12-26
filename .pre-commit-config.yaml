@@ -21,7 +21,7 @@ repos:
         name: mypy
         language: python
         language_version: "3.12"
-        entry: mypy --strict -p bot -p tests -p solver
+        entry: mypy --strict -p bot -p solver
         additional_dependencies:
         -   mypy==1.7.1
         -   aiohttp==3.9.0

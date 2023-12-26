@@ -1,7 +1,6 @@
 import argparse
 import asyncio
 import json
-from pathlib import Path
 from typing import Any
 
 from pydantic import ValidationError
@@ -9,9 +8,9 @@ from pydantic import ValidationError
 from helper.aiohttp_client import stop_client
 from helper.main_handler import main_handler
 from solver import deserealize
-from tests.runner import TestData, question_to_test_result
 
-data_path = Path(__file__).parent
+from .helper import data_path
+from .runner import TestData, question_to_test_result
 
 force_regenerate: bool
 

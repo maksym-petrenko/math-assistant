@@ -3,9 +3,10 @@ from typing import Any
 
 import pytest
 
-from tests.runner import TestData, question_to_test_result
+from .helper import data_path
+from .runner import TestData, question_to_test_result
 
-with open('tests/data/text.json') as data:
+with open(data_path / 'text.json') as data:
     tests: list[TestData] = json.load(data)
 
 test_tuples = [(test['question'], test['result']) for test in tests]
