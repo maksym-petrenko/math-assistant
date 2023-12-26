@@ -35,7 +35,6 @@ class TestResult(BaseModel):
     all_solutions: list[SerealizedPod] | None
     exception: str | None
     answer: str | None
-    wolfram_prompt: str | None
 
     @model_validator(mode='before')
     @classmethod
@@ -45,10 +44,9 @@ class TestResult(BaseModel):
                 return {
                     'type': 'Wolfram',
                     'best_solution': data.best_solution,
-                    'all_solutions': None,
+                    'all_solutions': data.all_solutions,
                     'exception': data.exception,
                     'answer': None,
-                    'wolfram_prompt': data.original_question,
                 }
             case GPTResponse():
                 return {
@@ -57,7 +55,6 @@ class TestResult(BaseModel):
                     'all_solutions': None,
                     'exception': None,
                     'answer': None,
-                    'wolfram_prompt': None,
                 }
             case Response():
                 return {
@@ -66,7 +63,6 @@ class TestResult(BaseModel):
                     'all_solutions': None,
                     'exception': data.exception,
                     'answer': None,
-                    'wolfram_prompt': None,
                 }
             case _:
                 return data
