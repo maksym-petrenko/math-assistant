@@ -37,7 +37,7 @@ class GPTResponse(Response):
 
 AnyResponse = ErrorResponse | WolframResponse | GPTResponse
 
-def deserealize(data: dict[str, Any]) -> Response:
+def deserialize(data: dict[str, Any]) -> Response:
     """Throws ValidationError on unknown/broken response"""
 
     print('Data:', data)

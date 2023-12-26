@@ -2,7 +2,7 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from solver import Response, WolframResponse, deserealize
+from solver import Response, WolframResponse, deserialize
 
 from .wolfram_serializer import serialize as serialize_wolfram
 from .wolfram_serializer import validate as validate_wolfram
@@ -20,7 +20,7 @@ def validate_result(data: dict[str, Any]) -> bool:
         return validate_wolfram(data)
 
     try:
-        deserealize(data)
+        deserialize(data)
         return True
     except ValidationError:
         return False

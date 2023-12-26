@@ -3,7 +3,7 @@ from typing import Any
 
 from pydantic import BaseModel, ValidationError, model_validator
 
-from solver import WolframResponse, deserealize
+from solver import WolframResponse, deserialize
 from wolfram import Pod, Subpod, extract_usefull_subpods
 
 
@@ -72,7 +72,7 @@ def validate(data: dict[str, Any]) -> bool:
         data['all_solutions'] = []
         data['best_solution'] = None
 
-        deserealize(data)
+        deserialize(data)
         return True
     except ValidationError:
         return False
