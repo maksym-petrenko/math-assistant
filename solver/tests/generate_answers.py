@@ -3,30 +3,28 @@ import asyncio
 import json
 from typing import Any
 
-from pydantic import ValidationError
-
 from helper.aiohttp_client import stop_client
 from helper.main_handler import main_handler
-from solver import deserealize
 
 from .helper import data_path
 from .runner import TestData, question_to_test_result
+from .serializers import validate_result
 
 force_regenerate: bool
+
+
+def do_regenerate(test: TestData) -> bool:
+    if force_regenerate or 'result' not in test:
+        return True
+
+    return not validate_result(test['result'])
+
 
 # only generates if there is no result yet
 async def update_result(test: TestData) -> dict[str, Any]:
     question = test['question']
 
-    regenerate = force_regenerate
-
-    # validate previous result
-    try:
-        deserealize(test.get('result', {}))
-    except ValidationError:
-        regenerate = True
-
-    if not regenerate:
+    if not do_regenerate(test):
         print('skipping:', question)
         return test['result']
 

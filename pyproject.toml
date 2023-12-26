@@ -1,7 +1,7 @@
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
 select = ["ALL"]
-ignore = ["D", "INP001", "T20", "PLW0603", "FBT", "ANN101", "ANN102", "ANN204", "EXE", "ANN401", "PTH123", "TD", "FIX", "S301", "S101", "EM101", "TRY003", "RSE102"]
+ignore = ["D", "INP001", "T20", "PLW0603", "FBT", "ANN101", "ANN102", "ANN204", "EXE", "ANN401", "PTH123", "TD", "FIX", "S301", "S101", "EM101", "TRY003", "RSE102", "TRY300"]
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
