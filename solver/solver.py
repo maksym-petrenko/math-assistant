@@ -1,49 +1,57 @@
-from typing import Any
-
-from pydantic import ValidationError
-
 from chatgpt.chat_api import gpt
+from chatgpt.choose_pod import choose_the_best_pod
+from wolfram.api import get_pods
 
-from .responses import ErrorResponse, GPTResponse, Response, ResponseTypes, SolutionError, WolframResponse
+from .responses import AnyResponse, ErrorResponse, GPTResponse, WolframResponse
 
 
-async def solve_or_exception(text: str) -> Response:
+class SolutionError(Exception):
+    exception: str
+
+    def __init__(self, exception: str):
+        self.exception = exception
+
+
+async def create_wolfram_response(query: str) -> WolframResponse:
+    mathematica = await gpt(query, 'Wolfram')
+
+    if mathematica == 'None' or mathematica is None:
+        raise SolutionError("Can't understand the problem, try to rephrase it")
+
+    pods = await get_pods(mathematica)
+    print(pods)
+    if pods is None:
+        raise SolutionError('Something went wrong')
+    if len(pods) == 0:
+        raise SolutionError("Can't solve this problem, try to rephrase it")
+
+    best_solution = await choose_the_best_pod(query, pods)
+    return WolframResponse(original_question=query, wolfram_prompt=mathematica, all_solutions=pods, best_solution=best_solution)
+
+
+async def create_gpt_response(query: str) -> GPTResponse:
+    solution = await gpt(query, 'Solve')
+
+    if solution is None:
+        raise SolutionError("Can't solve this problem, try to rephrase it")
+
+    return GPTResponse(original_question=query, answer=solution)
+
+
+async def solve_or_exception(text: str) -> AnyResponse:
     request_type = await gpt(text, 'Classify')
     print(request_type)
     match request_type:
         case 'Wolfram':
-            wolfram_response = WolframResponse(original_question=text)
-            await wolfram_response.process()
-            print("It's used", wolfram_response.original_question)
-            print(wolfram_response.all_solutions)
-            return wolfram_response
+            return await create_wolfram_response(text)
         case 'GPT':
-            gpt_response = GPTResponse(original_question=text)
-            await gpt_response.process()
-            return gpt_response
+            return await create_gpt_response(text)
         case _:
             raise SolutionError("Can't solve this")
 
 
-async def solve(text: str) -> Response:
+async def solve(text: str) -> AnyResponse:
     try:
         return await solve_or_exception(text)
     except SolutionError as error:
         return ErrorResponse(original_question=text, error=error.exception)
-
-
-def deserealize(data: dict[str, Any]) -> Response:
-    """Throws ValidationError on unknown/broken response"""
-
-    type2class: dict[ResponseTypes, type[Response]] = {
-        'Error': ErrorResponse,
-        'Wolfram': WolframResponse,
-        'GPT': GPTResponse,
-    }
-
-    try:
-        cls = type2class[data['type']]
-    except KeyError as exc:
-        raise ValidationError.from_exception_data('Something wrong with response type', []) from exc
-
-    return cls.model_validate(data, strict=True)

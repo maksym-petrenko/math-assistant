@@ -8,7 +8,7 @@ from pydantic import ValidationError
 
 from helper.aiohttp_client import stop_client
 from helper.main_handler import main_handler
-from solver.solver import deserealize
+from solver import deserealize
 from tests.runner import TestData, question_to_test_result
 
 data_path = Path(__file__).parent

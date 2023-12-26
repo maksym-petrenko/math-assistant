@@ -5,14 +5,25 @@ services:
         restart: always
         build:
             context: ./
-            dockerfile: Dockerfile-dev
+            dockerfile: bot/Dockerfile-dev
         env_file:
             - env/bot.env
-            - env/wolfram.env
             - env/mathpix.env
-            - env/openai.env
         volumes:
             - telethon-sessions:/bot/sessions
             - ./:/bot
+
+    solver:
+        restart: always
+        ports:
+            - "80:80"
+        build:
+            context: ./
+            dockerfile: solver/Dockerfile-dev
+        env_file:
+            - env/wolfram.env
+            - env/openai.env
+        volumes:
+            - ./:/solver
 volumes:
     telethon-sessions:

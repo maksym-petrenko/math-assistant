@@ -21,7 +21,7 @@ repos:
         name: mypy
         language: python
         language_version: "3.12"
-        entry: mypy --strict -p bot -p tests
+        entry: mypy --strict -p bot -p tests -p solver
         additional_dependencies:
         -   mypy==1.7.1
         -   aiohttp==3.9.0
@@ -31,5 +31,6 @@ repos:
         -   pytest==7.4.3
         -   pytest-asyncio==0.23.2
         -   pydantic==2.5.1
+        -   fastapi==0.105.0
         pass_filenames: false
         always_run: true

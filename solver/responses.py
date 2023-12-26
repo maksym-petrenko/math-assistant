@@ -2,80 +2,47 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, Field, ValidationError
 
-from chatgpt.chat_api import gpt
-from chatgpt.choose_pod import choose_the_best_pod
 from wolfram import Pod
-from wolfram.api import get_pods
 
-ResponseTypes = Literal['Error', 'Wolfram', 'GPT']
-
-
-class SolutionError(Exception):
-    exception: str
-
-    def __init__(self, exception: str):
-        self.exception = exception
+ResponseTypeLiteral = Literal['Error', 'Wolfram', 'GPT']
 
 
 class Response(BaseModel):
-    type: ResponseTypes
+    type: ResponseTypeLiteral
+
     original_question: str
     image_text: str | None = None
 
 
 class ErrorResponse(Response):
-    type: ResponseTypes = 'Error'
+    type: ResponseTypeLiteral = 'Error'
 
     error: str
 
 
 class WolframResponse(Response):
-    type: ResponseTypes = 'Wolfram'
+    type: ResponseTypeLiteral = 'Wolfram'
 
     wolfram_prompt: str = ''
 
-    best_solution: Pod | None = None
     all_solutions: list[Pod] = Field(default_factory=list)
-
-    async def calculate_the_best_answer(self) -> None:
-        self.best_solution = await choose_the_best_pod(self.original_question, self.all_solutions)
-
-    async def process(self) -> None:
-        mathematica = await gpt(self.original_question, 'Wolfram')
-
-        if mathematica == 'None' or mathematica is None:
-            raise SolutionError("Can't understand the problem, try to rephrase it")
-
-        self.wolfram_prompt = mathematica
-
-        pods = await get_pods(mathematica)
-        print(pods)
-        if pods is None:
-            raise SolutionError('Something went wrong')
-        if len(pods) == 0:
-            raise SolutionError("Can't solve this problem, try to rephrase it")
-        self.all_solutions = pods
-        await self.calculate_the_best_answer()
+    best_solution: Pod | None = None
 
 
 class GPTResponse(Response):
-    type: ResponseTypes = 'GPT'
+    type: ResponseTypeLiteral = 'GPT'
 
     answer: str = ''
 
-    async def process(self) -> None:
-        message = await gpt(self.original_question, 'Solve')
 
-        if message is None:
-            raise SolutionError("Can't solve this problem, try to rephrase it")
-
-        self.answer = message
-
+AnyResponse = ErrorResponse | WolframResponse | GPTResponse
 
 def deserealize(data: dict[str, Any]) -> Response:
     """Throws ValidationError on unknown/broken response"""
 
-    type2class: dict[ResponseTypes, type[Response]] = {
+    print('Data:', data)
+
+    type2class: dict[ResponseTypeLiteral, type[AnyResponse]] = {
         'Error': ErrorResponse,
         'Wolfram': WolframResponse,
         'GPT': GPTResponse,

@@ -1,5 +1,5 @@
+from .client import solve
 from .responses import ErrorResponse, GPTResponse, Response, WolframResponse, deserealize
-from .solver import solve
 
 __all__ = [
     'ErrorResponse',
