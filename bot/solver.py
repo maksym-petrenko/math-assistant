@@ -22,6 +22,7 @@ class WolframResponse(Response):
     best_solution: Pod | None = None
     exception: str | None = None
     debug: str = ''
+    mathematica_request: str = ''
     all_solutions: list[Pod] = Field(default_factory=list)
 
     async def calculate_the_best_answer(self) -> None:
@@ -36,6 +37,8 @@ class WolframResponse(Response):
         if gpt_request == 'None' or gpt_request is None:
             self.set_exception("Can't understand the problem, try to rephrase it")
             return
+
+        self.mathematica_request = gpt_request
 
         mathematica = gpt_request
 

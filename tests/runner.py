@@ -31,8 +31,9 @@ class SerealizedPod(BaseModel):
 
 class TestResult(BaseModel):
     type: str
-    best_solution: SerealizedPod | None
-    all_solutions: list[SerealizedPod] | None
+    best_solution: str | None
+    all_solutions: list[str] | None
+    mathematica: str | None
     exception: str | None
     answer: str | None
 
@@ -43,8 +44,9 @@ class TestResult(BaseModel):
             case WolframResponse():
                 return {
                     'type': 'Wolfram',
-                    'best_solution': data.best_solution,
-                    'all_solutions': data.all_solutions,
+                    'best_solution': data.best_solution.id,  # type: ignore[union-attr]
+                    'all_solutions': [pod.id for pod in data.all_solutions],
+                    'mathematica': data.mathematica_request,
                     'exception': data.exception,
                     'answer': None,
                 }
@@ -53,6 +55,7 @@ class TestResult(BaseModel):
                     'type': 'GPT',
                     'best_solution': None,
                     'all_solutions': None,
+                    'mathematica': None,
                     'exception': None,
                     'answer': None,
                 }
@@ -61,6 +64,7 @@ class TestResult(BaseModel):
                     'type': 'Error',
                     'best_solution': None,
                     'all_solutions': None,
+                    'mathematica': None,
                     'exception': data.exception,
                     'answer': None,
                 }
