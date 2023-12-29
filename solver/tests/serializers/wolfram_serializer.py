@@ -1,52 +1,45 @@
-import copy
 from typing import Any
 
 from pydantic import BaseModel, ValidationError, model_validator
 
-from solver import WolframResponse, deserialize
+from solver import WolframResponse
 from wolfram import Pod, Subpod, extract_usefull_subpods
 
 
-def serialize_subpod(subpod: Subpod) -> str:
-    return subpod.plaintext
+class SerializedSubpod(BaseModel):
+    plaintext: str
 
 
-def serialize_subpods(subpods: list[Subpod]) -> list[str]:
-    return [serialize_subpod(subpod) for subpod in subpods]
+def serealize_subpods(subpods: list[Subpod]) -> list[SerializedSubpod]:
+    return [SerializedSubpod.model_validate(subpod, from_attributes=True) for subpod in subpods]
 
 
 class SerializedPod(BaseModel):
-    all_subpods: list[str]
-    usefull_subpods: list[str]
+    all_subpods: list[SerializedSubpod]
+    usefull_subpods: list[SerializedSubpod]
 
     @model_validator(mode='before')
     @classmethod
     def from_pod(cls, data: Any) -> Any:
         if isinstance(data, Pod):
             return {
-                'all_subpods': serialize_subpods(data.subpods),
-                'usefull_subpods': serialize_subpods(extract_usefull_subpods(data)),
+                'all_subpods': serealize_subpods(data.subpods),
+                'usefull_subpods': serealize_subpods(extract_usefull_subpods(data)),
             }
         return data
 
 
-def serialize_pod(pod: Pod | None) -> dict[str, Any]:
-    return SerializedPod.model_validate(pod).model_dump()
+class SerializedWolfram(BaseModel):
+    type: str
+
+    wolfram_prompt: str
+
+    all_solutions: list[SerializedPod]
+    best_solution: SerializedPod | None
 
 
 def serialize(response: WolframResponse) -> dict[str, Any]:
-    result = response.model_dump()
-    result['best_solution'] = serialize_pod(response.best_solution)
-    result['all_solutions'] = [serialize_pod(pod) for pod in response.all_solutions]
-    return result
-
-
-def validate_pod(data: dict[str, Any]) -> bool:
-    try:
-        SerializedPod.model_validate(data)
-        return True
-    except ValidationError:
-        return False
+    return SerializedWolfram.model_validate(response, from_attributes=True).model_dump()
 
 
 def validate(data: dict[str, Any]) -> bool:
@@ -54,25 +47,8 @@ def validate(data: dict[str, Any]) -> bool:
         print('Wrong response was passed into validate(wolfram)')
         return False
 
-    # validate pods
     try:
-        if not all(validate_pod(pod) for pod in data['all_solutions']):
-            return False
-
-        best_solution = data['best_solution']
-        if best_solution is not None and not validate_pod(best_solution):
-            return False
-    except (KeyError, TypeError):
-        return False
-
-    # validate other parts
-    try:
-        # set pods to default values, because validated previously
-        data = copy.deepcopy(data)
-        data['all_solutions'] = []
-        data['best_solution'] = None
-
-        deserialize(data)
+        SerializedWolfram.model_validate(data, strict=True)
         return True
     except ValidationError:
         return False

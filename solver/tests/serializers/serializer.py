@@ -1,26 +1,32 @@
 from typing import Any
 
-from pydantic import ValidationError
+from pydantic import BaseModel, ValidationError
 
-from solver import Response, WolframResponse, deserialize
+from solver import Response
+from solver.responses import ErrorResponse, GPTResponse, ResponseTypeLiteral
 
-from .wolfram_serializer import serialize as serialize_wolfram
-from .wolfram_serializer import validate as validate_wolfram
+from .wolfram_serializer import SerializedWolfram
+
+SerializedGPT = GPTResponse
+SerializedError = ErrorResponse
+
+type2serialized: dict[ResponseTypeLiteral, type[BaseModel]] = {
+    'Error': SerializedError,
+    'Wolfram': SerializedWolfram,
+    'GPT': SerializedGPT,
+}
 
 
 def serialize(response: Response) -> dict[str, Any]:
-    if isinstance(response, WolframResponse):  # special handling caused by pods
-        return serialize_wolfram(response)
-    return response.model_dump()
+    # don't handle the case when there is a wrong type
+    cls = type2serialized[response.type]
+    return cls.model_validate(response, from_attributes=True).model_dump()
 
 
 def validate_result(data: dict[str, Any]) -> bool:
-    type_ = data.get('type')
-    if type_ == 'Wolfram':
-        return validate_wolfram(data)
-
     try:
-        deserialize(data)
+        cls = type2serialized[data['type']]
+        cls.model_validate(data, strict=True)
         return True
-    except ValidationError:
+    except (KeyError, ValidationError):
         return False
