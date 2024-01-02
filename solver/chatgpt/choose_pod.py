@@ -1,4 +1,4 @@
-from wolfram import Pod
+from solver.wolfram import Pod
 
 from .config import SEED, client
 from .helper import read_prompt

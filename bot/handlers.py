@@ -7,7 +7,7 @@ from telethon import events
 from helper.download import download
 from helper.flatten import make_flat
 from solver import ErrorResponse, GPTResponse, Response, WolframResponse, solve
-from wolfram import Pod, extract_usefull_subpods
+from solver.wolfram import Pod, extract_usefull_subpods
 
 from .config import bot
 from .markup_code import generate_code

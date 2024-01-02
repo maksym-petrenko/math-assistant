@@ -1,9 +1,8 @@
-from chatgpt.chat_api import gpt
-from chatgpt.choose_pod import choose_the_best_pod
-from mathpix.api import image_to_latex
-from wolfram.api import get_pods
-
+from .chatgpt.chat_api import gpt
+from .chatgpt.choose_pod import choose_the_best_pod
+from .mathpix.api import image_to_latex
 from .responses import AnyResponse, ErrorResponse, GPTResponse, WolframResponse
+from .wolfram.api import get_pods
 
 
 class SolutionError(Exception):

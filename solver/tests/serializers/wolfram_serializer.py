@@ -3,7 +3,7 @@ from typing import Any
 from pydantic import BaseModel, ValidationError, model_validator
 
 from solver import WolframResponse
-from wolfram import Pod, Subpod, extract_usefull_subpods
+from solver.wolfram import Pod, Subpod, extract_usefull_subpods
 
 
 class SerializedSubpod(BaseModel):

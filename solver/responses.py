@@ -2,7 +2,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, Field, ValidationError
 
-from wolfram import Pod
+from .wolfram import Pod
 
 ResponseTypeLiteral = Literal['Error', 'Wolfram', 'GPT']
 
