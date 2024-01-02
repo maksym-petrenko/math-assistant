@@ -1,6 +1,6 @@
 from typing import Any
 
-from pydantic import BaseModel, ValidationError, model_validator
+from pydantic import BaseModel, model_validator
 
 from solver import WolframResponse
 from solver.wolfram import Pod, Subpod, extract_usefull_subpods
@@ -33,19 +33,3 @@ class SerializedPod(BaseModel):
 class SerializedWolfram(WolframResponse):
     all_solutions: list[SerializedPod]  # type: ignore[assignment]
     best_solution: SerializedPod | None  # type: ignore[assignment]
-
-
-def serialize(response: WolframResponse) -> dict[str, Any]:
-    return SerializedWolfram.model_validate(response, from_attributes=True).model_dump()
-
-
-def validate(data: dict[str, Any]) -> bool:
-    if data.get('type') != 'Wolfram':
-        print('Wrong response was passed into validate(wolfram)')
-        return False
-
-    try:
-        SerializedWolfram.model_validate(data, strict=True)
-        return True
-    except ValidationError:
-        return False
