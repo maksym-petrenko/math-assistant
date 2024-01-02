@@ -8,10 +8,11 @@ services:
             dockerfile: bot/Dockerfile-dev
         env_file:
             - env/bot.env
-            - env/mathpix.env
         volumes:
             - telethon-sessions:/bot/sessions
             - ./:/bot
+        depends_on:
+            - solver
 
     solver:
         restart: always
@@ -21,6 +22,7 @@ services:
             context: ./
             dockerfile: solver/Dockerfile-dev
         env_file:
+            - env/mathpix.env
             - env/wolfram.env
             - env/openai.env
         volumes:

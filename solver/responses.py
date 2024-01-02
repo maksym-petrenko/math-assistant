@@ -10,8 +10,10 @@ ResponseTypeLiteral = Literal['Error', 'Wolfram', 'GPT']
 class Response(BaseModel):
     type: ResponseTypeLiteral
 
-    original_question: str
+    # input fields
+    original_question: str = ''  # dummy value for partial responses
     image_text: str | None = None
+    combined_question: str = ''  # original + image, dummy value for partial responses
 
 
 class ErrorResponse(Response):

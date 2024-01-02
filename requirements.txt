@@ -9,3 +9,4 @@ jurigged==0.5.7
 pydantic==2.5.1
 fastapi==0.105.0
 uvicorn==0.25.0
+python-multipart==0.0.6

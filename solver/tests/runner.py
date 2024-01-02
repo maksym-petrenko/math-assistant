@@ -11,4 +11,4 @@ class TestData(TypedDict):
 
 
 async def question_to_test_result(question: str) -> dict[str, Any]:
-    return serialize(await solve(question))
+    return serialize(await solve(question, None))

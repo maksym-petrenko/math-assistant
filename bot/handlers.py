@@ -6,7 +6,6 @@ from telethon import events
 
 from helper.download import download
 from helper.flatten import make_flat
-from mathpix.api import image_to_latex
 from solver import ErrorResponse, GPTResponse, Response, WolframResponse, solve
 from wolfram import Pod, extract_usefull_subpods
 
@@ -58,20 +57,10 @@ async def respond_to_message(msg: events.NewMessage, response: Response) -> None
             await msg.reply(response.answer)
 
 
-async def solve_image(image: bytes, additional_prompt: str) -> Response:
-    latex: str | None = await image_to_latex(image)
-    if latex is None:
-        return ErrorResponse(original_question='', error="Can't extract problem from the photo, try to send another one")
-
-    response = await solve(additional_prompt + '\n' + latex)
-    response.image_text = latex
-    return response
-
-
 @bot.on(events.NewMessage(incoming=True, func=lambda event: event.photo is not None))  # type: ignore[misc]
 async def solve_image_handler(msg: events.NewMessage) -> None:
     image = await msg.download_media(bytes)
-    solution = await solve_image(image, msg.raw_text)
+    solution = await solve(msg.raw_text, image)
     await respond_to_message(msg, solution)
 
 

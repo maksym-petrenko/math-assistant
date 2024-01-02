@@ -3,6 +3,9 @@
         "question": "16 x^{3}-18 x^{2}+4 x-21=0",
         "result": {
             "type": "Wolfram",
+            "original_question": "16 x^{3}-18 x^{2}+4 x-21=0",
+            "image_text": null,
+            "combined_question": "16 x^{3}-18 x^{2}+4 x-21=0",
             "wolfram_prompt": "Solve[16 x^3 - 18 x^2 + 4 x - 21 == 0, x]",
             "all_solutions": [
                 {
@@ -114,6 +117,9 @@
         "question": "\\sum_{x=1}^{20} x^{k}=k",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\sum_{x=1}^{20} x^{k}=k",
+            "image_text": null,
+            "combined_question": "\\sum_{x=1}^{20} x^{k}=k",
             "wolfram_prompt": "Sum[x^k, {x, 1, 20}] = k",
             "all_solutions": [
                 {
@@ -159,6 +165,9 @@
         "question": "\\operatorname{Rank}\\left[\\begin{array}{ccc}1 & 2 & 3 \\\\ 2 & 1 & -2 \\\\ 4 & 5 & 4 \\\\ 1 & 3 & 4\\end{array}\\right]",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\operatorname{Rank}\\left[\\begin{array}{ccc}1 & 2 & 3 \\\\ 2 & 1 & -2 \\\\ 4 & 5 & 4 \\\\ 1 & 3 & 4\\end{array}\\right]",
+            "image_text": null,
+            "combined_question": "\\operatorname{Rank}\\left[\\begin{array}{ccc}1 & 2 & 3 \\\\ 2 & 1 & -2 \\\\ 4 & 5 & 4 \\\\ 1 & 3 & 4\\end{array}\\right]",
             "wolfram_prompt": "MatrixRank[{{1, 2, 3}, {2, 1, -2}, {4, 5, 4}, {1, 3, 4}}]",
             "all_solutions": [
                 {
@@ -276,6 +285,9 @@
         "question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
+            "image_text": null,
+            "combined_question": "\\sum_{n=1}^{\\infty}\\left(\\sin \\frac{1}{n} \\operatorname{tg} \\frac{1}{n}\\right).",
             "wolfram_prompt": "Sum[Sin[1/n] Tan[1/n], {n, 1, Infinity}]",
             "all_solutions": [
                 {
@@ -321,6 +333,9 @@
         "question": "x^3 + x^2 + x = 3",
         "result": {
             "type": "Wolfram",
+            "original_question": "x^3 + x^2 + x = 3",
+            "image_text": null,
+            "combined_question": "x^3 + x^2 + x = 3",
             "wolfram_prompt": "Solve[x^3 + x^2 + x == 3, x]",
             "all_solutions": [
                 {
@@ -432,6 +447,9 @@
         "question": "x^{2}-x=1",
         "result": {
             "type": "Wolfram",
+            "original_question": "x^{2}-x=1",
+            "image_text": null,
+            "combined_question": "x^{2}-x=1",
             "wolfram_prompt": "Solve[x^2 - x == 1, x]",
             "all_solutions": [
                 {
@@ -537,6 +555,9 @@
         "question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1",
+            "image_text": null,
+            "combined_question": "\\log _{0,1}(x-5)^{2}+\\log _{0,1}(x-2) \\geqslant-1",
             "wolfram_prompt": "Solve[Log[0.1, (x - 5)^2] + Log[0.1, x - 2] >= -1, x]",
             "all_solutions": [
                 {
@@ -596,6 +617,7 @@
             "type": "Error",
             "original_question": "Help me with some math, pls",
             "image_text": null,
+            "combined_question": "Help me with some math, pls",
             "error": "Can't solve this"
         }
     },
@@ -605,6 +627,7 @@
             "type": "Error",
             "original_question": "Generate random problem and solve it",
             "image_text": null,
+            "combined_question": "Generate random problem and solve it",
             "error": "Can't solve this"
         }
     },
@@ -614,6 +637,7 @@
             "type": "Error",
             "original_question": "Formulate a problem",
             "image_text": null,
+            "combined_question": "Formulate a problem",
             "error": "Can't solve this"
         }
     },
@@ -621,6 +645,9 @@
         "question": "2x + 3 = 0",
         "result": {
             "type": "Wolfram",
+            "original_question": "2x + 3 = 0",
+            "image_text": null,
+            "combined_question": "2x + 3 = 0",
             "wolfram_prompt": "Solve[2x + 3 == 0, x]",
             "all_solutions": [
                 {
@@ -696,6 +723,9 @@
         "question": "x^2 + 3x",
         "result": {
             "type": "Wolfram",
+            "original_question": "x^2 + 3x",
+            "image_text": null,
+            "combined_question": "x^2 + 3x",
             "wolfram_prompt": "Plot[x^2 + 3x]",
             "all_solutions": [
                 {
@@ -753,6 +783,9 @@
         "question": "3^x + 2^x = 13",
         "result": {
             "type": "Wolfram",
+            "original_question": "3^x + 2^x = 13",
+            "image_text": null,
+            "combined_question": "3^x + 2^x = 13",
             "wolfram_prompt": "Solve[3^x + 2^x == 13, x]",
             "all_solutions": [
                 {
@@ -828,6 +861,9 @@
         "question": "draw me a quadratic function",
         "result": {
             "type": "Wolfram",
+            "original_question": "draw me a quadratic function",
+            "image_text": null,
+            "combined_question": "draw me a quadratic function",
             "wolfram_prompt": "Plot[x^2, {x, -10, 10}]",
             "all_solutions": [
                 {
@@ -888,6 +924,9 @@
         "question": "Is 5 bigger than sqrt(29)?",
         "result": {
             "type": "Wolfram",
+            "original_question": "Is 5 bigger than sqrt(29)?",
+            "image_text": null,
+            "combined_question": "Is 5 bigger than sqrt(29)?",
             "wolfram_prompt": "Sqrt[29] < 5",
             "all_solutions": [
                 {
@@ -935,6 +974,7 @@
             "type": "Error",
             "original_question": "Prove that the Earth is flat",
             "image_text": null,
+            "combined_question": "Prove that the Earth is flat",
             "error": "Can't solve this"
         }
     },
@@ -944,6 +984,7 @@
             "type": "Error",
             "original_question": "Find the least likely coin toss sequence to occur considering that coin isn't fair",
             "image_text": null,
+            "combined_question": "Find the least likely coin toss sequence to occur considering that coin isn't fair",
             "error": "Can't solve this"
         }
     },
@@ -953,6 +994,7 @@
             "type": "Error",
             "original_question": "Tell me a joke",
             "image_text": null,
+            "combined_question": "Tell me a joke",
             "error": "Can't solve this"
         }
     },
@@ -960,6 +1002,9 @@
         "question": "plot x^2 + y^2 = 3",
         "result": {
             "type": "Wolfram",
+            "original_question": "plot x^2 + y^2 = 3",
+            "image_text": null,
+            "combined_question": "plot x^2 + y^2 = 3",
             "wolfram_prompt": "Plot[x^2 + y^2 == 3]",
             "all_solutions": [
                 {
@@ -1017,6 +1062,9 @@
         "question": "\\ln \\left(e^{m x}+e^{-m x}\\right)",
         "result": {
             "type": "Wolfram",
+            "original_question": "\\ln \\left(e^{m x}+e^{-m x}\\right)",
+            "image_text": null,
+            "combined_question": "\\ln \\left(e^{m x}+e^{-m x}\\right)",
             "wolfram_prompt": "Plot[Log[Exp[m*x] + Exp[-m*x]]]",
             "all_solutions": [
                 {

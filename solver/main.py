@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+from typing import Annotated
+
+from fastapi import FastAPI, File, Form
 
 from .responses import AnyResponse
 from .solver import solve as inner_solve
@@ -6,7 +8,6 @@ from .solver import solve as inner_solve
 app = FastAPI()
 
 
-@app.get('/solve')
-async def solve(question: str) -> AnyResponse:
-    # TODO: add image support
-    return await inner_solve(question)
+@app.post('/solve')
+async def solve(question: Annotated[str, Form()], image: Annotated[bytes | None, File()] = None) -> AnyResponse:
+    return await inner_solve(question, image)

@@ -32,5 +32,6 @@ repos:
         -   pytest-asyncio==0.23.2
         -   pydantic==2.5.1
         -   fastapi==0.105.0
+        -   python-multipart==0.0.6
         pass_filenames: false
         always_run: true

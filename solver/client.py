@@ -1,10 +1,17 @@
+from typing import Any
+
 from helper.aiohttp_client import get_client
 
 from .responses import Response, deserialize
 
 
-async def solve(question: str) -> Response:
+async def solve(question: str, image: bytes | None = None) -> Response:
     client = await get_client()
+
+    data: dict[str, Any] = {'question': question}
+    if image is not None:
+        data['image'] = image
+
     # FIXME: remove hardcoded url part
-    async with client.get('http://solver/solve', params={'question': question}) as response:
+    async with client.post('http://solver/solve', data=data) as response:
         return deserialize(await response.json())
