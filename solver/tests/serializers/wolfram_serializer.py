@@ -29,13 +29,10 @@ class SerializedPod(BaseModel):
         return data
 
 
-class SerializedWolfram(BaseModel):
-    type: str
-
-    wolfram_prompt: str
-
-    all_solutions: list[SerializedPod]
-    best_solution: SerializedPod | None
+# patch the original response
+class SerializedWolfram(WolframResponse):
+    all_solutions: list[SerializedPod]  # type: ignore[assignment]
+    best_solution: SerializedPod | None  # type: ignore[assignment]
 
 
 def serialize(response: WolframResponse) -> dict[str, Any]:
