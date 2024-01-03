@@ -17,19 +17,34 @@ repos:
 
 -   repo: local
     hooks:
-    -   id: mypy
-        name: mypy
+    -   id: bot_mypy
+        name: mypy bot
         language: python
         language_version: "3.12"
-        entry: mypy --strict -p bot -p tests
+        entry: mypy --strict -p bot
         additional_dependencies:
         -   mypy==1.7.1
         -   aiohttp==3.9.0
         -   pydantic_settings==2.1.0
         -   Telethon==1.32.1
+        -   pydantic==2.5.1
+        pass_filenames: false
+        always_run: true
+
+    -   id: solver_mypy
+        name: mypy solver
+        language: python
+        language_version: "3.12"
+        entry: mypy --strict -p solver
+        additional_dependencies:
+        -   mypy==1.7.1
+        -   aiohttp==3.9.0
+        -   pydantic_settings==2.1.0
         -   openai==1.3.6
         -   pytest==7.4.3
         -   pytest-asyncio==0.23.2
         -   pydantic==2.5.1
+        -   fastapi==0.105.0
+        -   python-multipart==0.0.6
         pass_filenames: false
         always_run: true
