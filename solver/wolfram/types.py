@@ -12,5 +12,5 @@ class Subpod(BaseModel):
 class Pod(BaseModel):
     subpods: list[Subpod]
     id: str
-    primary: bool = False
     title: str
+    primary: bool = False
