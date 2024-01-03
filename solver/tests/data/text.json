@@ -415,5 +415,113 @@
                 "id": "3DPlot"
             }
         }
+    },
+    {
+        "question": "(Sqrt[1 - x^2] + x*(1/Sqrt[1 - x^2]) * x)/(1 - x^2)",
+        "result": {
+            "type": "Wolfram",
+            "original_question": "(Sqrt[1 - x^2] + x*(1/Sqrt[1 - x^2]) * x)/(1 - x^2)",
+            "image_text": null,
+            "combined_question": "(Sqrt[1 - x^2] + x*(1/Sqrt[1 - x^2]) * x)/(1 - x^2)",
+            "wolfram_prompt": "(Sqrt[1 - x^2] + x*(1/Sqrt[1 - x^2]) * x)/(1 - x^2)",
+            "all_solutions": [
+                {
+                    "id": "Input"
+                },
+                {
+                    "id": "Result"
+                },
+                {
+                    "id": "Plot"
+                },
+                {
+                    "id": "AlternateForm"
+                },
+                {
+                    "id": "ExpandedForm"
+                },
+                {
+                    "id": "PartialFractionExpansion"
+                },
+                {
+                    "id": "NoSolutionsFromReduce"
+                },
+                {
+                    "id": "PropertiesAsARealFunction"
+                },
+                {
+                    "id": "SeriesExpansionAtx=-1"
+                },
+                {
+                    "id": "SeriesExpansionAtx=0"
+                },
+                {
+                    "id": "SeriesExpansionAtx=1"
+                },
+                {
+                    "id": "SeriesExpansionAtx=Infinity"
+                },
+                {
+                    "id": "Derivative"
+                },
+                {
+                    "id": "IndefiniteIntegral"
+                },
+                {
+                    "id": "GlobalMinimum"
+                },
+                {
+                    "id": "Limit"
+                }
+            ],
+            "best_solution": {
+                "id": "Result"
+            }
+        }
+    },
+    {
+        "question": "Find the derivative of exponent",
+        "result": {
+            "type": "Wolfram",
+            "original_question": "Find the derivative of exponent",
+            "image_text": null,
+            "combined_question": "Find the derivative of exponent",
+            "wolfram_prompt": "d/dx(e^x)",
+            "all_solutions": [
+                {
+                    "id": "Input"
+                },
+                {
+                    "id": "Plot"
+                },
+                {
+                    "id": "NoSolutionsFromReduce"
+                },
+                {
+                    "id": "PropertiesAsARealFunction"
+                },
+                {
+                    "id": "Periodicity"
+                },
+                {
+                    "id": "SeriesExpansionAtx=0"
+                },
+                {
+                    "id": "IndefiniteIntegral"
+                },
+                {
+                    "id": "Limit"
+                },
+                {
+                    "id": "DefiniteIntegral"
+                },
+                {
+                    "id": "DefiniteIntegralOverAHalfPeriod"
+                }
+            ],
+            "best_solution": {
+                "id": "Input"
+            }
+        }
     }
 ]
